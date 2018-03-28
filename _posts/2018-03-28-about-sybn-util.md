@@ -51,7 +51,7 @@ author: sybn
 
 ## 其他工具
 - mail-util
-  -  发送邮件
+  - 发送邮件
   - 缓存发送邮件
 - http-util
   - httpclient 工具
