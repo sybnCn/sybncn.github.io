@@ -26,7 +26,7 @@ author: sybn
   - 范围对象 scope 包
   - 时间范围对象 times 包
 - 独立工具集 sybn-core cn.sybn.singleutil 包
-此包所有工具了没有额外依赖，可以拎出来独立运行
+  此包所有工具了没有额外依赖，可以拎出来独立运行
   - 默认只依赖如下开源库： self4j,junit,apache-commons-lang3
 - 复杂工具集 sybn-core cn.sybn.util 包
   - 字符串工具 string 包
