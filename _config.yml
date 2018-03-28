@@ -8,8 +8,8 @@
 # Site settings
 title: sybn
 brief-intro: sybn-util 项目说明文档
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://sybn.gitee.io/sybn-util/" # the base hostname & protocol for your site
+baseurl: "/sybn-util/" # the subpath of your site, e.g. /blog
+url: "http://sybn.gitee.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
