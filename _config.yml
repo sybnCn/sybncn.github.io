@@ -6,7 +6,7 @@ title:               Poole
 tagline:             The Jekyll Butler
 url:                 http://getpoole.com
 paginate:            1
-baseurl:             ""
+baseurl:             "/sybn-util/"
 
 # Assets
 #
@@ -17,9 +17,9 @@ sass:
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              sybn
+  url:               http://sybn.gitee.io/sybn-util/
+  email:             354324773@qq.com
 
 # Custom vars
 version:             2.0.0
