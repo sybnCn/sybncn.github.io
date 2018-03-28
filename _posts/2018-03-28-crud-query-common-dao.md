@@ -2,7 +2,7 @@
 layout: post
 title:  "CrudQueryCommonDao接口"
 categories: sybn-core
-tags:  sybn-core util
+tags:  sybn-core util interface dao
 author: sybn
 ---
 

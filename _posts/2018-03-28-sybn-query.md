@@ -2,7 +2,7 @@
 layout: post
 title:  "SybnQuery - 动态查询实体"
 categories: sybn-core
-tags:  sybn-core util
+tags:  sybn-core dao entry
 author: sybn
 ---
 
