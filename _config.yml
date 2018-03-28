@@ -2,9 +2,9 @@
 permalink:           pretty
 
 # Setup
-title:               Poole
+title:               sybn-util
 tagline:             The Jekyll Butler
-url:                 http://getpoole.com
+url:                 http://sybn.gitee.io
 paginate:            1
 baseurl:             "/sybn-util/"
 
