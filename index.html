@@ -4,14 +4,14 @@ layout: default
 
 <div class="page clearfix" index>
     <div class="left">
-        <h1>欢迎浏览 sybn util 项目说明!</h1>
+        <h2>欢迎 使用 sybn util 项目</h2>
         <hr>
         <ul>
             {% for post in paginator.posts %}
               <li>
-                <h2>
+                <h3>
                   <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
+                </h3>
                 <div class="label">
                     <div class="label-card">
                         <i class="fa fa-calendar"></i>{{ post.date | date: "%F" }}
