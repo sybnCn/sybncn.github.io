@@ -12,3 +12,75 @@ author: sybn
 SybnQuery 属于 [sybn-core 项目](../../../../2018/03/28/sybn-core/)
 
 ## SybnQuery - 动态查询实体
+用于存储动态的查询条件,类似于hibernate或者spring jpa的Query对象.
+相当于sql语句的where部分,可以存储and/or等逻辑条件和==,>,between,like,in等查询条件.
+
+目前已经支持用其查询 mysql, mongodb, solr, hbase 数据库,已支持转整合到spring data的查询框架.
+
+### 创建查询
+可以使用如下方式创建 SybnQuery:
+```java
+/**
+ * 直接 new 一个 query
+ */
+SybnQuery<?> q1 = SybnQuery.newSybnQuary();
+q1.eq("id", 1);
+q1.ne("type", 0);
+q1.like("name", "aaa");
+
+/**
+ * 从请求参数中生成一个query
+ */
+Map<String, String> request = new HashMap<>();
+request.put("id@eq@i", "1"); // @i表示value是int
+request.put("type@ne@i", "0");
+request.put("name@like", "aaa");
+SybnQuery<?> q2 = SybnQueryMapBuilder.newQuery(request);
+
+/**
+ *  对比两个查询,应该完全一致
+ */
+Assert.assertEquals(q1.toSqlWhere(), q2.toSqlWhere());
+Assert.assertEquals(q1, q2);
+```
+
+### 执行查询
+可以在不同数据平台执行query:
+```java
+// 查询条件
+ybnQuery<SybnJunitBase> query = SybnQuery.newSybnQuary(SybnJunitBase.class);
+q1.eq("id", 1);
+q1.ne("type", 0);
+q1.like("name", "aaa");
+
+String tableName = "sybn_junit_base"; // 被查询的表名
+String fields = null; // 需要返回的字段,null表示所有字段
+String sort = "id asc"; // 返回时的排序条件,null表示不排序
+int skip = 0; // 从第一行开始返回
+int limit = 10; // 返回10行数据
+
+// sql
+CrudQueryCommonDao sqlDao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
+long count = sqlDao.queryCount(tableName, query);
+List<Map<String, Object>> list = sqlDao.queryListMap(tableName, query, fields, sort, skip, limit);
+
+// momgo
+CrudQueryCommonDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
+long count = mongoDao.queryCount(tableName, query); // mongo 看到id相关条件,会当做_id处理
+List<Map<String, Object>> list = mongoDao.queryListMap(tableName, query, fields, sort, skip, limit);
+
+// solr
+CrudQueryCommonDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
+long count = solrDao.queryCount(tableName, query);
+List<Map<String, Object>> list = solrDao.queryListMap(tableName, query, fields, sort, skip, limit);
+
+// hbase
+HbaseDao hbaseDao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/test");// HbaseDao 目前尚未完全实现CrudQueryCommonDao
+long count = hbaseDao.queryCount(tableName", query); // HbaseDao 看到id相关条件会当做row处理
+List<Map<String, Object>> list = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
+
+// spring data
+Specification<SybnJunitBase> ss = new SybnSpecification(query);
+List<SybnJunitBase> list = customerRepository.findAll(ss); // TODO 尚未完全实现
+```
+
