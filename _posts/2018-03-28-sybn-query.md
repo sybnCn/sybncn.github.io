@@ -45,7 +45,7 @@ Assert.assertEquals(q1, q2);
 ```
 
 ### 执行查询
-可以在不同数据平台执行query:
+可以在不同数据平台执行相同的query:
 ```java
 // 查询条件
 ybnQuery<SybnJunitBase> query = SybnQuery.newSybnQuary(SybnJunitBase.class);
