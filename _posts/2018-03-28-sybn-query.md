@@ -62,22 +62,26 @@ int limit = 10; // 返回10行数据
 // sql
 CrudQueryCommonDao sqlDao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
 long count = sqlDao.queryCount(tableName, query);
-List<Map<String, Object>> list = sqlDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<Map<String, Object>> mapList = sqlDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<SybnJunitBase> beanList = sqlDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
 // momgo
 CrudQueryCommonDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
 long count = mongoDao.queryCount(tableName, query); // mongo 看到id相关条件,会当做_id处理
-List<Map<String, Object>> list = mongoDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<Map<String, Object>> mapList = mongoDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<SybnJunitBase> beanList = mongoDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
 // solr
 CrudQueryCommonDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
 long count = solrDao.queryCount(tableName, query);
-List<Map<String, Object>> list = solrDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<Map<String, Object>> mapList = solrDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<SybnJunitBase> beanList = solrDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
 // hbase
 HbaseDao hbaseDao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/test");// HbaseDao 目前尚未完全实现CrudQueryCommonDao
 long count = hbaseDao.queryCount(tableName", query); // HbaseDao 看到id相关条件会当做row处理
-List<Map<String, Object>> list = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<Map<String, Object>> mapList = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<SybnJunitBase> beanList = hbaseDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
 // spring data
 Specification<SybnJunitBase> ss = new SybnSpecification(query);
