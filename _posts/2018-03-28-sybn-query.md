@@ -21,26 +21,20 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 ### 创建查询
 可以使用如下方式创建 SybnQuery:
 ```java
-/**
- * 直接 new 一个 query
- */
+// 直接创建 一个 query
 SybnQuery<?> q1 = SybnQuery.newSybnQuary();
 q1.eq("id", 1);
 q1.ne("type", 0);
 q1.like("name", "aaa");
 
-/**
- * 从请求参数中生成一个query
- */
+// 从请求参数中生成一个query
 Map<String, String> request = new HashMap<>();
 request.put("id@eq@i", "1"); // @i表示value是int
 request.put("type@ne@i", "0");
 request.put("name@like", "aaa");
 SybnQuery<?> q2 = SybnQueryMapBuilder.newQuery(request);
 
-/**
- *  对比两个查询,应该完全一致
- */
+// 对比两个查询,应该完全一致
 Assert.assertEquals(q1.toSqlWhere(), q2.toSqlWhere());
 Assert.assertEquals(q1, q2);
 ```
