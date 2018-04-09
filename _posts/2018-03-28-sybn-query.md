@@ -87,8 +87,8 @@ long count = hbaseDao.queryCount(tableName", query); // HbaseDao 看到id相关�
 List<Map<String, Object>> mapList = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
 List<SybnJunitBase> beanList = hbaseDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
-// spring data
-Specification<SybnJunitBase> specification = new SybnSpecification(query);
+// spring data jpa / hibernate jpa
+Specification<SybnJunitBase> specification = SybnQueryJpaBuilder.create(query);
 List<SybnJunitBase> list = customerRepository.findAll(specification); // TODO 尚未完全实现
 
 ```
