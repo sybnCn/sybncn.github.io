@@ -15,7 +15,8 @@ SybnQuery 属于 [sybn-core 项目](../../../../2018/03/28/sybn-core/)
 用于存储动态的查询条件,类似于hibernate或者spring jpaz中的Query对象.
 相当于sql语句的where部分,可以存储and/or等逻辑条件和大约小语等于,between,like,in等查询条件.
 
-目前已经支持用其查询 mysql, mongodb, solr, hbase 数据库,已支持转整合到spring data的查询框架.
+目前已经支持用其查询 mysql, mongodb, solr, hbase 数据库,已支持转整合到 spring data 的查询框架.
+![](../../../../images/sybn_query_1.png)
 
 ### 创建查询
 可以使用如下方式创建 SybnQuery:
@@ -89,7 +90,7 @@ List<SybnJunitBase> beanList = hbaseDao.queryList(tableName, SybnJunitBase.class
 
 // spring data jpa / hibernate jpa
 Specification<SybnJunitBase> specification = SybnQueryJpaBuilder.create(query);
-List<SybnJunitBase> list = customerRepository.findAll(specification); // TODO 尚未完全实现
+List<SybnJunitBase> list = customerRepository.findAll(specification); // TODO 尚未严格测试
 
 ```
 
