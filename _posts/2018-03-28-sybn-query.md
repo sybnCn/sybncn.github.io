@@ -9,14 +9,14 @@ author: sybn
 * content
 {:toc}
 
-SybnQuery 属于 [sybn-core 项目](../../../../2018/03/28/sybn-core/)
+SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 
 ## SybnQuery - 动态查询实体
 用于存储动态的查询条件,类似于hibernate或者spring jpaz中的Query对象.
 相当于sql语句的where部分,可以存储and/or等逻辑条件和大约小语等于,between,like,in等查询条件.
 
 目前已经支持用其查询 mysql, mongodb, solr, hbase 数据库,已支持转整合到 spring data 的查询框架.
-![](../../../../images/sybn_query_1.png)
+![]({{site.baseurl}}/images/sybn_query_1.png)
 
 ### 创建查询
 可以使用如下方式创建 SybnQuery:
