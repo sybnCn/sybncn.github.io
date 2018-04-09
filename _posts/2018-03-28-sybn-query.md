@@ -11,6 +11,8 @@ author: sybn
 
 SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 
+
+
 ## SybnQuery - 动态查询实体
 动态的查询对象,借鉴于 hibernate / spring jpa 中的动态查询对象.用于动态构建查询，并用于读写不同数据库。
 * 相当于sql语句的where部分,可以存储and/or等逻辑条件和大于小于等于,between,like,in等对比的条件.

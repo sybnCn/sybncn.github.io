@@ -14,7 +14,9 @@ CrudQueryCommonDao工具属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sy
 由 QueryCommonDao 和  CrudCommonDao 组成。
 
 此接口已经被sql，mongo，solr，hbase到全部或部分实现。
- 
+
+
+
 ## QueryCommonDao - 基于 SybnQuery 的动态查询接口
 - 常规写法:
 
