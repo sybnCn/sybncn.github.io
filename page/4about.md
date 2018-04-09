@@ -9,9 +9,6 @@ type: page
 * content
 {:toc}
 
-## 关于
-
-
 ## 联系我
 
 * QQ：354324773
