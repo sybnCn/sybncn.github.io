@@ -15,7 +15,7 @@ sybn util 是本人积累的java工具集，其主要包括：
 - 数据库工具(sql/mongodb/sorl/HBase/redis)
 - 其他工具（比如excel/csv导出）
 
-准备借鉴的同类开源工具
+准备借鉴的开源项目
 - [hutool](https://gitee.com/loolly/hutool)
 
 
