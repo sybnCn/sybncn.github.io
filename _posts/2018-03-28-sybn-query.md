@@ -78,7 +78,7 @@ List<SybnJunitBase> beanList = solrDao.queryList(tableName, SybnJunitBase.class,
 // hbase
 String conf = "hbase://192.168.7.71,192.168.7.72/hbase-unsecure";
 HbaseDao hbaseDao = new HbaseDaoImpl(conf);// HbaseDao 目前尚未完全实现CrudQueryCommonDao
-long count = hbaseDao.queryCount(tableName", query); // HbaseDao 看到id相关条件会当做row处理
+long count = hbaseDao.queryCount(tableName, query); // HbaseDao 看到id相关条件会当做row处理
 List<Map<String, Object>> mapList = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
 List<SybnJunitBase> beanList = hbaseDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 
