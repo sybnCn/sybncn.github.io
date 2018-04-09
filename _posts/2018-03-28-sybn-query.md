@@ -34,9 +34,15 @@ request.put("type@ne@i", "0");
 request.put("name@like", "aaa");
 SybnQuery<?> q2 = SybnQueryMapBuilder.newQuery(request);
 
-// 对比两个查询,应该完全一致
+// 直接用sql语句生成一个query
+SybnQuery<?> q3 = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and name like '%aaa%'").optimization();
+
+// 对比三个查询,应该完全一致
+logger.info(q1.toSqlWhere()); // `id` = 1 AND `type` <> 0 AND `name` LIKE '%aaa%'
 Assert.assertEquals(q1.toSqlWhere(), q2.toSqlWhere());
+Assert.assertEquals(q1.toSqlWhere(), q3.toSqlWhere());
 Assert.assertEquals(q1, q2);
+Assert.assertEquals(q1, q3);
 ```
 
 ### 执行查询
