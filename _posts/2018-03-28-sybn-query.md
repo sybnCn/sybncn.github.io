@@ -61,36 +61,25 @@ int limit = 10; // 返回10行数据
 
 // sql
 String conf = "jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test";
-CrudQueryCommonDao sqlDao = new DbutilDaoImpl(conf);
-long count = sqlDao.queryCount(tableName, query);
-List<Map<String, Object>> mapList = sqlDao.queryListMap(tableName, query, fields, sort, skip, limit);
-List<SybnJunitBase> beanList = sqlDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
-long remove = sqlDao.queryRemove(tableName, query);
+QueryCommonDao dao = new DbutilDaoImpl(conf);
 
-// momgo
+// momgo - MongoDao 看到id相关条件会当做_id处理
 String conf = "mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test";
-CrudQueryCommonDao mongoDao = new MongoDaoImpl(conf);
-long count = mongoDao.queryCount(tableName, query); // mongo 看到id相关条件,会当做_id处理
-List<Map<String, Object>> mapList = mongoDao.queryListMap(tableName, query, fields, sort, skip, limit);
-List<SybnJunitBase> beanList = mongoDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
-long remove = mongoDao.queryRemove(tableName, query);
+QueryCommonDao dao = new MongoDaoImpl(conf);
 
 // solr
 String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
-CrudQueryCommonDao solrDao = new SolrDaoImpl(conf);
-long count = solrDao.queryCount(tableName, query);
-List<Map<String, Object>> mapList = solrDao.queryListMap(tableName, query, fields, sort, skip, limit);
-List<SybnJunitBase> beanList = solrDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
-long remove = hbaseDao.queryRemove(tableName, query);
+QueryCommonDao dao = new SolrDaoImpl(conf);
 
-// hbase
+// hbase - HbaseDao 看到id相关条件会当做row处理
 String conf = "hbase://192.168.7.71,192.168.7.72/hbase-unsecure";
-// HbaseDao目前尚未完全实现CrudQueryCommonDao,只实现了其子集QueryCommonDao, QueryCommonDao是CrudQueryCommonDao中与SybnQuery有关的部分。
-QueryCommonDao hbaseDao = new HbaseDaoImpl(conf);
-long count = hbaseDao.queryCount(tableName, query); // HbaseDao 看到id相关条件会当做row处理
-List<Map<String, Object>> mapList = hbaseDao.queryListMap(tableName, query, fields, sort, skip, limit);
-List<SybnJunitBase> beanList = hbaseDao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
-long remove = hbaseDao.queryRemove(tableName, query);
+QueryCommonDao dao = new HbaseDaoImpl(conf);
+
+// 以上任意一个dao都可以跑通如下代码
+long count = dao.queryCount(tableName, query); 
+List<Map<String, Object>> mapList = dao.queryListMap(tableName, query, fields, sort, skip, limit);
+List<SybnJunitBase> beanList = dao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
+long remove = dao.queryRemove(tableName, query);
 
 // spring data jpa / hibernate jpa
 Specification<SybnJunitBase> specification = SybnQueryJpaBuilder.create(query);
