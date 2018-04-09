@@ -9,7 +9,7 @@ author: sybn
 * content
 {:toc}
 
-CrudQueryCommonDao工具属于 [sybn-core 项目](../../../../2018/03/28/sybn-core/)
+CrudQueryCommonDao工具属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 
 由 QueryCommonDao 和  CrudCommonDao 组成。
 
