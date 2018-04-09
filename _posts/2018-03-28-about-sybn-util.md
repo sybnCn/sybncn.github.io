@@ -9,10 +9,11 @@ author: sybn
 * content
 {:toc}
 
-关于 sybn util, sybn util 时本人积累的工具集，其包括：
-- 基础工具
-- 数据库工具
-- 其他工具
+## 简介
+sybn util 是本人积累的java工具集，其主要包括：
+- Java对象工具(比如:使用sql语句查询list，各种类型的对象互相转换)
+- 数据库工具(sql/mongodb/sorl/HBase/redis)
+- 其他工具（比如excel/csv导出）
 
 准备借鉴的同类开源工具
 - [hutool](https://gitee.com/loolly/hutool)
@@ -56,6 +57,8 @@ author: sybn
   - 实现了 CrudQueryCommonDao 接口
 - hadoop-dao 项目
   - 即将实现 CrudQueryCommonDao 接口
+- redis-dao 项目
+  - 未实现  CrudQueryCommonDao 接口
 
 ## 其他工具
 - mail-util
