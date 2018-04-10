@@ -70,7 +70,6 @@ QueryCommonDao dao = new SolrDaoImpl(conf);
 // hbase - HbaseDao 看到id相关条件会当做row处理
 String conf = "hbase://192.168.7.71,192.168.7.72/hbase-unsecure";
 QueryCommonDao dao = new HbaseDaoImpl(conf);
-
 // 以上任意一个dao都可以跑通如下代码
 long count = dao.queryCount(tableName, query); 
 List<Map<String, Object>> mapList = dao.queryListMap(tableName, query, fields, sort, skip, limit);
