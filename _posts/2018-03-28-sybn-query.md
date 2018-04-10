@@ -19,7 +19,6 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 ![]({{site.baseurl}}/images/sybn_query_1.png)
 
 
-
 ### 创建查询
 可以使用如下方式创建 SybnQuery:
 ```java
@@ -44,7 +43,6 @@ logger.info(q1.toSqlWhere()); // `id` = 1 AND `type` <> 0 AND `name` LIKE '%aaa%
 Assert.assertEquals(q1, q2);
 Assert.assertEquals(q1, q3);
 ```
-
 ### 执行查询
 可以在不同数据平台执行相同的query:
 ```java
