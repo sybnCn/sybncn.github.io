@@ -27,7 +27,7 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
 // 查询的表名
 String tableName = "maoyan";
 // 聚合前的查询条件
-SybnQuery<?> query = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and name like '%aaa%'");
+SybnQuery<?> query = SybnQueryStringFactory.newQuery("first_show between '2018-01-01' and '2018-03-31'");
 // 被聚合的字段
 String groupFields = "sum(maoyanShows) AS maoyanShows, "
     + "sum(maoyanPeople) AS maoyanPeople, "
