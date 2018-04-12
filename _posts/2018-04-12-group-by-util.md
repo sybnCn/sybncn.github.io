@@ -18,7 +18,7 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
 
 他们都支持基础的聚合函数,比如: sum,min,max,count,count distinct等
 
-其中 java 实现提供了量自定义聚合函数(UDAF),并支持业务代码随时注册新的函数.
+其中 java 实现已经准备了大量自定义聚合函数(UDAF),并支持业务代码随时注册新的函数.
 
 
 
