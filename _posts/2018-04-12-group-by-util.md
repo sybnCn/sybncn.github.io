@@ -24,6 +24,17 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
 
 ## 样例
 ```java
+/** 
+ *  select timeType, screenType, movieId,
+ *      sum(maoyanShows) AS maoyanShows,
+ *      sum(maoyanPeople) AS maoyanPeople,
+ *      sum(maoyanSeats) AS maoyanSeats,
+ *      sum(maoyanBoxoffice) AS maoyanBoxoffice,
+ *      (maoyanPrice / maoyanShows) AS maoyanAvgPrice
+ *  from maoyan
+ *  where first_show between '2018-01-01' and '2018-03-31'
+ **/
+ 
 // 查询的表名
 String tableName = "maoyan";
 // 聚合前的查询条件
