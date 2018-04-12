@@ -27,7 +27,7 @@ String groupFields = "sum(maoyanShows) AS maoyanShows, "
     + "sum(maoyanPeople) AS maoyanPeople, "
     + "sum(maoyanSeats) AS maoyanSeats, "
     + "sum(maoyanBoxoffice) AS maoyanBoxoffice, " 
-    + "(maoyanPrice / maoyanShows) AS maoyanAvgPrice, "";
+    + "(maoyanPrice / maoyanShows) AS maoyanAvgPrice";
 SqlPartFieldList sqlPartFields = SqlPartFieldFactory.createList(groupFields);
 // 聚合条件
 List<String> groupKey = ListUtil.toList("timeType", "screenType", "movieId");
