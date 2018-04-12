@@ -20,6 +20,7 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
 
 ## 样例
 ```java
+String tableName = "maoyan";
 // 聚合前的查询条件
 SybnQuery<?> query = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and name like '%aaa%'");
 // 被聚合的字段
@@ -35,13 +36,13 @@ List<String> groupKey = ListUtil.toList("timeType", "screenType", "movieId");
 // mongo
 String conf = "mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test";
 QueryCommonDao mongoDao = new MongoDaoImpl(conf);
-Stream<Document> groupByData = MongoGroupByStreamUtil.groupByDoc(mongoDao, sourceCollection, query, sqlPartFields, groupKey);
+Stream<Document> groupByData = MongoGroupByStreamUtil.groupByDoc(mongoDao, tableName, query, sqlPartFields, groupKey);
 // solr
 String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
 QueryCommonDao solrDao = new SolrDaoImpl(conf);
-Stream<Document> groupByData = SolrGroupByStreamUtil.groupByDoc(solrDao, sourceCollection, query, sqlPartFields, groupKey);
+Stream<Document> groupByData = SolrGroupByStreamUtil.groupByDoc(solrDao, tableName, query, sqlPartFields, groupKey);
 // java list TODO 暂不支持 groupBy 时执行 query
-Stream<Document> groupByData = JavaGroupByStreamUtil.groupByDoc(stream, sourceCollection, sqlPartFields, groupKey);
+Stream<Document> groupByData = JavaGroupByStreamUtil.groupByDoc(stream, sqlPartFields, groupKey);
 ```
 
 ## 常用工具介绍
@@ -51,4 +52,5 @@ Stream<Document> groupByData = JavaGroupByStreamUtil.groupByDoc(stream, sourceCo
 - TaskLog 待补
 
 ## 远期规划
-- JavaGroupByStreamUtil 需要支持 query
+- JavaGroupByStreamUtil 需要支持 query.
+- 将 tableName,query,groupFields,groupKey 统一封装进  SimpleSqlEntity 中. 目前 SimpleSqlEntity 还没有写完.
