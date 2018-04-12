@@ -460,3 +460,8 @@ public interface CrudCommonDao {
   <Q, V> long commonRemoveByKv(@NonNull String tableName, Map<String, Q> query) throws InterruptedException;
 }
 ```
+
+
+## 相关页面
+- [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
+- [group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
