@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "group by util 介绍"
+title:  "group by util 通用聚合引擎"
 categories: sybn-core
 tags:  sybn-core about index
 author: sybn
@@ -49,12 +49,12 @@ Stream<Document> groupByData = SolrGroupByStreamUtil.groupByDoc(solrDao, tableNa
 // java list TODO 暂不支持 groupBy 时执行 query
 Stream<Document> groupByData = JavaGroupByStreamUtil.groupByDoc(stream, sqlPartFields, groupKey);
 ```
+注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
-## 常用工具介绍
-- [SybnMain 主函数代理]({{site.baseurl}}/2018/03/28/sybn-main/)
+
+## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
 - [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
-- TaskLog 待补
 
 ## 远期规划
 - JavaGroupByStreamUtil 需要支持 query.
