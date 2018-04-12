@@ -2,7 +2,7 @@
 layout: post
 title:  "group by util 通用聚合引擎"
 categories: sybn-core
-tags:  sybn-core about index
+tags:  sybn-core dao mongo solr
 author: sybn
 ---
 
