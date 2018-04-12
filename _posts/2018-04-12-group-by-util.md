@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "group by util 介绍"
+categories: sybn-core
+tags:  sybn-core about index
+author: sybn
+---
+
+* content
+{:toc}
+
+## 简介
+GroupByStreamUtil 和 GroupByUtil 可以在各个数据库中执行 groupby 操作.
+GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
+他们目前有3种实现: mongo, solr, java
+他们都支持基础的聚合函数,比如: sum,min,max,count,count distinct等
+其中 java 实现提供了量自定义聚合函数(UDAF),并支持业务代码随时注册新的函数.
+
+
+
+## 样例
+```java
+// 聚合前的查询条件
+SybnQuery<?> query = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and name like '%aaa%'");
+// 被聚合的字段
+String groupFields = "sum(maoyanShows) AS maoyanShows, "
+    + "sum(maoyanPeople) AS maoyanPeople, "
+    + "sum(maoyanSeats) AS maoyanSeats, "
+    + "sum(maoyanBoxoffice) AS maoyanBoxoffice, " 
+    + "(maoyanPrice / maoyanShows) AS maoyanAvgPrice, "";
+SqlPartFieldList sqlPartFields = SqlPartFieldFactory.createList(groupFields);
+// 聚合条件
+List<String> groupKey = ListUtil.toList("timeType", "screenType", "movieId");
+
+// mongo
+String conf = "mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test";
+QueryCommonDao mongoDao = new MongoDaoImpl(conf);
+Stream<Document> groupByData = MongoGroupByStreamUtil.groupByDoc(mongoDao, sourceCollection, query, sqlPartFields, groupKey);
+// solr
+String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
+QueryCommonDao solrDao = new SolrDaoImpl(conf);
+Stream<Document> groupByData = SolrGroupByStreamUtil.groupByDoc(solrDao, sourceCollection, query, sqlPartFields, groupKey);
+// java list TODO 暂不支持 groupBy 时执行 query
+Stream<Document> groupByData = JavaGroupByStreamUtil.groupByDoc(stream, sourceCollection, sqlPartFields, groupKey);
+```
+
+## 常用工具介绍
+- [SybnMain 主函数代理]({{site.baseurl}}/2018/03/28/sybn-main/)
+- [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
+- [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
+- TaskLog 待补
+
+## 远期规划
+- JavaGroupByStreamUtil 需要支持 query
