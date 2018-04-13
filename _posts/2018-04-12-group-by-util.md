@@ -53,13 +53,13 @@ List<String> groupKey = ListUtil.toList("timeType", "screenType", "movieId");
 // mongo
 String conf = "mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test";
 QueryCommonDao mongoDao = new MongoDaoImpl(conf);
-Stream<Map<String, Object>> groupByData = MongoGroupByStreamUtil.groupBy(mongoDao, tableName, query, sqlPartFields, groupKey);
+List<Map<String, Object>> groupByData = MongoGroupByStreamUtil.groupBy(mongoDao, tableName, query, sqlPartFields, groupKey);
 // solr - groupKey 为多个值时会执行JavaGroupByStreamUtil
 String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
 QueryCommonDao solrDao = new SolrDaoImpl(conf);
-Stream<Map<String, Object>> groupByData = SolrGroupByStreamUtil.groupBy(solrDao, tableName, query, sqlPartFields, groupKey);
+List<Map<String, Object>> groupByData = SolrGroupByStreamUtil.groupBy(solrDao, tableName, query, sqlPartFields, groupKey);
 // java stream TODO 暂不支持 groupBy 时执行 query
-Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(stream, sqlPartFields, groupKey);
+List<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(stream, sqlPartFields, groupKey);
 ```
 > 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
