@@ -57,7 +57,7 @@ Stream<Document> groupByData = MongoGroupByStreamUtil.groupBy(mongoDao, tableNam
 String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
 QueryCommonDao solrDao = new SolrDaoImpl(conf);
 Stream<Document> groupByData = SolrGroupByStreamUtil.groupBy(solrDao, tableName, query, sqlPartFields, groupKey);
-// java list TODO 暂不支持 groupBy 时执行 query
+// java stream TODO 暂不支持 groupBy 时执行 query
 Stream<Document> groupByData = JavaGroupByStreamUtil.groupBy(stream, sqlPartFields, groupKey);
 ```
 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
