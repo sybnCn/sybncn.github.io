@@ -78,7 +78,7 @@ long remove = dao.queryRemove(tableName, query);
 Specification<SybnJunitBase> specification = SybnQueryJpaBuilder.create(query);
 List<SybnJunitBase> list = customerRepository.findAll(specification);
 ```
-注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
+> 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
 ## 相关页面
 - [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
