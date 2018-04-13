@@ -63,8 +63,8 @@ Stream<Document> groupByData = JavaGroupByStreamUtil.groupBy(stream, sqlPartFiel
 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
 ## 远期规划
-- JavaGroupByStreamUtil 需要支持 query.
-- 将 tableName,query,groupFields,groupKey 统一封装进  SimpleSqlEntity 中. 目前 SimpleSqlEntity 还没有写完.
+- [] JavaGroupByStreamUtil 需要支持 query.
+- [] 将 tableName,query,groupFields,groupKey 统一封装进  SimpleSqlEntity 中. 目前 SimpleSqlEntity 还没有写完.
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
