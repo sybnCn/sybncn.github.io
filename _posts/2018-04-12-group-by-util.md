@@ -33,6 +33,7 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
  *      (maoyanPrice / maoyanShows) AS maoyanAvgPrice
  *  from maoyan
  *  where first_show between '2018-01-01' and '2018-03-31'
+ *  group by timeType, screenType, movieId
  **/
  
 // 查询的表名
