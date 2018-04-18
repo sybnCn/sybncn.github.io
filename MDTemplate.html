@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<base href="http://sybn.gitee.io/sybn-util/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+<link rel="stylesheet" href="http://sybn.gitee.io/sybn-util/css/main.css ">
+<link rel="canonical" href="http://sybn.gitee.io/sybn-util/">
+
+<title>@{title}</title>
+@foreach{cssUri : cssUris}
+<link href="@{cssUri}" media="all" rel="stylesheet" type="text/css"/> 
+@end{}
+@if{cssText != empty}
+<style type="text/css">
+@{cssText}
+</style>
+@end{}
+@if{jsText != empty}
+<script type="text/javascript">
+@{jsText}
+</script>
+@end{}
+@foreach{jsUri : jsUris}
+<script type="text/javascript" src="@{jsUri}"></script>
+@end{}
+<style>
+.markdown-body table th {background-color: #aaa; }
+</style>
+</head>
+<body class="markdown-body">
+@{content}
+</body>
+</html>
