@@ -64,6 +64,11 @@ Assert.assertEquals(q1.toPsWhere(), q3.toPsWhere());
 > 
 > 此 bug 在 0.1.9 中已经修复
 
+
+> 注：不论使用那种方式， 构造单个值的 in 查询和构造首尾值相同的 between 查询， 都会被替换为 == 查询， not in 会被替换为 !=
+>
+> 例： id between 1 and 1 和  id in (1) 这两种写法，实际上得到的是 id == 1 的效果
+
 ### 执行查询 v:0.1.8
 可以在不同数据平台执行相同的query:
 ```java
