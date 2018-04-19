@@ -27,23 +27,38 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 SybnQuery<?> q1 = SybnQuery.newSybnQuary();
 q1.eq("id", 1);
 q1.ne("type", 0);
+q1.gtelte("day", "2018-01-01", "2018-04-19");
 q1.like("name", "aaa");
 
 // 从请求参数中生成一个query
 Map<String, String> request = new HashMap<>();
 request.put("id@eq@i", "1"); // @i表示value是int
 request.put("type@ne@i", "0");
+request.put("day@gl", "2018-01-01~2018-04-19");
 request.put("name@like", "aaa");
 SybnQuery<?> q2 = SybnQueryMapBuilder.newQuery(request);
 
 // 直接用sql语句生成一个query
-SybnQuery<?> q3 = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and name like '%aaa%'").optimization();
-
+SybnQuery<?> q2 = SybnQueryStringFactory.newQuery("id == 1 and type != 0 and day between '2018-01-01' and '2018-04-19' and name like '%aaa%'");
+      
 // 对比三个查询,应该完全一致
-logger.info(q1.toSqlWhere()); // `id` = 1 AND `type` <> 0 AND `name` LIKE '%aaa%'
 Assert.assertEquals(q1, q2);
 Assert.assertEquals(q1, q3);
+
+// `id` = 1 AND `type` <> 0 AND `day` BETWEEN '2018-01-01' AND '2018-04-19' AND `name` LIKE '%aaa%'
+LogUtil.info(q1.toSqlWhere());
+Assert.assertEquals(q1.toSqlWhere(), q2.toSqlWhere());
+Assert.assertEquals(q1.toSqlWhere(), q3.toSqlWhere());
+
+// `id` = ? AND `type` <> ? AND `day` BETWEEN ? AND ? AND `name` LIKE ?
+LogUtil.info(q1.toPsWhere());
+Assert.assertEquals(q1.toPsWhere(), q2.toPsWhere());
+Assert.assertEquals(q1.toPsWhere(), q3.toPsWhere());
+
 ```
+> 因为 Map 无序 SybnQueryMapBuilder 内置的查询优化器会自动将 in 和 like 等查询条件放在靠后位置
+>
+> 其他方式构造的 SybnQuery 则使用传入数据的顺序
 
 ### 执行查询
 可以在不同数据平台执行相同的query:
