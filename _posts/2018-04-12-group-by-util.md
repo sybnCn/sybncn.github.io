@@ -37,18 +37,18 @@ String sql = "select date, 'test' as name, (1+1) as '等于二', sum(num), max(n
 MongoDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
 List<Map<String, Object>> groupByData = MongoGroupByUtil.groupBy(mongoDao, sql);
 Stream<Map<String, Object>> groupByData = MongoGroupByStreamUtil.groupBy(mongoDao, sql);
-// 返回值第一行： {"date":2018419,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"name":"test","等于二":2}
+// 返回值第一行： {"date":2018419,"name":"test","等于二":2,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000}
 
 // solr - groupKey 为多个值时会执行JavaGroupByUtil
 SolrDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
 List<Map<String, Object>> groupByData = SolrGroupByUtil.groupBy(solrDao, sql);
-// TODO Stream<Map<String, Object>> groupByData = SolrGroupByStreamUtil.groupBy(mongoDao, sql);
-// 返回值第一行： {"date":"2018419","sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"name":"test","等于二":2}
+// TODO 未完成 Stream<Map<String, Object>> groupByData = SolrGroupByStreamUtil.groupBy(mongoDao, sql);
+// 返回值第一行： {"date":"2018419","name":"test","等于二":2,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000}
 
 // java stream
 List<Map<String, Object>> groupByData = JavaGroupByUtil.groupBy(listMap, sql);
 Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(streamMap, sql);
-// 返回值第一行： {"date":2018419,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"name":"test","等于二":2}
+// 返回值第一行： {"date":2018419,"name":"test","等于二":2,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000}
 ```
 > 注: 反回值中的 (1+1), sum, avg 等函数的返回值会自动降级，返回自字段类型可能是 double/float/long/int 中不越界不丢精度情况下的空间较小的值, 详情参考： TrimNumberUtil
 > 注: 目前只有 MongoGroupByUtil 和 MongoGroupByStreamUtil 支持 having 语句
