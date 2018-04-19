@@ -2,7 +2,7 @@
 layout: post
 title:  "group by util 通用聚合引擎"
 categories: sybn-core
-tags:  sybn-core dao mongo solr
+tags:  sybn-core dao mongo solr 0.1.9
 author: sybn
 ---
 
@@ -22,7 +22,7 @@ GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
 
 
 
-## 样例
+## 样例 v:0.1.9
 ```java
 // group by 语句
 String sql = "select date, 'test' as name, (1+1) as '等于二', sum(num), max(num), avg(num), count(num), count(distinct num) as c"
