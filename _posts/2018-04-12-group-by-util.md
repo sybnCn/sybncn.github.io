@@ -34,23 +34,23 @@ String sql = "select date, 'test' as name, (1+1) as '等于二', sum(num), max(n
     + " limit 0, 10";
 
 // mongo
-QueryCommonDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
+MongoDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
 List<Map<String, Object>> groupByData = MongoGroupByUtil.groupBy(mongoDao, sql);
 Stream<Map<String, Object>> groupByData = MongoGroupByStreamUtil.groupBy(mongoDao, sql);
-// map: {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":2018419,"name":"test","等于二":2.0}
+// 返回值第一行： {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":2018419,"name":"test","等于二":2}
 
 // solr - groupKey 为多个值时会执行JavaGroupByUtil
-QueryCommonDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
+SolrDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
 List<Map<String, Object>> groupByData = SolrGroupByUtil.groupBy(solrDao, sql);
 // TODO Stream<Map<String, Object>> groupByData = SolrGroupByStreamUtil.groupBy(mongoDao, sql);
-// map: {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":"2018419","name":"test","等于二":2.0}
+// 返回值第一行： {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":"2018419","name":"test","等于二":2}
 
 // java stream
 List<Map<String, Object>> groupByData = JavaGroupByUtil.groupBy(listMap, sql);
 Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(streamMap, sql);
-// map: {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":2018419,"name":"test","等于二":2.0}
+// 返回值第一行： {"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000,"date":2018419,"name":"test","等于二":2}
 ```
-> 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
+> 注: 反回值中的 (1+1), sum, avg 等函数的返回值会自动降级，返回自字段类型可能是 double/float/long/int 中不越界不丢精度情况下的空间较小的值, 详情参考： TrimNumberUtil
 > 注: 目前只有 MongoGroupByUtil 和 MongoGroupByStreamUtil 支持 having 语句
 > 注: SolrGroupByUtil 使用 facet 返回的 group by 字段 date 的值是 String 型的，其他工具会返回正常的类型
 
