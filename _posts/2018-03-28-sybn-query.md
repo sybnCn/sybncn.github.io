@@ -2,7 +2,7 @@
 layout: post
 title:  "SybnQuery - 动态查询实体"
 categories: sybn-core
-tags:  sybn-core dao
+tags:  sybn-core dao mongo solr sql
 author: sybn
 ---
 
