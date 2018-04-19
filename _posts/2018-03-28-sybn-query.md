@@ -2,7 +2,7 @@
 layout: post
 title:  "SybnQuery - 动态查询实体"
 categories: sybn-core
-tags:  sybn-core dao mongo solr sql
+tags:  sybn-core dao mongo solr sql 0.1.9
 author: sybn
 ---
 
@@ -20,7 +20,7 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 
 
 
-### 创建查询
+### 创建查询 v:0.1.9
 可以使用如下方式创建 SybnQuery:
 ```java
 // 直接创建 一个 query
@@ -56,11 +56,15 @@ Assert.assertEquals(q1.toPsWhere(), q2.toPsWhere());
 Assert.assertEquals(q1.toPsWhere(), q3.toPsWhere());
 
 ```
-> 因为 Map 无序 SybnQueryMapBuilder 内置的查询优化器会自动将 in 和 like 等查询条件放在靠后位置
+> 注：因为 Map 无序 SybnQueryMapBuilder 内置的查询优化器会自动将 in 和 like 等查询条件放在靠后位置
 >
 > 其他方式构造的 SybnQuery 则使用传入数据的顺序
 
-### 执行查询
+> 注：0.1.8 的 SybnQueryStringFactory 无法正确处理  BETWEEN 后面的 AND 造成报错
+> 
+> 此 bug 在 0.1.9 中已经修复
+
+### 执行查询 v:0.1.8
 可以在不同数据平台执行相同的query:
 ```java
 // 查询条件
