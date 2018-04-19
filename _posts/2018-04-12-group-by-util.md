@@ -52,7 +52,7 @@ Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(streamMa
 ```
 > 注: 反回值中的 (1+1), sum, avg 等函数的返回值会自动降级,返回 double/float/long/int 中不越界不丢精度情况下的空间较小的值
 >
-> 比如：(1.0d+1.0d) 返回 2  (1.1d+1.0d) 返回 2.1f
+> 比如：(1.0d + 1.0d) 返回 2, 而 (1.1d + 1.0d) 返回 2.1f
 >
 > @see 详情参考： TrimNumberUtil
 
