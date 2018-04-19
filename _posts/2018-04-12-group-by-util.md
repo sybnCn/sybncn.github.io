@@ -56,7 +56,7 @@ Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(streamMa
 
 > 注: 目前只有 MongoGroupByUtil 和 MongoGroupByStreamUtil 支持 having 语句
 
-> 注: SolrGroupByUtil 使用 facet 返回的 group by 字段 date 的值是 String 型的，其他工具会返回正常的类型
+> 注: SolrGroupByUtil 使用 solr 的 facet 实现，返回的 group by 字段的值是 String 型的，其他工具会返回正常的类型
 
 ## 远期规划
 - JavaGroupByStreamUtil 需要支持 query.
