@@ -42,8 +42,8 @@ kramdown:
 # port: 1234
 
 # url
-category_dir: /sybn-util/category/
-tag_dir: /sybn-util/tag/
+category_dir: category/
+tag_dir: tag/
 
 # excerpt
 excerpt_separator: "\n\n\n\n"
