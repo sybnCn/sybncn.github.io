@@ -56,7 +56,7 @@ Assert.assertEquals(q1.toPsWhere(), q2.toPsWhere());
 Assert.assertEquals(q1.toPsWhere(), q3.toPsWhere());
 
 ```
-> 注：因为 Map 无序 SybnQueryMapBuilder 内置的查询优化器会自动将 in 和 like 等查询条件放在靠后位置
+> 注：因为 Map 可能是无序的， SybnQueryMapBuilder 内置的查询优化器会自动将 in 和 like 等查询条件放在靠后位置
 >
 > 其他方式构造的 SybnQuery 则使用传入数据的顺序
 
