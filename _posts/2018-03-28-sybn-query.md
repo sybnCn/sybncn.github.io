@@ -83,13 +83,13 @@ int limit = 10; // 返回10行数据
 // sql
 String conf = "jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test";
 QueryCommonDao dao = new DbutilDaoImpl(conf);
-// momgo - MongoDao 看到id相关条件会当做_id处理
+// momgo - 遇到id相关条件会当做_id处理
 String conf = "mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test";
 QueryCommonDao dao = new MongoDaoImpl(conf);
 // solr
 String conf = "solr://192.168.7.71:2181,192.168.7.72:2181/solr";
 QueryCommonDao dao = new SolrDaoImpl(conf);
-// hbase - HbaseDao 看到id相关条件会当做row处理
+// hbase - 遇到id相关条件会当做row处理
 String conf = "hbase://192.168.7.71,192.168.7.72/hbase-unsecure";
 QueryCommonDao dao = new HbaseDaoImpl(conf);
 // 以上任意一个dao都可以跑通如下代码
