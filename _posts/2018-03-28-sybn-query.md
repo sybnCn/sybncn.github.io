@@ -100,7 +100,7 @@ long remove = dao.queryRemove(tableName, query);
 
 // spring data jpa
 Specification<SybnJunitBase> specification = SybnQuerySpecBuilder.create(query);
-List<SybnJunitBase> list = customerRepository.findAll(specification);
+List<SybnJunitBase> list = sybnJunitBaseRepository.findAll(specification);
 ```
 > 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
