@@ -16,7 +16,7 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 * 相当于sql语句的where部分,可以存储and/or等逻辑条件和大于小于等于,between,like,in等对比的条件.
 * 目前已经支持用其读写 mysql, mongodb, solr, hbase 数据库,并已支持整合到 spring data / hibernate jpa 的查询框架.
 
-![]({{site.baseurl}}/images/sybn_query_2.png)
+![]({{site.baseurl}}/images/sybn_query_3.png)
 
 
 
@@ -69,7 +69,7 @@ Assert.assertEquals(q1.toPsWhere(), q3.toPsWhere());
 >
 > 例： id between 1 and 1 和  id in (1) 这两种写法，实际上得到的是 id == 1 的效果
 
-### 执行查询 v:0.1.8
+### 执行查询 v:0.1.9
 可以在不同数据平台执行相同的query:
 ```java
 // 查询条件
@@ -98,8 +98,8 @@ List<Map<String, Object>> mapList = dao.queryListMap(tableName, query, fields, s
 List<SybnJunitBase> beanList = dao.queryList(tableName, SybnJunitBase.class, query, fields, sort, skip, limit);
 long remove = dao.queryRemove(tableName, query);
 
-// spring data jpa / hibernate jpa
-Specification<SybnJunitBase> specification = SybnQueryJpaBuilder.create(query);
+// spring data jpa
+Specification<SybnJunitBase> specification = SybnQuerySpecBuilder.create(query);
 List<SybnJunitBase> list = customerRepository.findAll(specification);
 ```
 > 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
