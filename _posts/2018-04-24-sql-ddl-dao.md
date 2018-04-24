@@ -16,11 +16,12 @@ SqlDdlStreamDao 会返回 Stream, SqlDdlDao 会返回 list.
 
 目前有5种实现: MongoDao, SolrDao, HBasesDao, DbutilDao(sql)
 
-计划支持以下方法：
+计划支持以下特性：
 - sqlFindList(sql) / sqlFindStream(sql) // 已实现
 - sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
 - sqlCount(sql) // 未实现
 - sqlRemove(sql) // 未实现
+- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
 
 ![]({{site.baseurl}}/images/sql_ddl_dao.png)
 
@@ -52,7 +53,9 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 ## 远期规划
 - sqlCount(sql) // 未实现
 - sqlRemove(sql) // 未实现
+- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
 - [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
+- [group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
