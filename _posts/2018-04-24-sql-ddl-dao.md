@@ -29,6 +29,14 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 ## 样例 v:0.1.9
 ```java
+/**
+ * 所有接口都可以接受 sql / SimpleSqlEntity / SimpleSqlQueryEntity。
+ * 静态查询用sql，动态查询用 SimpleSqlEntity / SimpleSqlQueryEntity。
+ * SimpleSqlEntity sqlEntity = new SimpleSqlEntity(sql); // 用sql构造SimpleSqlEntity
+ * sqlEntity.getWhere.add("day between '2018-03-20' and '2018-03-21'"); // 向sql添加条件
+ * sqlEntity.getWhereQuery.like("name", "123"); // 向sql添加条件
+ */
+
 // sql
 SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
