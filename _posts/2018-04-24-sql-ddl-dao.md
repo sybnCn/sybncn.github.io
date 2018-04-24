@@ -22,7 +22,6 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 - sqlCount(sql) // 已实现
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
-- 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ![]({{site.baseurl}}/images/sql_ddl_dao.png)
 
@@ -52,8 +51,6 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 ```
 
 ## 远期规划
-- sqlRemove(sql) // 未实现
-- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ## 相关页面
