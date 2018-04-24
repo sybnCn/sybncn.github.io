@@ -22,6 +22,7 @@ SqlDdlStreamDao 会返回 Stream, SqlDdlDao 会返回 list.
 - sqlCount(sql) // 未实现
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
+- 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ![]({{site.baseurl}}/images/sql_ddl_dao.png)
 
@@ -54,6 +55,7 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 - sqlCount(sql) // 未实现
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
+- 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
