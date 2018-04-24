@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "sql ddl dao 通用查询引擎"
+categories: sybn-core
+tags:  sybn-core dao mongo solr 0.1.9
+author: sybn
+---
+
+* content
+{:toc}
+
+## 简介
+SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
+
+SqlDdlStreamDao 会返回 Stream, SqlDdlDao 会返回 list.
+
+目前有5种实现: MongoDao, SolrDao, HBasesDao, DbutilDao(sql)
+
+计划支持以下方法：
+- sqlFindList(sql) / sqlFindStream(sql) // 已实现
+- sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
+- sqlCount(sql) // 未实现
+- sqlRemove(sql) // 未实现
+
+
+
+## 样例 v:0.1.9
+```java
+// sql
+SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
+List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
+List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+
+// mongo
+SqlDdlDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
+List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
+List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+
+// solr
+SqlDdlDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
+List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
+List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+
+// HBase
+SqlDdlDao dao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure");
+List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
+List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+```
+
+## 远期规划
+- sqlCount(sql) // 未实现
+- sqlRemove(sql) // 未实现
+
+## 相关页面
+- [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
+- [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
