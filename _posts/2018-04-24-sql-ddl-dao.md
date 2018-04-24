@@ -36,12 +36,12 @@ List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from syb
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
 // mongo
-SqlDdlDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
+SqlDdlDao dao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
 // solr
-SqlDdlDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
+SqlDdlDao dao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
