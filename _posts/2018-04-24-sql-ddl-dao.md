@@ -22,6 +22,8 @@ SqlDdlStreamDao 会返回 Stream, SqlDdlDao 会返回 list.
 - sqlCount(sql) // 未实现
 - sqlRemove(sql) // 未实现
 
+![]({{site.baseurl}}/images/sql_ddl_dao.png)
+
 
 
 ## 样例 v:0.1.9
@@ -29,17 +31,17 @@ SqlDdlStreamDao 会返回 Stream, SqlDdlDao 会返回 list.
 // sql
 SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
-List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
 // mongo
 SqlDdlDao mongoDao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
-List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
 // solr
 SqlDdlDao solrDao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
-List<SybnJunitBase> sqlFindList = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 
 // HBase
 SqlDdlDao dao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure");
