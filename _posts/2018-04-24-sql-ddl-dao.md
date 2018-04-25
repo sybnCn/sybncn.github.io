@@ -12,7 +12,7 @@ author: sybn
 ## 简介
 SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
-本质上是 QueryCommonDao，GroupByUtil，MapsLeftJoinUtil，DatasCalcUtil 等工具集的sql风格的门面。
+本质上是 QueryCommonDao，DatasGroupByUtil，DatasLeftJoinUtil，DatasCalcUtil 等工具集的sql风格的门面。
 
 目前有4类数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao / SolrStreamDao, HBasesDao, DbutilDao(sql)
 

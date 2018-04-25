@@ -10,9 +10,9 @@ author: sybn
 {:toc}
 
 ## 简介
-GroupByStreamUtil 和 GroupByUtil 可以在各个数据库中执行 groupby 操作.
+XxxGroupByUtil 和 XxxGroupByUtil 可以在各个数据库中执行 groupby 操作.
 
-GroupByStreamUtil 会返回 Stream, GroupByUtil 会返回 list.
+XxxGroupByStreamUtil 接收 Stream 数据, XxxGroupByUtil 接收 Iterable 数据.
 
 目前有3种实现: mongo, solr, java
 
@@ -46,8 +46,8 @@ List<Map<String, Object>> groupByData = SolrGroupByUtil.groupBy(solrDao, sql);
 // 返回值第一行： {"date":"2018419","name":"test","等于二":2,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000}
 
 // java stream
-List<Map<String, Object>> groupByData = JavaGroupByUtil.groupBy(listMap, sql);
-Stream<Map<String, Object>> groupByData = JavaGroupByStreamUtil.groupBy(streamMap, sql);
+List<Map<String, Object>> groupByData = DatasGroupByUtil.groupBy(listMap, sql);
+Stream<Map<String, Object>> groupByData = DatasGroupByStreamUtil.groupBy(streamMap, sql);
 // 返回值第一行： {"date":2018419,"name":"test","等于二":2,"sumNum":16501500,"minNum":1002,"maxNum":9999,"avgNum":5500.5,"countNum":3000,"c":3000}
 ```
 > 注: 反回值中的 (1+1), sum, avg 等函数的返回值会自动降级,返回 double/float/long/int 中不越界不丢精度情况下的空间较小的值
