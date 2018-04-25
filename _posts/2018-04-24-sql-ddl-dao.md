@@ -63,7 +63,7 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 实 现 类|where|groupBy|having|orderBy|limit|join|UDAF
 ----:|---|---|---|---|---|---|---
 DbutilDao|支持|支持|支持|支持|支持|未实现|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
-SolrDao|支持|支持单字段|未实现|支持|支持|未实现|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
+SolrDao|支持|支持单字段 java实现多字段|未实现|支持|支持|未实现|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
 MongoDao|支持|支持|支持|支持|支持|未实现|sum, max, first, avg, count, count(distinct), set, list
 MongoStreamDao|支持|支持|支持|支持|支持|未实现|sum, max, first, avg, count, count(distinct), set, list
 HBasesDao|支持|java实现|未实现|支持|支持|未实现|sum, max, first, avg, count, count(distinct), set, list ...
