@@ -61,12 +61,13 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 ## 支持程度
 实现类|select|from|where|groupBy|having|orderBy|limit|join|UDAF
 ----:|---|---|---|---|---|---|---|---|---
-DbutilDao|支持|支持|支持|支持|支持|支持|支持|未实现|无
-MongoDao|支持|支持|支持|支持|支持|支持|支持|未实现|set,list,count,count(distinct)
-MongoStreamDao|支持|支持|支持|支持|支持|支持|支持|未实现|set,list,count,count(distinct)
-SolrDao|支持|支持|支持|支持单字段|未实现|支持|支持|未实现|无
-HBasesDao|支持|支持|支持|java实现|未实现|支持|支持|未实现|无
-HabseStreamDao|支持|支持|支持|java实现|未实现|支持|支持|未实现|无
+DbutilDao|支持|支持|支持|支持|支持|支持|支持|未实现|sum,max,first,avg,count,count(distinct)...不支持set,list
+SolrDao|支持|支持|支持|支持单字段|未实现|支持|支持|未实现|sum,max,first,avg,count,count(distinct)...不支持set,list
+MongoDao|支持|支持|支持|支持|支持|支持|支持|未实现|sum,max,first,avg,count,count(distinct),set,list
+MongoStreamDao|支持|支持|支持|支持|支持|支持|支持|未实现|sum,max,first,avg,count,count(distinct),set,list
+HBasesDao|支持|支持|支持|java实现|未实现|支持|支持|未实现|sum,max,first,avg,count,count(distinct),set,list
+HabseStreamDao|支持|支持|支持|java实现|未实现|支持|支持|未实现|sum,max,first,avg,count,count(distinct),set,list
+
 
 ## 远期规划
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
