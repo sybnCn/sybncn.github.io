@@ -14,7 +14,7 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 本质上是 QueryCommonDao，DatasGroupByUtil，DatasLeftJoinUtil，DatasCalcUtil 等工具集的sql风格的门面。
 
-目前有4类数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao / SolrStreamDao, HBasesDao, DbutilDao(sql)
+目前有4类数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql)
 
 计划支持以下特性：
 - sqlFindList(sql) / sqlFindStream(sql) // 已实现
@@ -57,6 +57,15 @@ SqlDdlDao dao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecu
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 ```
+
+## 开发进度
+实现类|select|from|where|groupBy|having|orderBy|limit|join
+DbutilDao|支持|支持|支持|支持|支持|支持|支持|未实现
+MongoDao|支持|支持|支持|支持|支持|支持|支持|未实现
+MongoStreamDao|支持|支持|支持|支持|支持|支持|支持|未实现
+SolrDao|支持|支持|支持|支持单字段|未实现|支持|支持|未实现
+HBasesDao|支持|支持|支持|java实现|未实现|支持|支持|未实现
+HabseStreamDao|支持|支持|支持|java实现|未实现|支持|支持|未实现
 
 ## 远期规划
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
