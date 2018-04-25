@@ -70,6 +70,7 @@ HBasesDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count,
 HabseStreamDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 纯java|未实现|支持|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 
+> 纯java 指输入一个list/stream，在内存里对其执行sql
 
 ## 远期规划
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
