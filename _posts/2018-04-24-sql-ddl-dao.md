@@ -58,8 +58,9 @@ List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from syb
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 ```
 
-## 开发进度
+## 支持程度
 实现类|select|from|where|groupBy|having|orderBy|limit|join
+----:|---|---|---|---|---|---|---
 DbutilDao|支持|支持|支持|支持|支持|支持|支持|未实现
 MongoDao|支持|支持|支持|支持|支持|支持|支持|未实现
 MongoStreamDao|支持|支持|支持|支持|支持|支持|支持|未实现
