@@ -56,6 +56,10 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base
 SqlDdlDao dao = new HbaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
 List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+
+// jvm V:0.1.10
+List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, "select * from list where id between '2018-03-20' and '2018-03-21'");
+List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, "select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 ```
 
 ## 支持程度
@@ -71,9 +75,9 @@ HabseStreamDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, c
 DatasSqlDdlEngine|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 
-> DatasSqlDdlEngine / DatasSqlDdlStreamEngine 需要输入一个list/stream，在内存里对其执行sql
+> DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
 > 
-> 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据一致,否则性能会有下降)
+> 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据中的字段类型一致,否则性能会有下降)
 
 ## 远期规划
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
