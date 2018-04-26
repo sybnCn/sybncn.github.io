@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sybn-core
-tags:  sybn-core dao mongo solr HBase 0.1.9
+tags:  sybn-core dao mongo solr HBase 0.1.10
 author: sybn
 ---
 
@@ -27,7 +27,7 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 
 
-## 样例 v:0.1.9
+## 样例 v:0.1.10
 ```java
 /**
  * 所有接口都可以接受 sql / SimpleSqlEntity / SimpleSqlQueryEntity。
@@ -68,9 +68,12 @@ MongoDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(d
 MongoStreamDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list
 HBasesDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 HabseStreamDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
-纯java|未实现|支持|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
+DatasSqlDdlEngine|未实现|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
+DatasSqlDdlStreamEngine|未实现|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
 
-> 纯java 指输入一个list/stream，在内存里对其执行sql
+> DatasSqlDdlEngine / DatasSqlDdlStreamEngine 需要输入一个list/stream，在内存里对其执行sql
+> 
+> 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据一致,否则性能会有下降)
 
 ## 远期规划
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
