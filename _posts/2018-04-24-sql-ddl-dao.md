@@ -31,10 +31,14 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 ```java
 /**
  * 所有接口都可以接受 sql / SimpleSqlEntity / SimpleSqlQueryEntity。
- * 静态查询用sql，动态查询用 SimpleSqlEntity / SimpleSqlQueryEntity。
+ * 静态查询传sql，动态查询传 SimpleSqlEntity / SimpleSqlQueryEntity。
+ * 
+ * // sql / SimpleSqlEntity / SimpleSqlQueryEntity 可以使用以下代码互相转换
  * SimpleSqlEntity sqlEntity = new SimpleSqlEntity(sql); // 用sql构造SimpleSqlEntity
- * sqlEntity.getWhere.add("day between '2018-03-20' and '2018-03-21'"); // 向sql添加条件
- * sqlEntity.getWhereQuery.like("name", "123"); // 向sql添加条件
+ * sqlEntity.getWhere.add("day between '2018-03-20' and '2018-03-21'"); // 向SimpleSqlEntity添加条件
+ * SimpleSqlQueryEntity sqlEntity = new SimpleSqlQueryEntity(sql); // 用sql构造SimpleSqlEntity
+ * sqlEntity.getWhereQuery.like("name", "123"); // 向SimpleSqlQueryEntity添加条件
+ * String sql = sqlEntity.toString(); // SimpleSqlEntity / SimpleSqlQueryEntity 可以转sql
  */
 
 // sql
