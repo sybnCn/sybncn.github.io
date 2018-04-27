@@ -45,14 +45,20 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 实现类|where|groupBy|having|orderBy|limit|UDAF
 ----:|---|---|---|---|---|---
-DbutilDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
-SolrDao|支持|原生支持单字段 java实现多字段|未实现|支持|支持|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
-MongoDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list
-MongoStreamDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list
-HBasesDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
-HabseStreamDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
-DatasSqlDdlEngine|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
-DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
+DbutilDao|支持|支持|支持|支持|支持|不支持: set, list
+SolrDao|支持|原生支持单字段 java实现多字段|未实现|支持|支持|不支持: set, list
+MongoDao|支持|支持|支持|支持|支持|set, list
+MongoStreamDao|支持|支持|支持|支持|支持|set, list
+HBasesDao|支持|java实现|未实现|支持|支持|set, list ...
+HabseStreamDao|支持|java实现|未实现|支持|支持|set, list ...
+DatasSqlDdlEngine|支持|支持|支持|支持|支持|set, list ...
+DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|set, list ...
+
+> 默认都支持聚合函数 sum, min, max, first, last, avg, count, count(distinct)
+>
+> 自定义函数 set 是指将数据去重转 set 输出
+> 自定义函数 list 是指将数据转 lsit 输出
+> 更多自定义函数另行说明
 
 > DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
 > 
