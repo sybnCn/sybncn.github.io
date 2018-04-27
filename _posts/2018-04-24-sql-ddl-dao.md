@@ -16,13 +16,6 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 目前有4类数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql)
 
-计划支持以下特性：
-- sqlFindList(sql) / sqlFindStream(sql) // 已实现
-- sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
-- sqlCount(sql) // 已实现
-- sqlRemove(sql) // 未实现
-- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
-
 ![]({{site.baseurl}}/images/sql_ddl_dao_2.png)
 
 
@@ -65,7 +58,13 @@ DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|sum, max, first, avg,
 > 
 > 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据中的字段类型一致,否则性能会有下降)
 
-## 远期规划
+## 规划
+计划支持以下特性：
+- sqlFindList(sql) / sqlFindStream(sql) // 已实现
+- sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
+- sqlCount(sql) // 已实现
+- sqlRemove(sql) // 未实现
+- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ## 相关页面
