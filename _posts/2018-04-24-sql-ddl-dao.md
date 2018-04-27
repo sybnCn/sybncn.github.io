@@ -62,7 +62,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, "select * 
 实现类|where|groupBy|having|orderBy|limit|UDAF
 ----:|---|---|---|---|---|---
 DbutilDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
-SolrDao|支持|支持单字段 java实现多字段|未实现|支持|支持|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
+SolrDao|支持|原生支持单字段 java实现多字段|未实现|支持|支持|sum, max, first, avg, count, count(distinct) ... 不支持: set, list
 MongoDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list
 MongoStreamDao|支持|支持|支持|支持|支持|sum, max, first, avg, count, count(distinct), set, list
 HBasesDao|支持|java实现|未实现|支持|支持|sum, max, first, avg, count, count(distinct), set, list ...
