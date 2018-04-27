@@ -29,18 +29,21 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 ## 样例 v:0.1.10
 ```java
+String sqlFind = "select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
+String sqlCount = "select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
+
 // sql / mongo / solr / HBaseDa
 SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
 SqlDdlDao dao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
 SqlDdlDao dao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
 SqlDdlDao dao = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure");
-List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
-List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
-long count = dao.sqlCount("select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'");
+List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap(sqlFind);
+List<SybnJunitBase> sqlFindList = dao.sqlFindList(sqlFind, SybnJunitBase.class);
+long count = dao.sqlCount(sqlCount);
 
 // jvm
-List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, "select * from list where id between '2018-03-20' and '2018-03-21'");
-List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, "select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
+List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, sqlFind);
+List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, SybnJunitBase.class);
 ```
 
 > 注意: sql实际上会翻译为各个数据库自己的语言去执行,因此类似于: "where day = now()" 这样带有的 sql 专属函数 "now()" 的语句是不被支持的. 
