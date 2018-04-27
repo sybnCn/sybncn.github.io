@@ -29,17 +29,7 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 
 ## 样例 v:0.1.10
 ```java
-// sql / SimpleSqlEntity / SimpleSqlQueryEntity 可以使用以下代码互相转换
-SimpleSqlEntity sqlEntity = new SimpleSqlEntity(sql); // 用sql构造SimpleSqlEntity
-sqlEntity.getWhere.add("day between '2018-03-20' and '2018-03-21'"); // 向SimpleSqlEntity添加条件
-SimpleSqlQueryEntity sqlEntity = new SimpleSqlQueryEntity(sql); // 用sql构造SimpleSqlEntity
-sqlEntity.getWhereQuery.like("name", "123"); // 向SimpleSqlQueryEntity添加条件
-String sql = sqlEntity.toString(); // SimpleSqlEntity / SimpleSqlQueryEntity 可以转sql
 
-/**
- * 所有接口都可以接受 sql / SimpleSqlEntity / SimpleSqlQueryEntity。
- * 静态查询传sql，动态查询传 SimpleSqlEntity / SimpleSqlQueryEntity。
- */
 // sql
 SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test");
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap("select * from sybn_junit_base where day between '2018-03-20' and '2018-03-21'");
@@ -64,6 +54,8 @@ List<SybnJunitBase> sqlFindList = dao.sqlFindList("select * from sybn:sybn_junit
 List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, "select * from list where id between '2018-03-20' and '2018-03-21'");
 List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, "select * from sybn:sybn_junit_base where id between '2018-03-20' and '2018-03-21'", SybnJunitBase.class);
 ```
+
+> 注意: sql实际上会翻译为各个数据库自己的语言去执行,因此类似于: "where day = now()" 这样带有的 sql 专属函数 "now()" 的语句是不被支持的. 
 
 ## 支持程度
 
