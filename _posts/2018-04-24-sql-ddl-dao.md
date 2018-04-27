@@ -56,9 +56,9 @@ DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|set, list ...
 
 > 默认都支持聚合函数 sum, min, max, first, last, avg, count, count(distinct)
 >
-> 自定义函数 set 是指将数据去重转 set 输出
-> 自定义函数 list 是指将数据转 lsit 输出
-> 更多自定义函数另行说明
+> * 自定义函数 set 是指将数据去重转 set 输出
+> * 自定义函数 list 是指将数据转 lsit 输出
+> * 更多自定义函数另行说明
 
 > DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
 > 
