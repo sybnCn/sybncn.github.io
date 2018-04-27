@@ -23,7 +23,7 @@ SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
 
-![]({{site.baseurl}}/images/sql_ddl_dao.png)
+![]({{site.baseurl}}/images/sql_ddl_dao_2.png)
 
 
 
