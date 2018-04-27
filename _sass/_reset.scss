@@ -44,41 +44,41 @@ button {
 hr {
     border: 0;
     border-top: 1px solid #eee;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 ///////////
 h1 {
-    font-size: 30px;
+    font-size: 24px;
 }
 h2 {
-    font-size: 26px;
+    font-size: 22px;
     border-bottom: 1px solid #eee;
-    margin: 50px 0 25px;
+    margin: 25px 0 15px;
 }
 h3 {
-    font-size: 23px;
-    margin: 50px 0 20px;
+    font-size: 20px;
+    margin: 25px 0 10px;
 }
 h4 {
-    font-size: 19px;
-    margin: 30px 0 10px;
+    font-size: 18px;
+    margin: 15px 0 5px;
 }
 h5 {
     font-size: 17px;
-    margin: 20px 0 10px;
+    margin: 10px 0 5px;
 }
 h6 {
     font-size: 16px;
-    margin: 10px 0 5px;
+    margin: 5px 0 5px;
 }
 blockquote {
     color: #444;
     border-left: 5px solid #D6DBDF;
     padding-left: 15px;
     background: rgba(112,138,153,.1);
-    padding: 10px 20px;
-    margin: 0 0 20px;
+    padding: 5px 40px;
+    margin: 0 0 40px;
     p:last-of-type{
         margin: 0;
     }
@@ -86,7 +86,7 @@ blockquote {
 table {
     border-top: 2px solid #777;
     border-bottom: 2px solid #777;
-    margin: 8px 0;
+    margin: 6px 0;
     border-collapse: collapse;
     thead {
         border-bottom: 1px solid #777;
@@ -94,7 +94,7 @@ table {
         color: #fff;
     }
     th {
-        padding: 2px 10px;
+        padding: 2px 5px;
         text-align: left;
     }
     tbody {
@@ -108,11 +108,11 @@ table {
         }
     }
     td {
-        padding: 2px 10px;
+        padding: 2px 5px;
     }
 }
 p {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
 }
 img {
     max-width: 100%;
