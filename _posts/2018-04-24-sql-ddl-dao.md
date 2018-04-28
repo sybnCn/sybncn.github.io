@@ -64,6 +64,10 @@ DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|set, list ...
 > 
 > 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据中的字段类型一致,否则性能会有下降)
 
+> 注意: mongo 对类型敏感 a = 0 和 a = "0" 的返回值不一样.
+>
+> 其他数据库 a = 0 和 a = "0" 的返回值一致,但两种写法有性能差异.
+
 ## 规划
 计划支持以下特性：
 - sqlFindList(sql) / sqlFindStream(sql) // 已实现
