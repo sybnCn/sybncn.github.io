@@ -47,8 +47,8 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 ----:|---|---|---|---|---|---
 DbutilDao|支持|支持|支持|支持|支持|不支持: set, list
 SolrDao|支持|原生支持单字段 java实现多字段|未实现|支持|支持|不支持: set, list
-MongoDao|支持|支持|支持|支持|支持|set, list
-MongoStreamDao|支持|支持|支持|支持|支持|set, list
+MongoDao|支持|支持|支持|支持|支持|set, list, subcount
+MongoStreamDao|支持|支持|支持|支持|支持|set, list, subcount
 HBasesDao|支持|java实现|未实现|支持|不支持 skip 只支持 limit|set, list ...
 HabseStreamDao|支持|java实现|未实现|支持|不支持 skip 只支持 limit|set, list ...
 DatasSqlDdlEngine|支持|支持|支持|支持|支持|set, list ...
