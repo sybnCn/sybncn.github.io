@@ -17,6 +17,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 
 
 ### ReadConfUtil 说明
+
 - 各个数据库都有 xxxDaoConfImpl 这样一个实现类，提供的使用配置文件构造 xxxDao 的实现类。
 - 实际上调用的则是 cn.sybn.singleutil.ReadConfUtil
 - 直接使用 ReadConfUtil.getValue("参数名") 或者  ReadConfUtil.getValue("参数名@配置文件名") 记得得到配置文件属性，属性从配置文件读取后会缓存一小会，不会频繁读取文件。
@@ -27,6 +28,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 
 
 ### 用法举例
+
 - 配置文件
 
 ```bash
