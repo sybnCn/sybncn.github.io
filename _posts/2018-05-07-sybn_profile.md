@@ -29,7 +29,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 ## 用法举例
 - 配置文件
 
-```Bash
+```bash
 ## sybnuitl_test.properties
 # 不带空格,实际值:"111111"
 value1=111111
