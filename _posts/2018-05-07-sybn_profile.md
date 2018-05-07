@@ -30,7 +30,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 
 ## 用法举例
 - 配置文件
-···
+```
 ## sybnuitl_test.properties
 # 不带空格,实际值:"111111"
 value1=111111
@@ -38,9 +38,9 @@ value1=111111
 value2 = 222222   
 # 变量内含变量,会被替换,实际值:"333111111333"
 value3=333${value1}333
-···
+```
 - 读取属性
-···java
+```java
 // 从默认配置文件获取属性值
 System.setProperty(SYBN_CONF, "sybnuitl_test.properties"); 
 // or  java -jar -DSYBN_CONF=sybnuitl_test.properties
@@ -55,5 +55,5 @@ String value3 = ReadConfUtil.getValue("value3@/ust/local/sybn/junit/sybnuitl_tes
 System.setProperty("JUNIT_CONF", "sybnuitl_test");
 // or  java -jar -DJUNIT_CONF=sybnuitl_test
 String value4 = getValue("value3@{JUNIT_CONF}.properties");
-···
+```
 
