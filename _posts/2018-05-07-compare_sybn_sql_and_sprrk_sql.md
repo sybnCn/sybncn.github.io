@@ -19,7 +19,7 @@ sybn util 中关于 使用 sql 查询各个数据库的业务,暂时命名为 sy
 
 
 
-### sybn sql 与 spark sql 的相同点
+## sybn sql 与 spark sql 的相同点
 
 - 将业务逻辑sql化,提高易用性和可读性,不用写很多代码,通过sql语句能以比较易读的方式实现复杂业务.
 
