@@ -12,12 +12,13 @@ author: sybn
 ## 简介
 sybn util 中关于 使用 sql 查询各个数据库的业务,暂时命名为 sybn sql.
 
-目前主要是 SqlDdlDao 和 SqlDdlStreamDao, 及其在各个数据库的实现: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql), DatasSqlDdlEngine / DatasSqlDdlStreamEngine
+目前主要是 SqlDdlDao 和 SqlDdlStreamDao, 及其在各个数据库的实现: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql), DatasSqlDdlEngine / DatasSqlDdlStreamEngine 等.
+
 
 
 
 ## sybn sql 与 spark sql 的相同点
-- 主打易用性,不用写很多代码,通过sql语句能以比较易读的方式实现复杂业务.
+- 将业务逻辑sql化,提高易用性和可读性,不用写很多代码,通过sql语句能以比较易读的方式实现复杂业务.
 
 ## sybn sql 与 spark sql 的不同点
 - sybn sql 支持sql特性比较简单,目前仅支持 select, from, where, group by, having, order by, limit 关键字, 正在努力将 left join 相关工具类集成进来.
