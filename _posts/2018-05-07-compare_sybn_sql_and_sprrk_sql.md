@@ -2,7 +2,7 @@
 layout: post
 title:  "sybn sql 与 spark sql 的对比"
 categories: sybn-core
-tags:  sybn-core dao 0.1.10
+tags:  sybn-core dao 0.1.11
 author: sybn
 ---
 
@@ -26,6 +26,7 @@ sybn util 中关于 使用 sql 查询各个数据库的业务,暂时命名为 sy
 - 将业务逻辑 sql 化,提高易用性和可读性.
 - 不用写很多代码,通过 sql 语句能以比较易读的方式实现复杂业务.
 - 可以自定义 udaf 扩展功能.
+- sybn sql 已经支持运行在 spark 环境中. (V:0.1.11)
 
 ### sybn sql 与 spark sql 的不同点
 
