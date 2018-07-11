@@ -80,7 +80,7 @@ mybatis占位符|支持|支持|支持|支持|支持
 - sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
 - sqlCount(sql) // 已实现
 - sqlRemove(sql) // 未实现
-- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 未实现
+- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 已实现
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
 
 ## 相关页面
