@@ -57,13 +57,15 @@ SKIP,LIMI|支持|支持|支持|JAVA实现|JAVA实现
 sum,avg,max...|支持|支持|支持|JAVA实现|JAVA实现
 set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
+year,month,dayofmonth...|支持|不支持|开发中...|暂不支持|暂不支持
 CASE WHEN|支持|暂不支持|开发中...|暂不支持|暂不支持
 ?占位符|支持|支持|支持|支持|支持
 mybatis占位符|支持|支持|支持|支持|支持
 
-
-> * 自定义UDAF函数 set 是指将数据去重转 set 输出
-> * 自定义UDAF函数 list 是指将数据转 lsit 输出
+> 关于私有 UDAF
+> * 自定义函数 set 是指将数据转 set 输出(删除重复项)
+> * 自定义函数 list 是指将数据转 list 输出
+> * 自定义函数 scopelist 是指将数据按时间转 list 输出,一般用于生成折线图,无数据的时间点使用默认值代替
 > * 更多自定义函数另行说明
 
 > DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
