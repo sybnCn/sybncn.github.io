@@ -26,7 +26,10 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 - 实际上调用的则是 cn.sybn.singleutil.ReadConfUtil
 - 直接使用 ReadConfUtil.getValue("参数名") 或者  ReadConfUtil.getValue("参数名@配置文件名") 记得得到配置文件属性，属性从配置文件读取后会缓存一小会，不会频繁读取文件。
 - 如果有与参数名同名的系统属性，则优先使用系统属性，忽略配置文件中的值。 因此使用 java -jar -Dxxx=123 可以覆盖配置文件中的 xxx。
-> 注意： ReadConfUtil 属于 cn.sybn.singleutil 包.
+
+> 提示：
+> 
+> ReadConfUtil 属于 cn.sybn.singleutil 包.
 > 
 > 因此他是一个独立工具类，在必要时直接将这个类复制到其他项目中可以单独使用，不需要依赖整个 sybn util 包。
 
