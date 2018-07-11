@@ -45,11 +45,11 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 ## 支持程度 V:0.2.6
 
-功能|DbutilDao(MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine(List&lt;T&gt;)
+功能|DbutilDao (MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine (List&lt;T&gt;)
 ----:|---|---|---|---|---|---
 SELECT|支持|支持|支持|支持|支持
 FROM|支持|支持|支持|支持|忽略
-WHERE|支持|支持(区分字段类型)|支持(区分字段类型)|支持|JAVA实现
+WHERE|支持|支持 (区分字段类型)|支持 (区分字段类型)|支持|JAVA实现
 GROUP BY|支持|半原生半JAVA|支持|JAVA实现|JAVA实现
 HAVING|支持|JAVA实现|支持|JAVA实现|JAVA实现
 ORDER BY|支持|支持|支持|支持|JAVA实现
