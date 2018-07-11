@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "excel 工具"
-categories: sybn-core
-tags:  sybn-core bean 0.3.26
+categories: office-util
+tags:  office-util 0.2.6
 author: sybn
 ---
 
