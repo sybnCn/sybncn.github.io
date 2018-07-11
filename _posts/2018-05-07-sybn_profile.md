@@ -57,9 +57,12 @@ System.setProperty(SYBN_CONF, "sybnuitl_test.properties");
 String value = ReadConfUtil.getValue("value1"); // 111111
 
 // 从指定配置文件获取属性值
-String value1 = ReadConfUtil.getValue("value1@sybnuitl_test.properties"); // 111111
-String value2 = ReadConfUtil.getValue("value2@./sybnuitl_test.properties"); // 222222
-String value3 = ReadConfUtil.getValue("value3@/ust/local/sybn/junit/sybnuitl_test.properties"); // 333111111333
+// value1 = 111111
+String value1 = ReadConfUtil.getValue("value1@sybnuitl_test.properties"); // jar中搜索配置文件
+// value2 = 222222
+String value2 = ReadConfUtil.getValue("value2@./sybnuitl_test.properties"); // 相对路径配置文件
+// value3 = 333111111333
+String value3 = ReadConfUtil.getValue("value3@/usr/local/sybn/sybnuitl_test.properties"); // 绝对路径
 
 // 从变量中指定的配置文件获取属性值 (支持操作系统环境变量)
 System.setProperty("JUNIT_CONF", "sybnuitl_test");
