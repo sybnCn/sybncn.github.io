@@ -53,14 +53,14 @@ WHERE|支持|支持 (区分字段类型)|支持 (区分字段类型)|支持|JAVA
 GROUP BY|支持|半原生半JAVA|支持|JAVA实现|JAVA实现
 HAVING|支持|JAVA实现|支持|JAVA实现|JAVA实现
 ORDER BY|支持|支持|支持|支持|JAVA实现
-SKIP,LIMI|支持|支持|支持|JAVA实现|JAVA实现
-sum,avg,max...|支持|支持|支持|JAVA实现|JAVA实现
-set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
+SKIP, LIMI|支持|支持|支持|JAVA实现|JAVA实现
+sum, avg, max ...|支持|支持|支持|JAVA实现|JAVA实现
+set, list ...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
-year,month,hour...|支持|不支持|开发中...|暂不支持|暂不支持
+year, month, hour ...|支持|不支持|开发中...|暂不支持|暂不支持
 CASE WHEN|支持|暂不支持|开发中...|暂不支持|暂不支持
-?占位符|支持|支持|支持|支持|支持
-mybatis占位符|支持|支持|支持|支持|支持
+? 占位符|支持|支持|支持|支持|支持
+mybatis 占位符|支持|支持|支持|支持|支持
 
 > 关于私有 UDAF
 > * 自定义函数 set 是指将数据转 set 输出(删除重复项)
