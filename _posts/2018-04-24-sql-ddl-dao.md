@@ -45,7 +45,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 ## 支持程度 V:0.2.6
 
-功能|DbutilDao(MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine(List&lt:T&gt;)
+功能|DbutilDao(MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine(List&lt;T&gt;)
 ----:|---|---|---|---|---|---
 SELECT|支持|支持|支持|支持|支持
 FROM|支持|支持|支持|支持|忽略
