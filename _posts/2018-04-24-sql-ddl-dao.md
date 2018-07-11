@@ -43,18 +43,21 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 > 注意：Hbase 的所有条件都是按字符串顺序比较的所以会出现 9 > 10， 在设计数据表时，最好提前填充0。
 
-## 支持程度
+## 支持程度 V:0.2.6
 
-实现类|where|groupBy|having|orderBy|skip,limi|UDAF
+功能|DbutilDao|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine
 ----:|---|---|---|---|---|---
-DbutilDao|支持|支持|支持|支持|支持|不支持: set, list
-SolrDao|支持|原生支持单字段 java实现多字段|未实现|支持|支持|不支持: set, list
-MongoDao|支持|支持|支持|支持|支持|set, list, subcount
-MongoStreamDao|支持|支持|支持|支持|支持|set, list, subcount
-HBasesDao|支持|java实现|未实现|支持|不支持 skip 只支持 limit|set, list ...
-HabseStreamDao|支持|java实现|未实现|支持|不支持 skip 只支持 limit|set, list ...
-DatasSqlDdlEngine|支持|支持|支持|支持|支持|set, list ...
-DatasSqlDdlStreamEngine|支持|支持|支持|支持|支持|set, list ...
+SELECT|支持|支持|支持|支持|支持
+FROM|支持|支持|支持|支持|忽略
+WHERE|支持|支持(区分字段类型)|支持(区分字段类型)|支持|JAVA实现
+GROUP BY|支持|半原生半JAVA|支持|JAVA实现|JAVA实现
+HAVING|支持|JAVA实现|支持|JAVA实现|JAVA实现
+ORDER BY|支持|支持|支持|支持|JAVA实现
+SKIP,LIMI|支持|支持|支持|JAVA实现|JAVA实现
+sum,avg,max...|支持|支持|支持|JAVA实现|JAVA实现
+set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
+count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
+CASE WHEN|支持|暂不支持|暂不支持|暂不支持|暂不支持
 
 > 默认都支持聚合函数 sum, min, max, first, last, avg, count, count(distinct)
 >
