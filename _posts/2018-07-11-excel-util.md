@@ -2,7 +2,7 @@
 layout: post
 title:  "excel 工具"
 categories: office-util
-tags:  office-util 0.2.6
+tags:  office-util excel xls xlsx 0.2.6
 author: sybn
 ---
 
