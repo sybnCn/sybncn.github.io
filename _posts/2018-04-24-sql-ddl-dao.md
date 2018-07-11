@@ -57,7 +57,7 @@ SKIP,LIMI|支持|支持|支持|JAVA实现|JAVA实现
 sum,avg,max...|支持|支持|支持|JAVA实现|JAVA实现
 set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
-CASE WHEN|支持|暂不支持|暂不支持|暂不支持|暂不支持
+CASE WHEN|支持|暂不支持|开发中...|暂不支持|暂不支持
 ?占位符|支持|支持|支持|支持|支持
 mybatis占位符|支持|支持|支持|支持|支持
 
