@@ -58,6 +58,9 @@ sum,avg,max...|支持|支持|支持|JAVA实现|JAVA实现
 set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
 CASE WHEN|支持|暂不支持|暂不支持|暂不支持|暂不支持
+?占位符|支持|支持|支持|支持|支持
+mybatis占位符|支持|支持|支持|支持|支持
+
 
 > * 自定义UDAF函数 set 是指将数据去重转 set 输出
 > * 自定义UDAF函数 list 是指将数据转 lsit 输出
