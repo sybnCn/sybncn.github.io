@@ -59,17 +59,15 @@ set,list...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
 CASE WHEN|支持|暂不支持|暂不支持|暂不支持|暂不支持
 
-> 默认都支持聚合函数 sum, min, max, first, last, avg, count, count(distinct)
->
-> * 自定义函数 set 是指将数据去重转 set 输出
-> * 自定义函数 list 是指将数据转 lsit 输出
+> * 自定义UDAF函数 set 是指将数据去重转 set 输出
+> * 自定义UDAF函数 list 是指将数据转 lsit 输出
 > * 更多自定义函数另行说明
 
 > DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
 > 
-> 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (需要sql语句中的字段类型与数据中的字段类型一致,否则性能会有下降)
+> 实测 100,000 个 Map/bean 对象 where 查询的性能在 50ms 以内 (前提是sql语句中的字段类型与数据类型一致,否则也可以正确执行,但性能会下降)
 
-> 注意: mongo 对类型敏感 a = 0 和 a = "0" 的返回值不一样.
+> 注意: mongo/solr 对类型敏感 a = 0 和 a = "0" 的返回值不一样.
 >
 > 其他数据库 a = 0 和 a = "0" 的返回值一致,但两种写法有性能差异.
 
