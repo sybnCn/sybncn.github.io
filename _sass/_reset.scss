@@ -83,6 +83,13 @@ blockquote {
         margin: 0;
     }
 }
+ul{
+	margin: 5px;
+	padding-left:4em;
+}
+blockquote ul, table ul{
+	margin: 0;
+}
 table {
     font-size: 14px;
     border-top: 2px solid #777;
