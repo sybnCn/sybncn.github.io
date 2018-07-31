@@ -53,7 +53,8 @@ WHERE|支持|支持 (区分字段类型)|支持 (区分字段类型)|支持|JAVA
 GROUP BY|支持|半原生半JAVA|支持|JAVA实现|JAVA实现
 HAVING|支持|JAVA实现|支持|JAVA实现|JAVA实现
 ORDER BY|支持|支持|支持|支持|JAVA实现
-SKIP, LIMI|支持|支持|支持|JAVA实现|JAVA实现
+OFFSET|支持|支持|支持|JAVA实现|JAVA实现
+LIMIT|支持|支持|支持|JAVA实现|JAVA实现
 sum, avg, max ...|支持|支持|支持|JAVA实现|JAVA实现
 set, list ...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
