@@ -59,7 +59,9 @@ sum, avg, max ...|支持|支持|支持|JAVA实现|JAVA实现
 set, list ...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
 year, month, hour ...|支持|不支持|支持|暂不支持|暂不支持
-CASE WHEN|支持|暂不支持|支持|暂不支持|暂不支持
+(CASE WHEN ...) as a|支持|支持|支持|支持|支持
+(x + y) as a|支持|支持|支持|支持|支持
+sum(CASE WHEN ...) as a|支持|暂不支持|支持|暂不支持|暂不支持
 ? 占位符|支持|支持|支持|支持|支持
 mybatis 占位符|支持|支持|支持|支持|支持
 
