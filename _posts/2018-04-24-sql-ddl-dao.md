@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sybn-core
-tags:  sybn-core dao sql mongo solr HBase groupBy 0.2.6
+tags:  sybn-core dao sql mongo solr HBase groupBy 0.2.8
 author: sybn
 ---
 
@@ -43,7 +43,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 > 注意：Hbase 的所有条件都是按字符串顺序比较的所以会出现 9 > 10， 在设计数据表时，最好提前填充0。
 
-## 支持程度 V:0.2.6
+## 支持程度 V:0.2.8
 
 功能|DbutilDao (MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine (List&lt;T&gt;)
 ----:|---|---|---|---|---|---
@@ -58,8 +58,8 @@ LIMIT|支持|支持|支持|JAVA实现|JAVA实现
 sum, avg, max ...|支持|支持|支持|JAVA实现|JAVA实现
 set, list ...|暂不支持|暂不支持|支持|JAVA实现|JAVA实现
 count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
-year, month, hour ...|支持|不支持|开发中...|暂不支持|暂不支持
-CASE WHEN|支持|暂不支持|开发中...|暂不支持|暂不支持
+year, month, hour ...|支持|不支持|支持|暂不支持|暂不支持
+CASE WHEN|支持|暂不支持|支持|暂不支持|暂不支持
 ? 占位符|支持|支持|支持|支持|支持
 mybatis 占位符|支持|支持|支持|支持|支持
 
