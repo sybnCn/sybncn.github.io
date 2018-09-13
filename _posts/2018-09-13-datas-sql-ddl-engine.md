@@ -34,7 +34,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 已经支持如下函数： avg, sum, count, count(distinct x), max, min, list, set 等
 
-支持如下占位符：  xxx = ?, xxx in (?), xxx > #{xxx}
+支持如下占位符： xxx = ?, xxx in (?), xxx > #{xxx}
 
 
 ### 注意事项 0.2.12
