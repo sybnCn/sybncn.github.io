@@ -24,7 +24,7 @@ DatasSqlDdlEngine 是针对 List 执行 sql 语句的工具。
 String sqlFind = "select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 String sqlCount = "select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 
-// jvm
+// 入参list中可以是Map或JavaBean，返回值同样可以是Map或JavaBean
 List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, sqlFind);
 List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, SybnJunitBase.class);
 ```
