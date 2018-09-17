@@ -33,7 +33,7 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 ### 支持非标准sql功能 V:0.2.12
 
-与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll
+与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll, first, last
 
 与其他dao一样,都支持如下 UDF 函数: toInt, toLong, toDate, trim, subString, replace, replaceAll
 
