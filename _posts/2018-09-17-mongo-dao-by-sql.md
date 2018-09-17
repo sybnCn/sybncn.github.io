@@ -53,13 +53,13 @@ map.put("list", list)
 dao.sqlFindListMap("select * from a in (#{xxx})", map);
 ```
 
-MongoDao 在 group by 时还支持了简单的 Case When:
+MongoDao 在 group by 时还支持了简单的 Case When, 此函数莫mongo专有:
 
 ```
 select a sum(case when t > 0 then 1 else 2 end) as tt from data group by a
 ```
 
-MongoDao 在 group by 时,还支持 UDTF 函数 unwind :
+MongoDao 在 group by 时,还支持 UDTF 函数 unwind, 此函数莫mongo专有:
 
 ```
 // 以下两种写法等效
