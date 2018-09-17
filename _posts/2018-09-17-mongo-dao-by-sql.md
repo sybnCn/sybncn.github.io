@@ -13,6 +13,9 @@ author: sybn
 
 MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出说明。
 
+注意: 所有关键字和函数名都不区分大小写,字段名区分大小写
+
+
 
 
 
@@ -22,15 +25,17 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 已经支持如下关键字： select, from, where, group by, having, order by, skip, limit.
 
-在 group by 时,已经支持如下函数UDAF： avg, sum, count, count(distinct x), max, min
+在 group by 时,已经支持如下 UDAF 函数： avg, sum, count, count(distinct x), max, min
 
-在 group by 时,已经支持如下函数UDF: year, month, dayofmonth, hour, minute, second, millisecond, dayofyear, dayofweek, week 等 
+在 group by 时,已经支持如下 UDF 函数: year, month, dayofmonth, hour, minute, second, millisecond, dayofyear, dayofweek, week 等 
 
 支持问号占位符： xxx = ?
 
 ### 支持非标准sql功能 V:0.2.12
 
-与其他dao一样,还支持如下函数: avgpositive, avgnz, countall, countall(distinct x), list, set, listall, setall
+与其他dao一样,还支持如下 UDAF 函数: avgpositive, avgnz, countall, countall(distinct x), list, set, listall, setall
+
+与其他dao一样,还支持如下 UDF 函数: toInt, toLong, toDate, trim, substring
 
 与其他dao一样,还支持如下占位符： xxx in (?), xxx > #{xxx}
 
