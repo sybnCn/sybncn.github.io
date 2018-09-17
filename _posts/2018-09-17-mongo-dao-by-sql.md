@@ -33,11 +33,25 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 ### 支持非标准sql功能 V:0.2.12
 
-与其他dao一样,还支持如下 UDAF 函数: avgpositive, avgnz, countall, countall(distinct x), list, set, listall, setall
+与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll
 
-与其他dao一样,还支持如下 UDF 函数: toInt, toLong, toDate, trim, substring
+与其他dao一样,都支持如下 UDF 函数: toInt, toLong, toDate, trim, subString, replace, replaceAll
 
-与其他dao一样,还支持如下占位符： xxx in (?), xxx > #{xxx}
+与其他dao一样,都支持如下占位符： xxx in (?), xxx > #{xxx} 举例:
+
+```
+// 传统sql占位符
+dao.sqlFindListMap("select * from a in (?,?,?)", 1,2,3);
+
+// 一个?占位一个集合
+List<Integer> list = ListUtil.toList(1,2,3);
+dao.sqlFindListMap("select * from a in (?)", list);
+
+// myBatis 风格
+Map<String, Object> map = new HashMap();
+map.put("list", list)
+dao.sqlFindListMap("select * from a in (#{xxx})", map);
+```
 
 MongoDao 在 group by 时还支持了简单的 Case When:
 
