@@ -56,7 +56,12 @@ dao.sqlFindListMap("select * from a in (#{xxx})", map);
 MongoDao 在 group by 时还支持了简单的 Case When, 此函数莫mongo专有:
 
 ```
-select a sum(case when t > 0 then 1 else 2 end) as tt from data group by a
+// 以下两种写法等效
+select a sum(case when t = 0 then 0 else 1 end) as tt from data group by a
+select a sum(case t when 0 then 0 else 1 end) as tt from data group by a
+
+// TODO 目前暂时不支持多和when，比如下面的大写部分：
+select a sum(case t when 0 then 0 WHEN 1 THEN 1 else 2 end) as tt from data group by a
 ```
 
 MongoDao 在 group by 时,还支持 UDTF 函数 unwind, 此函数莫mongo专有:
