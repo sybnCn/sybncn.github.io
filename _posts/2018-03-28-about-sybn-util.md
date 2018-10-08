@@ -35,7 +35,7 @@ sybn util 是本人积累的java工具集，其主要包括：
 - 独立工具集 sybn-core cn.sybn.singleutil 包
 
   此包下所有工具没有额外依赖，可以拎出来独立运行。
-  默认只依赖如下开源库： self4j,junit,apache-commons-lang3
+  默认只依赖如下开源库： slf4j, junit, apache-commons, jackson
   部分测试业务依赖了其他包，但是可以随时删除。
   
 - 复杂工具集 sybn-core cn.sybn.util 包
