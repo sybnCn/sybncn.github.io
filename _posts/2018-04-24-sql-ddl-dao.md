@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sybn-core
-tags:  sybn-core dao sql mongo solr HBase groupBy 0.2.8
+tags:  sybn-core dao sql mongo solr HBase groupBy 0.2.13
 author: sybn
 ---
 
@@ -43,7 +43,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 > 注意：Hbase 的所有条件都是按字符串顺序比较的所以会出现 9 > 10， 在设计数据表时，最好提前填充0。
 
-## 支持程度 V:0.2.8
+## 支持程度 V:0.2.13
 
 功能|DbutilDao (MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine (java collection)
 ----:|---|---|---|---|---|---
