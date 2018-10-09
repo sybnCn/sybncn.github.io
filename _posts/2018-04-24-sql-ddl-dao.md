@@ -61,7 +61,7 @@ count(distinct x)|支持|支持|支持|JAVA实现|JAVA实现
 year, month, hour ...|支持|不支持|支持|暂不支持|暂不支持
 (x + y) as calc|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 (CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
-sum(CASE WHEN ...) as a|支持|暂不支持|支持|暂不支持|暂不支持
+sum(CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 ? 占位符|支持|支持|支持|支持|支持
 mybatis 占位符|支持|支持|支持|支持|支持
 
