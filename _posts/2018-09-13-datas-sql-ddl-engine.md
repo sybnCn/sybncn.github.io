@@ -18,7 +18,7 @@ DatasSqlDdlEngine 是针对 List 执行 sql 语句的工具。
 该系列有3个实现类:
 *  DatasSqlDdlEngine 处理 list
 *  DatasSqlDdlStreamEngine 处理 stream
-*  DatasSqlDdlStreamAsyncEngine 异步处理 stream,不消耗流返回新的流
+*  DatasSqlDdlStreamAsyncEngine 异步处理 stream, 原样返回新的流, 通过 callback 输出结果
 
 
 
@@ -42,7 +42,7 @@ List<SybnJunitBase> result2 = DatasSqlDdlEngine.sqlFindList(list, sqlFind, SybnJ
 List<Map<String, Object>> result3 = DatasSqlDdlStreamEngine.sqlFindListMap(stream1, sqlFind);
 List<SybnJunitBase> result4 = DatasSqlDdlStreamEngine.sqlFindList(stream2, sqlFind, SybnJunitBase.class);
 
-// DatasSqlDdlStreamAsyncEngine 处理 stream 返回新的 stream. 因此可以对一个流并行执行多条 sql 语句.
+// DatasSqlDdlStreamAsyncEngine 原样返回新的 stream. 因此可以对一个流并行执行多条 sql 语句.
 ListCallback callback1 = new ListCallback();
 ListCallback callback2 = new ListCallback();
 stream4 = DatasSqlDdlStreamAsyncEngine.sqlFindListMap(stream3, sqlFind, callback);
