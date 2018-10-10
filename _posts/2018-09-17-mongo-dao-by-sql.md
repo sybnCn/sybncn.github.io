@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "MongoDao 对于 sql 的支持"
-categories: sybn-core
-tags:  sybn-core 0.2.13
+categories: mongo-dao
+tags:  mongo-dao dao sql mongo 0.2.13
 author: sybn
 ---
 

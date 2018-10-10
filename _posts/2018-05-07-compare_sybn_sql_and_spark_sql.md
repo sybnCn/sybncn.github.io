@@ -2,7 +2,7 @@
 layout: post
 title:  "sybn sql 与 spark sql 的对比"
 categories: sybn-core
-tags:  sybn-core dao 0.1.11
+tags:  sybn-core dao sql 0.1.11
 author: sybn
 ---
 
