@@ -61,7 +61,7 @@ List<Map<String, Object>> result9 = callback2.get();
 支持如下占位符： xxx = ?, xxx in (?), xxx > #{xxx}
 
 
-### 注意事项 0.2.12
+### 注意事项
 
 * DatasSqlDdlEngine 返回的数据是原始数据的深度拷贝，修改返回值不影响原始数据。
 
