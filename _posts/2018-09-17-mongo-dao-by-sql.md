@@ -39,7 +39,7 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 与其他dao一样,都支持如下占位符： xxx in (?), xxx > #{xxx} 举例:
 
-```
+```java
 // 传统sql占位符
 dao.sqlFindListMap("select * from a in (?,?,?)", 1,2,3);
 
@@ -55,7 +55,7 @@ dao.sqlFindListMap("select * from a in (#{xxx})", map);
 
 MongoDao 在 group by 时还支持了简单的 Case When, 此函数莫mongo专有:
 
-```
+```java
 // 以下两种写法等效
 select a sum(case when t = 0 then 0 else 1 end) as tt from data group by a
 select a sum(case t when 0 then 0 else 1 end) as tt from data group by a
@@ -66,7 +66,7 @@ select a sum(case t when 0 then 0 WHEN 1 THEN 1 else 2 end) as tt from data grou
 
 MongoDao 在 group by 时,还支持 UDTF 函数 unwind, 此函数莫mongo专有:
 
-```
+```java
 // 以下两种写法等效
 select unwind(a) as a, sum(b) from data group by a
 select a, sum(b) from data group by unwind(a) as a
