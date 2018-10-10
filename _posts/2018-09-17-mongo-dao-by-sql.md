@@ -84,7 +84,7 @@ select a, sum(b) from data group by unwind(a) as a
 
 * 不恰当的查询语句会造成数据库查询超时,超时时间限制在dao的构造函数中, 比如:
 
-```
+```java
 // 300秒超时
 MongoDao dao = new MongoStreamDaoConfImpl("test", "confName@xxxx.properties", 300);
 ```
