@@ -2,7 +2,7 @@
 layout: post
 title:  "DatasSqlDdlEngine"
 categories: sybn-core
-tags:  sybn-core 0.2.12
+tags:  sybn-core 0.2.13
 author: sybn
 ---
 
@@ -16,16 +16,18 @@ DatasSqlDdlEngine 是针对 List 执行 sql 语句的工具。
 用于处理那些非数据库数据，比如 xls 中的数据。
 
 该系列有3个实现类:
-
 *  DatasSqlDdlEngine 处理 list
- 
 *  DatasSqlDdlStreamEngine 处理 stream
- 
 *  DatasSqlDdlStreamAsyncEngine 异步处理 stream,不消耗流返回新的流
 
 
 
 
+
+### 优缺点
+* DatasSqlDdlEngine 处理 list, 当处理GB级别的源数据时, JVM 会因为内存不足而 OOM. 因此只适用于处理小数据量的业务(比如小于500M的sql表).
+* DatasSqlDdlStreamEngine 处理 stream 无论源数据有多大, 都不会因为源数据而 OOM, 内存占用最低. 但是如果范围的结果集数据过大, 仍然会OOM.
+* DatasSqlDdlStreamAsyncEngine 可以对一个流执行互不相关的一批sql语句, 可以大幅节约外部IO, 但是会同时在内存中保存所有sql的返回值, 有一定的OOM风险.
 
 ### 用法举例
 ```java
@@ -36,16 +38,17 @@ String sqlCount = "select count(*) from sybn_junit_base where id between '2018-0
 List<Map<String, Object>> result1 = DatasSqlDdlEngine.sqlFindListMap(list, sqlFind);
 List<SybnJunitBase> result2 = DatasSqlDdlEngine.sqlFindList(list, sqlFind, SybnJunitBase.class);
 
-// DatasSqlDdlStreamEngine 处理 stream 注意,执行后 stream 会被消费无法继续使用
+// DatasSqlDdlStreamEngine 处理 stream 注意:执行后 stream 会被消费无法继续使用
 List<Map<String, Object>> result3 = DatasSqlDdlStreamEngine.sqlFindListMap(stream1, sqlFind);
 List<SybnJunitBase> result4 = DatasSqlDdlStreamEngine.sqlFindList(stream2, sqlFind, SybnJunitBase.class);
 
-// DatasSqlDdlStreamAsyncEngine 处理 stream 且返回新的 stream, 执行结果在callback中. 因此可以对一个流并行执行多条 sql 语句.
+// DatasSqlDdlStreamAsyncEngine 处理 stream 返回新的 stream. 因此可以对一个流并行执行多条 sql 语句.
 ListCallback callback1 = new ListCallback();
 ListCallback callback2 = new ListCallback();
 stream4 = DatasSqlDdlStreamAsyncEngine.sqlFindListMap(stream3, sqlFind, callback);
 stream5 = DatasSqlDdlStreamAsyncEngine.sqlFindListMap(stream4, sqlCount, callback);
 stream5.count();
+// 必须等流被 消费后才能使用get获取返回值
 List<Map<String, Object>> result5 = callback1.get();
 List<Map<String, Object>> result9 = callback2.get();
 ```
