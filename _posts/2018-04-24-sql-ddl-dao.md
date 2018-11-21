@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sybn-core
-tags:  sybn-core dao sql mysql mongo solr HBase groupBy 0.2.13
+tags:  sybn-core dao sql mysql mongo solr HBase groupBy 0.2.14
 author: sybn
 ---
 
@@ -91,6 +91,10 @@ mybatis 占位符|支持|支持|支持|支持|支持
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 已实现
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
+
+## 子接口和主要实现类 v:0.2.14
+
+![]({{site.baseurl}}/images/sql_ddl_dao_sub.png)
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
