@@ -83,6 +83,14 @@ mybatis 占位符|支持|支持|支持|支持|支持
 >
 > 其他数据库 a = 0 和 a = "0" 的返回值一致,但两种写法有性能差异.
 
+## 接口函数
+
+![]({{site.baseurl}}/images/sql_ddl_dao_fun.png)
+
+## 子接口和主要实现类 v:0.2.14
+
+![]({{site.baseurl}}/images/sql_ddl_dao_sub.png)
+
 ## 规划
 计划支持以下特性：
 - sqlFindList(sql) / sqlFindStream(sql) // 已实现
@@ -91,10 +99,6 @@ mybatis 占位符|支持|支持|支持|支持|支持
 - sqlRemove(sql) // 未实现
 - 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 已实现
 - 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
-
-## 子接口和主要实现类 v:0.2.14
-
-![]({{site.baseurl}}/images/sql_ddl_dao_sub.png)
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
