@@ -2,7 +2,7 @@
 layout: post
 title:  "sybn join dao 开发计划"
 categories: sybn-core
-tags:  sybn-core dao sql jpin 0.2.16
+tags:  sybn-core dao sql join 0.2.16
 author: sybn
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "DateScope 时间枚举工具"
 categories: sybn-core
-tags:  sybn-core dao sql jpin 0.2.16
+tags:  sybn-core time 0.2.13
 author: sybn
 ---
 
@@ -29,17 +29,17 @@ int size = scope.size(); // size = 5
 StringBuilder sb = new StringBuilder();
 for (Date date : scope) {
 	sb.append(DayUtil.dayToInt(date));
-	sb.append(/);
+	sb.append("/");
 }
-sb.toString(); // sb = "20181101/20181102/20181103/20181104/20181105/"
+sb.toString(); // sb = "20180101/20180102/20180103/20180104/20180105/"
 
 // 枚举String格式的时间
 sb = new StringBuilder();
 for (String dateStr : scope.dateformatIterator("yyyyMMdd")){
 	sb.append(dateStr);
-	sb.append(/);
+	sb.append("/");
 }
-sb.toString(); // sb = "20181101/20181102/20181103/20181104/20181105/"
+sb.toString(); // sb = "20180101/20180102/20180103/20180104/20180105/"
 
 // 打印每两天
 scope.setStep(2);
@@ -47,9 +47,9 @@ size = scope.size(); // size = 3
 sb = new StringBuilder();
 for (Date date : scope) {
 	sb.append(DayUtil.dayToInt(date));
-	sb.append(/);
+	sb.append("/");
 }
-sb.toString(); // sb = "20181101/20181103/20181105/"
+sb.toString(); // sb = "20180101/20180103/20180105/"
 ```
 
 
@@ -66,7 +66,7 @@ int size = scope.size(); // size = 2
 StringBuilder sb = new StringBuilder();
 for (Date date : scope) {
 	sb.append(DayUtil.dayToInt(date));
-	sb.append(/);
+	sb.append("/");
 }
 sb.toString(); // sb = "20180101/20180201/"
 ```
