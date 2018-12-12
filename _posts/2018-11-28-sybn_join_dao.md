@@ -73,6 +73,20 @@ String postSql = ""; // 某些情况下会对 join 后的结果执行二次过�
 
 ```
 
+* 已实现的业务逻辑
+
+```java
+SqlDdlDaoMultipleImpl dao = new SqlDdlDaoMultipleImpl();
+List<Map<String, Object>> targetDatas = JsonTools.parseJsonToListMap("[{a:1,b:2},{a:11,b:22},{a:111,b:222}]");
+List<Map<String, Object>> sourceDatas = JsonTools.parseJsonToListMap("[{c:1,d:3},{c:11,d:33},{c:111,d:333}]");
+dao.addTableSource("table1", targetDatas);
+dao.addTableSource("table2", sourceDatas);
+
+String sysql = "select * from table1;select * from table2;join right(d) on a = c";
+List<Map<String, Object>> maps = dao.sqlFindListMap(sysql);
+// maps = [{"a":1,"b":2,"d":3},{"a":11,"b":22,"d":33},{"a":111,"b":222,"d":333}]
+```
+
 ### 不支持功能
 
 因为本工具包不要求注册数据结构,因此无法自动推断字段属于哪张表,所有的字段必须只用前缀标记所属表名.
