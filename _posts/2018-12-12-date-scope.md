@@ -33,10 +33,18 @@ for (Date date : scope) {
 }
 sb.toString(); // sb = "20181101/20181102/20181103/20181104/20181105/"
 
+// 枚举String格式的时间
+sb = new StringBuilder();
+for (String dateStr : scope.dateformatIterator("yyyyMMdd")){
+	sb.append(dateStr);
+	sb.append(/);
+}
+sb.toString(); // sb = "20181101/20181102/20181103/20181104/20181105/"
+
 // 打印每两天
 scope.setStep(2);
 size = scope.size(); // size = 3
-StringBuilder sb = new StringBuilder();
+sb = new StringBuilder();
 for (Date date : scope) {
 	sb.append(DayUtil.dayToInt(date));
 	sb.append(/);
@@ -61,8 +69,6 @@ for (Date date : scope) {
 	sb.append(/);
 }
 sb.toString(); // sb = "20180101/20180201/"
-
-// 每多个月打印一次的方法同上
 ```
 
 ### 类似的工具类
