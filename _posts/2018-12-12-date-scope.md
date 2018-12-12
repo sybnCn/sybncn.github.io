@@ -69,8 +69,8 @@ sb.toString(); // sb = "20180101/20180201/"
 
 * IntegerScope
 
- 整数枚举, 用法与DateScope相同
+> 整数枚举, 用法与DateScope相同
  
 * NumberScope
 
- 数字枚举, 用法与DateScope相同
+> 数字枚举, 用法与DateScope相同
