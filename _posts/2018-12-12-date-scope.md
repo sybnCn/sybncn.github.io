@@ -59,7 +59,7 @@ sb.toString(); // sb = "20180101/20180103/20180105/"
 
 ```java
 // 闭区间, 支持多种时间格式, 只使用年月, 忽略天和时分秒
-DateScope scope = DateScope.create("20180101~2018-02-05");
+DateMonthScope scope = DateMonthScope.create("20180101~2018-02-05");
 
 // 打印每月
 int size = scope.size(); // size = 2
