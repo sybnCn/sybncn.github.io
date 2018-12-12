@@ -11,7 +11,7 @@ author: sybn
 
 ## 简介
 
-部分业务需要枚举一个时间范围内的每一天, 所以准备了 DateScope 和 DateMonthScope.
+部分业务需要枚举一个时间范围内的每一天或每一个月, 所以准备了 DateScope 和 DateMonthScope.
 
 
 
