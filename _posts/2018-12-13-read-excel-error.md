@@ -32,7 +32,7 @@ List<Map<String, Object>> data = PoiReadObjUtil.readExcelToMap(ReadFileUtil.read
 
 经查,发现是 maven-resources-plugin 插件造成的文件编码问题,需要修改pom.xml:
 
-```java
+```xml
 <build>
 	<plugins>
 	......
