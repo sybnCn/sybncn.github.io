@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "解决无法读取 jar 包中的 excel 文件"
-categories: sybn-core
+categories: office-util
 tags:  office-util excel 0.2.16
 author: sybn
 ---
