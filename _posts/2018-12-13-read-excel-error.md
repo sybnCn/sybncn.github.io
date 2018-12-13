@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PoiReadObjUtil 在某些情况下无法读取 jar 包中的 excel 文件的解决方案"
+title:  "解决无法读取 jar 包中的 excel 文件"
 categories: sybn-core
 tags:  office-util excel 0.2.16
 author: sybn
