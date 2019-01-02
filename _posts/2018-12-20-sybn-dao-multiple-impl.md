@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "sybn-dao-使用子查询"
+title:  "sybn dao 使用子查询与union"
 categories: sybn-core
 tags:  sybn-core dao sql 0.2.17
 author: sybn
@@ -20,9 +20,9 @@ author: sybn
 
 
 
-### 目标代码
+### 使用样例
 
-* 使用样例
+* 子查询
 
 ```java
 // 先生成 allSourceDao 并在其中注册所有的表
@@ -36,6 +36,22 @@ select type_name,sum(count) as count from (
 	select type,type_name from table2;
 	join right(type_name) on left.type = right.type;
 ) group by type_name";
+multipleDao.sqlFindListMap(sql);
+```
+
+* union V:0.2.18
+
+```java
+// 先生成 allSourceDao 并在其中注册所有的表
+SqlDdlDao allSourceDao = new SqlDdlDaoAutoSourceImpl(allSource);
+// 将 allSourceDao 转换为 SqlDdlDaoMultipleImpl 开启子查询支持。
+sqlDdlDao multipleDao = mew SqlDdlDaoMultipleImpl(allSourceDao);
+
+String sql = "
+	select * from table1 
+	union all
+	select * from table2;"
+	
 multipleDao.sqlFindListMap(sql);
 ```
 

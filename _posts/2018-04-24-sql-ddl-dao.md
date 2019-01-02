@@ -93,14 +93,12 @@ mybatis 占位符|支持|支持|支持|支持|支持
 
 ## 规划
 计划支持以下特性：
-- sqlFindList(sql) / sqlFindStream(sql) // 已实现
-- sqlFindListMap(sql, class) / sqlFindStreamMap(sql, class) // 已实现
-- sqlCount(sql) // 已实现
 - sqlRemove(sql) // 未实现
-- 将 GroupByUtil 装进 SqlDdlDao 的实现类中 // 已实现
-- 将 Join 功能装进 SqlDdlDao 的实现类中 // 未实现
+- 将 Join 功能装进 SqlDdlDao 的实现类中 // 部分实现
+- 子查询与union // 0.2.18 已实现 SqlDdlDaoMultipleImpl
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
 - [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
 - [group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
+- [sybn dao 使用子查询与union]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
