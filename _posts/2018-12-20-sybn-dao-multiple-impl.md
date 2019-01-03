@@ -22,7 +22,7 @@ author: sybn
 
 ### 使用样例
 
-* 子查询
+* from 子查询
 
 ```java
 // 先生成 allSourceDao 并在其中注册所有的表
@@ -36,6 +36,22 @@ select type_name,sum(count) as count from (
 	select type,type_name from table2;
 	join right(type_name) on left.type = right.type;
 ) group by type_name";
+multipleDao.sqlFindListMap(sql);
+```
+
+* select 子查询 V:0.2.19
+
+```java
+// 先生成 allSourceDao 并在其中注册所有的表
+SqlDdlDao allSourceDao = new SqlDdlDaoAutoSourceImpl(allSource);
+// 将 allSourceDao 转换为 SqlDdlDaoMultipleImpl 开启子查询支持。
+sqlDdlDao multipleDao = mew SqlDdlDaoMultipleImpl(allSourceDao);
+
+String sql = "
+	select * from table1 where id in (
+		select id from table2
+	);"
+	
 multipleDao.sqlFindListMap(sql);
 ```
 
@@ -57,7 +73,7 @@ multipleDao.sqlFindListMap(sql);
 
 ### 不支持功能
 
-目前只支持在 from 中嵌套子查询， 因为 join 的功能还没写完所以暂时使用 select + select + join 的方式实现 join 操作。
+因为 join 的功能还没写完所以暂时使用 select + select + join 的方式实现 join 操作。
 
 
 ### 注意事项 
