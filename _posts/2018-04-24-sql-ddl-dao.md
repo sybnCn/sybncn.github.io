@@ -65,13 +65,27 @@ sum(CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 ? 占位符|支持|支持|支持|支持|支持
 mybatis 占位符|支持|支持|支持|支持|支持
 
-> 关于私有 UDAF:
+## 关于 UDF: 0.1.19
+目前已经全局支持在 where 中使用如下 mysql 自带的 UDF 函数：
+
+NOW, CURDATE, CAST, CONVERT, DATE_FORMAT, DATE_ADD, DATE_SUB
+
+比如：
+``` sql
+where play_time_yyyymmdd 
+	  between convert(DATE_FORMAT(date_sub(convert(now(), DATE), INTERVAL 30 day), '%Y%m%d'), SIGNED)
+	      and convert(DATE_FORMAT(date_sub(convert(now(), DATE), INTERVAL 1 day), '%Y%m%d'), SIGNED)
+---等效于
+where play_time_yyyymmdd between 20190101 and 20190130
+```
+
+## 关于私有 UDAF:
 > * 自定义函数 set 是指将数据转 set 输出(删除重复项)
 > * 自定义函数 list 是指将数据转 list 输出
 > * 自定义函数 scopelist 是指将数据按时间转 list 输出,一般用于生成折线图,无数据的时间点使用默认值代替
 > * 更多自定义函数另行说明
 
-> 关于在内存中对 JAVA 集合类执行 sql 语句:
+## 关于在内存中对 JAVA 集合类执行 sql 语句:
 > 
 > DatasSqlDdlEngine / DatasSqlDdlStreamEngine 接收 list/stream，在内存里对其执行 sql.
 > 
