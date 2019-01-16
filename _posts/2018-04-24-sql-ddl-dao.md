@@ -66,7 +66,7 @@ sum(CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 mybatis 占位符|支持|支持|支持|支持|支持
 
 ## 关于 UDF: 0.1.19
-目前已经全局支持在 where 中使用如下 mysql 自带的 UDF 函数：
+目前已经全局支持在 where 的非字段名部分中使用如下 mysql 自带的 UDF 函数：
 
 NOW, CURDATE, CAST, CONVERT, DATE_ADD, DATE_SUB, STR_TO_DATE, DATE_FORMAT
 
@@ -77,6 +77,13 @@ where play_time_yyyymmdd
 	      and convert(DATE_FORMAT(date_sub(convert(now(), DATE), INTERVAL 1 day), '%Y%m%d'), SIGNED)
 ---等效于
 where play_time_yyyymmdd between 20190101 and 20190130
+```
+
+* 但是不支持在字段名上牵头UDF，比如：
+
+``` sql
+-- 不支持 play_time_yyyymmdd 外面嵌套任何函数
+where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = 2018-01-16 
 ```
 
 ## 关于私有 UDAF:
