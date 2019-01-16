@@ -66,12 +66,13 @@ sum(CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 mybatis 占位符|支持|支持|支持|支持|支持
 
 ## 关于 UDF: 0.1.19
-目前已经全局支持在 where 的非字段名部分中使用如下 mysql 自带的 UDF 函数：
+所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
 
 NOW, CURDATE, CAST, CONVERT, DATE_ADD, DATE_SUB, STR_TO_DATE, DATE_FORMAT
 
 比如：
 ``` sql
+-- 支持 比较运算符右侧嵌套函数
 where play_time_yyyymmdd 
 	  between convert(DATE_FORMAT(date_sub(convert(now(), DATE), INTERVAL 30 day), '%Y%m%d'), SIGNED)
 	      and convert(DATE_FORMAT(date_sub(convert(now(), DATE), INTERVAL 1 day), '%Y%m%d'), SIGNED)
