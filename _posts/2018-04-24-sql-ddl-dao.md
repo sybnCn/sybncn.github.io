@@ -84,7 +84,7 @@ where play_time_yyyymmdd between 20190101 and 20190130
 
 ``` sql
 -- 不支持 play_time_yyyymmdd 外面嵌套任何函数
-where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = 2018-01-16 
+where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = '2018-01-16' 
 ```
 
 ## 关于私有 UDAF:
