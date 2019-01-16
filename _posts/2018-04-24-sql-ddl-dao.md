@@ -68,7 +68,7 @@ mybatis 占位符|支持|支持|支持|支持|支持
 ## 关于 UDF: 0.1.19
 目前已经全局支持在 where 中使用如下 mysql 自带的 UDF 函数：
 
-NOW, CURDATE, CAST, CONVERT, DATE_FORMAT, DATE_ADD, DATE_SUB, STR_TO_DATE
+NOW, CURDATE, CAST, CONVERT, DATE_ADD, DATE_SUB, STR_TO_DATE, DATE_FORMAT
 
 比如：
 ``` sql
