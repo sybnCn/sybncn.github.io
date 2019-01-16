@@ -75,7 +75,7 @@ multipleDao.sqlFindListMap(sql);
 
 ```sql
 set @time_date_str := '2019-01-16',
-	@time := str_to_date(@time_date_str, '%Y-%m-%d');
+    @time := str_to_date(@time_date_str, '%Y-%m-%d');
 select * from time_str > @time_date_str and time > @time
 ```
 
