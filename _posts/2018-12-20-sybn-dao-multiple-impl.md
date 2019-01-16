@@ -71,6 +71,13 @@ String sql = "
 multipleDao.sqlFindListMap(sql);
 ```
 
+* 临时变量
+```sql
+set @time_date_str := '2018-12-22',
+	@time := str_to_date(@time_date_str, '%Y-%m-%d');
+select * from time_str > @time_date_str and time > @time
+```
+
 ### 不支持功能
 
 因为 join 的功能还没写完所以暂时使用 select + select + join 的方式实现 join 操作。
