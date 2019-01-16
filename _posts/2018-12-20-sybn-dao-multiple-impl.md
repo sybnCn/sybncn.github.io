@@ -2,7 +2,7 @@
 layout: post
 title:  "sybn dao 使用子查询与union"
 categories: sybn-core
-tags:  sybn-core dao sql 0.2.17
+tags:  sybn-core dao sql 0.2.20
 author: sybn
 ---
 
@@ -71,9 +71,9 @@ String sql = "
 multipleDao.sqlFindListMap(sql);
 ```
 
-* 临时变量
+* 临时变量 V:0.2.20
 ```sql
-set @time_date_str := '2018-12-22',
+set @time_date_str := '2019-01-16',
 	@time := str_to_date(@time_date_str, '%Y-%m-%d');
 select * from time_str > @time_date_str and time > @time
 ```
