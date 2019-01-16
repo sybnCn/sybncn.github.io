@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sybn-core
-tags:  sybn-core dao sql mysql mongo solr HBase groupBy 0.2.14
+tags:  sybn-core dao sql mysql mongo solr HBase groupBy 0.2.19
 author: sybn
 ---
 
@@ -65,7 +65,7 @@ sum(CASE WHEN ...) as a|支持|JAVA实现|JAVA实现|JAVA实现|JAVA实现
 ? 占位符|支持|支持|支持|支持|支持
 mybatis 占位符|支持|支持|支持|支持|支持
 
-## 关于 UDF: 0.1.19
+## 关于 UDF: 0.2.19
 所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
 
 NOW, CURDATE, CAST, CONVERT, DATE_ADD, DATE_SUB, STR_TO_DATE, DATE_FORMAT
