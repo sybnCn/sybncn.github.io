@@ -28,7 +28,7 @@ author: sybn
 // 先生成 allSourceDao 并在其中注册所有的表
 SqlDdlDao allSourceDao = new SqlDdlDaoAutoSourceImpl(allSource);
 // 将 allSourceDao 转换为 SqlDdlDaoMultipleImpl 开启子查询支持。
-sqlDdlDao multipleDao = mew SqlDdlDaoMultipleImpl(allSourceDao);
+sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
 
 String sql = "
 select type_name,sum(count) as count from (
@@ -45,7 +45,7 @@ multipleDao.sqlFindListMap(sql);
 // 先生成 allSourceDao 并在其中注册所有的表
 SqlDdlDao allSourceDao = new SqlDdlDaoAutoSourceImpl(allSource);
 // 将 allSourceDao 转换为 SqlDdlDaoMultipleImpl 开启子查询支持。
-sqlDdlDao multipleDao = mew SqlDdlDaoMultipleImpl(allSourceDao);
+sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
 
 String sql = "
 	select * from table1 where id in (
@@ -61,7 +61,7 @@ multipleDao.sqlFindListMap(sql);
 // 先生成 allSourceDao 并在其中注册所有的表
 SqlDdlDao allSourceDao = new SqlDdlDaoAutoSourceImpl(allSource);
 // 将 allSourceDao 转换为 SqlDdlDaoMultipleImpl 开启子查询支持。
-sqlDdlDao multipleDao = mew SqlDdlDaoMultipleImpl(allSourceDao);
+sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
 
 String sql = "
 	select * from table1 
