@@ -96,10 +96,10 @@ join right(type_name) on left.type = right.type;
 -- ## 再次 join （按顺利连续join）
 
 -- table3 的 sql 的返回值会被压入堆栈，坐标[1]
-select type_name_creatime,type_name from table3; # 第二次的 join 会将其前方此sql的返回值认定为 right 表, 而其前方第二张表也就是 第一次精品
+select type_name_creatime,type_name from table3; -- # 第二次的 join 会将其前方此sql的返回值认定为 right 表, 而其前方第二张表也就是 第一次精品
 -- join 会按先进后出的原则从堆栈的结尾获取表， 先取出[1]定义为 right， 再取出[0]定义为 left
 -- join 会将 right 的 type_name_creatime 写入 left，然后从堆栈删除 right [1]， 此时堆栈只剩下[0]
-join right(type_name_creatime) on left.type_name = right.type_name; # join 会将 right 表指定字段查询 left 表，然后返回 left 表
+join right(type_name_creatime) on left.type_name = right.type_name; -- # join 会将 right 表指定字段查询 left 表，然后返回 left 表
 
 -- ## 嵌套 join 右表本身有 join 逻辑
 
