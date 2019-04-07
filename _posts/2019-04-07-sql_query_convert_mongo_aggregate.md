@@ -76,7 +76,7 @@ select datas, count(*) as c from table group by unwind(datas)
 
 * SqlDdlDaoMultipleImpl 支持 select 嵌套，比如：
 
-···sql
+```sql
 select * from mysql表 where id in (select id from mongo表)
-···
+```
 
