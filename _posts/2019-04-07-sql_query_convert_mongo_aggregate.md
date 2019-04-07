@@ -50,7 +50,9 @@ select
 ]
 ```
 
-### 例1 (带unwind的sql)
+> 注意： mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
+
+### 例2 (带unwind的sql)
 
 * 输入 SQL: 
 
