@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "data view 数据视图"
+title:  "to_scope_list 数据视图"
 categories: sybn-core
-tags:  sybn-core 0.2.20
+tags:  sybn-core 0.3.2
 author: sybn
 ---
 
@@ -11,34 +11,39 @@ author: sybn
 
 ## 简介
 
-使用sql语句查询到的数据是二维数据,本身可以映射为一个excel或者table, 但是无法直接准换为 echarts 图表.
+使用sql语句查询到的数据是二维数据,本身可以映射为一个excel或者table, 但是无法直接准换为 echarts 图表。
 
-为了解决数据可视化问题, 我们准备了 data view 工具, 将 sql 的结果数据直接转换为 echarts 可用的数据, 或者其他需要的数据格式.
+为了解决数据可视化问题, 我们准备了 data view 工具。将 sql 的结果数据直接转换为 echarts 可用的数据, 或者其他需要的数据格式。
+
+to_scope_list 是折线图与柱图的 data view 实现。
 
 
 
 
 
-### 开发流程
-* 先开发 ResultConver 实现类,负责转换结果集. 比如下面的 to_scope_list 方法的实现类是 ResultToCharMapJsonConver .
-* 将 ResultConver 注册到 ResultToMapConverPool 中.
-* Controller 接口调用 ResultConver.conver() 方法,实现根据前端传参返回指定格式的数据.
+### 使用说明
+```java
+String resultView = "to_scope_list(t, '20190101~20190131', to_date(), 't', 'c', '1DAY', 0)"
+ResultToMapConverPool.get(resultView).conver(res);
+```
+
+* 参数说明
+|参数|举例|说明|
+|----|----|----|
+|timeField|x|x轴对应的字段|
+|timeScope|180101~180201\r\n1~10\r\n北京,上海,广州|x轴为盈的范围(比如: )|
+|timeConver|String,date,to_date(), to_long()|x轴转换类(经常遇到x轴的值为String,但需要int型的x轴,此参数可以对此做数据转换|
+|aggFields|plan|折线的field, 用于控制一行 row 中有几条折线|
+|groupKeys|x,x1,x2|折线的key|
+|interval|86400, 1, 1DAY, 1MONTH|非必须,x轴的间隔, |
+|defaults|null 或者 0|非必须,折线图无值时,数据当什么处理.|
+
 
 ### to_scope_list 使用样例
 
 * to_scope_list 视图
 
 ```java
-/*
-   to_scope_list(timeField, timeScope, timeConver, aggFields, groupKeys, interval, defaults);
-   - timeField x轴对应的字段
-   - timeScope x轴为盈的范围(比如: 180101~180201, 1~10)
-   - timeConver x轴转换类(比如: to_date(), to_long() 经常遇到x轴的值为String,但需要int型的x轴,此参数可以对此做数据转换
-   - aggFields 折线的field, 用于控制一行 row 中有几条折线
-   - groupKeys 折线的key
-   - interval 非必须,x轴的间隔, (比如: 86400, 1, 1DAY, 1MONTH 等)
-   - defaults 非必须,折线图无值时,数据当什么处理,一般为 null 或者 0
- */
 String resultView = "to_scope_list(t, '20190101~20190131', to_date(), 't', 'c', '1DAY', 0)"
 
 List<Map<String, Object>> data = dao.sqlFindListMap("select t, count(*) as c from table where t between 20180101 and 20180131 group by t order by t")
