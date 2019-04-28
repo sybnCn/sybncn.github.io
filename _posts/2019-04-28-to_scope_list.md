@@ -33,7 +33,7 @@ ResultToMapConverPool.get(resultView).conver(res);
 ---:|----|----
 timeField|x|x轴对应的字段
 timeScope|date范围：180101~180201<br/>long范围：1~10<br/>str指定范围：北京,上海,广州<br/>str自适应：null<br/>str指定策略：order by sum(value) desc limit 10 (limit N 与  desc 非必填)|x轴为盈的范围
-timeConver|日期用：date 或 to_date()<br/>数字用long 或, to_long()<br/>字符串用：string|不区分大小写，x轴转换类 (经常遇到x轴的值为String, 但需要int型的x轴, 此参数可以对此做数据转换
+timeConver|日期用：date 或 to_date()<br/>数字用long 或, to_long()<br/>字符串用：string|不区分大小写, x轴转换类 (经常遇到x轴的值为String, 但需要int型的x轴, 此参数可以对此做数据转换
 aggFields|plan|折线的field, 用于控制一行 row 中有几条折线
 groupKeys|x,x1,x2|折线的key
 interval|86400, 1, 1DAY, 1MONTH|非必须,x轴的间隔, 
