@@ -2,7 +2,7 @@
 layout: post
 title:  "sql 语句转 mongo aggregate 语句"
 categories: mongo-dao
-tags:  mongo-dao 0.3.2
+tags:  mongo-dao 0.3.2 tools
 author: sybn
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "to_scope_list 数据视图"
 categories: sybn-core
-tags:  sybn-core 0.3.2
+tags:  sybn-core 0.3.2 view
 author: sybn
 ---
 
