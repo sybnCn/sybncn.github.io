@@ -28,15 +28,16 @@ ResultToMapConverPool.get(resultView).conver(res);
 ```
 
 * 参数说明
-|参数|举例|说明|
-|----|----|----|
-|timeField|x|x轴对应的字段|
-|timeScope|180101~180201\r\n1~10\r\n北京,上海,广州|x轴为盈的范围(比如: )|
-|timeConver|String,date,to_date(), to_long()|x轴转换类(经常遇到x轴的值为String,但需要int型的x轴,此参数可以对此做数据转换|
-|aggFields|plan|折线的field, 用于控制一行 row 中有几条折线|
-|groupKeys|x,x1,x2|折线的key|
-|interval|86400, 1, 1DAY, 1MONTH|非必须,x轴的间隔, |
-|defaults|null 或者 0|非必须,折线图无值时,数据当什么处理.|
+
+参数|举例|说明
+---:|----|----
+timeField|x|x轴对应的字段
+timeScope|180101~180201\r\n1~10\r\n北京,上海,广州|x轴为盈的范围(比如: )
+timeConver|String,date,to_date(), to_long()|x轴转换类(经常遇到x轴的值为String,但需要int型的x轴,此参数可以对此做数据转换
+aggFields|plan|折线的field, 用于控制一行 row 中有几条折线
+groupKeys|x,x1,x2|折线的key
+interval|86400, 1, 1DAY, 1MONTH|非必须,x轴的间隔, 
+defaults|null 或者 0|非必须,折线图无值时,数据当什么处理.
 
 
 ### to_scope_list 使用样例
