@@ -27,7 +27,7 @@ String resultView = "to_scope_list(t, '20190101~20190131', to_date(), 't', 'c', 
 ResultToMapConverPool.get(resultView).conver(res);
 ```
 
-* 参数说明
+* 参数说明 v:0.3.2
 
 参数|举例|说明
 ---:|----|----
@@ -99,7 +99,9 @@ ResultBase res2 = resultConver.conver(res);
 
 
 
-### 注意事项 
+### 近期更新 
 
-* 暂无
+* 2019-04-28 V:0.3.2
+	
+	支持 string 型x轴， 并支持自适应和动态适配。
 
