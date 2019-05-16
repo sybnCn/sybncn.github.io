@@ -43,7 +43,7 @@ SELECT * FROM hbase_hp_cinema_info where id = 100 and _timestamp = toDate('2019-
 ```sql
 -- 查询 2019-05-01 的快照中, status = 1 的数据
 select * from ( 
-  	SELECT * FROM hbase_hp_cinema_info where _timestamp = toDate('2019-05-01');
+  SELECT * FROM hbase_hp_cinema_info where _timestamp = toDate('2019-05-01');
 ) where status = 1;
 ```
 
@@ -52,10 +52,10 @@ select * from (
 ```sql
 -- 查询 2019-04-01 与 2019-05-01 两个快照 status 不一致的数据
 select * from ( 
-	select v1, v2, compare(v1, v2) as compared from (
-  	SELECT id, status as v1 FROM hbase_hp_cinema_info where _timestamp = toDate('2019-05-01');
-  	SELECT id, status as v2 FROM hbase_hp_cinema_info where _timestamp = toDate('2019-04-01');
-  	join right(*) on id = id;
+  select v1, v2, compare(v1, v2) as compared from (
+    SELECT id, status as v1 FROM hbase_hp_cinema_info where _timestamp = toDate('2019-05-01');
+    SELECT id, status as v2 FROM hbase_hp_cinema_info where _timestamp = toDate('2019-04-01');
+    join right(*) on id = id;
   )
 ) where compared != 0;
 ```
