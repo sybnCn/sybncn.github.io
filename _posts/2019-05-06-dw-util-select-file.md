@@ -30,12 +30,12 @@ author: sybn
 * 举例A: 一次查询多个 excel 的集合
 
 ```bash
-java -jar dw-util-select-xls.jar 'select type, max(num) as max_num, min(num) as min_num from data_all where type != 'A' group by type order by type' 'd:/num_1.xlsx' 'd:/num2.xlsx'
+java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as min_num from data_all where type != 'A' group by type order by type" 'd:/num_1.xlsx' 'd:/num2.xlsx'
 ```
 
 * 举例B: 嵌套查询多个 excel
 
 ```bash
-java -jar dw-util-select-xls.jar 'select type, max(num) as max_num, min(num) as min_num from data_1 where type not in (select type from data_2 where id = 2) group by type order by type' 'd:/num_1.xlsx' 'd:/type.xls'
+java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as min_num from data_1 where type not in (select type from data_2 where id = 2) group by type order by type" 'd:/num_1.xlsx' 'd:/type.xls'
 ```
 
