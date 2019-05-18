@@ -25,11 +25,12 @@ author: sybn
 * 准备 SqlDdlDaoMultipleImpl
 
 ```java
-// 初始化各种数据源
+// 初始化各种数据源, 为了容易理解这里使用直接传入jdbc的实现类
 SqlDdlDao dao1 = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
 SqlDdlDao dao2 = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
 SqlDdlDao dao3 = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
 SqlDdlDao dao4 = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
+// 推荐使用配置文件管理数据库连接信息, 比如: SqlDdlDao dao1 = new DbutilDaoConfImpl("mysql_test@xxx.properties")
 
 // 构造 SqlDdlDaoMultipleImpl, 并将以上数据源注册进来.
 SqlDdlDaoMultipleImpl multipleDao = new SqlDdlDaoMultipleImpl();
