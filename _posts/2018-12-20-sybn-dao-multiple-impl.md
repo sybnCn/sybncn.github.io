@@ -44,11 +44,11 @@ multipleDao.addAllTableSource(dao4);
 
 ```java
 String sql = "
-select type_name,sum(count) as count from (
-	select type,count(*) as count from table1 group by type;
-	select type,type_name from table2;
-	join right(type_name) on left.type = right.type;
-) group by type_name";
+	select type_name,sum(count) as count from (
+		select type,count(*) as count from table1 group by type;
+		select type,type_name from table2;
+		join right(type_name) on left.type = right.type;
+	) group by type_name";
 List<Map<String,Object>> mapList = multipleDao.sqlFindListMap(sql);
 List<Bean> beanList = multipleDao.sqlFindList(sql, Bean.class);
 ```
