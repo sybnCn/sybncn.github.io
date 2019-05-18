@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sybn join dao 开发计划"
-categories: sybn-core
+categories: sql-ddl-dao
 tags:  sybn-core dao sql join 0.2.16
 author: sybn
 ---

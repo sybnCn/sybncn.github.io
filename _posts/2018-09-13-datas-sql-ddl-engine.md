@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "DatasSqlDdlEngine"
-categories: sybn-core
+categories: sql-ddl-dao
 tags:  sybn-core sql dao 0.2.13
 author: sybn
 ---

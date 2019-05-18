@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MongoDao 对于 sql 的支持"
-categories: mongo-dao
+categories: sql-ddl-dao
 tags:  mongo-dao dao sql mongo 0.2.13
 author: sybn
 ---

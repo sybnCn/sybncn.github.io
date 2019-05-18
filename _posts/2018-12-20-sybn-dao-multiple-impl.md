@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sybn dao 使用子查询与union"
-categories: sybn-core
+categories: sql-ddl-dao
 tags:  sybn-core dao sql 0.2.20
 author: sybn
 ---
