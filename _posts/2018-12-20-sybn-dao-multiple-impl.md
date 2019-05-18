@@ -22,12 +22,26 @@ author: sybn
 
 ### 使用样例
 
+* 准备 SqlDdlDaoMultipleImpl
+
+```java
+// 初始化各种数据源
+SqlDdlDao dao1 = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
+SqlDdlDao dao2 = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
+SqlDdlDao dao3 = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
+SqlDdlDao dao4 = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
+
+// 构造 SqlDdlDaoMultipleImpl, 并将以上数据源注册进来.
+SqlDdlDaoMultipleImpl multipleDao = new SqlDdlDaoMultipleImpl();
+multipleDao.addAllTableSource(dao1);
+multipleDao.addAllTableSource(dao2);
+multipleDao.addAllTableSource(dao3);
+multipleDao.addAllTableSource(dao4);
+```
+
 * from 子查询
 
 ```java
-// 构造 SqlDdlDaoMultipleImpl, allSourceDao 为任意个 sqlDdlDao 的 mysql/mongo/sql/hbase/list 实现类。
-sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
-
 String sql = "
 select type_name,sum(count) as count from (
 	select type,count(*) as count from table1 group by type;
@@ -41,9 +55,6 @@ List<Bean> beanList = multipleDao.sqlFindList(sql, Bean.class);
 * select 子查询 V:0.2.19
 
 ```java
-// 构造 SqlDdlDaoMultipleImpl, allSourceDao 为任意个 sqlDdlDao 的 mysql/mongo/sql/hbase/list 实现类。
-sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
-
 String sql = "
 	select * from table1 where id in (
 		select id from table2
@@ -55,9 +66,6 @@ List<Bean> beanList = multipleDao.sqlFindList(sql, Bean.class);
 * union V:0.2.18
 
 ```java
-// 构造 SqlDdlDaoMultipleImpl, allSourceDao 为任意个 sqlDdlDao 的 mysql/mongo/sql/hbase/list 实现类。
-sqlDdlDao multipleDao = new SqlDdlDaoMultipleImpl(allSourceDao);
-
 String sql = "
 	select * from table1 
 	union all
