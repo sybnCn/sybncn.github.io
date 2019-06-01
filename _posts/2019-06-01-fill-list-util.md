@@ -43,11 +43,15 @@ t|type|a|b
 
 * 数据归类
 
-我们 将 t,type 这种前后行相关，被递增或补充的字段值定义为 fillKey。 对齐时，不同的 fillKey 之间取笛卡尔积，穷举所有的组合，缺失的值会被填充。
+我们将 t,type 这种前后行相关，被递增或补充的字段值定义为 fillKey。 
+
+对齐时，不同的 fillKey 之间取笛卡尔积，穷举所有的组合，缺失的值会被填充。
 
 > 从数据来看, t 的值域为 2019-06-01,2019-06-02,2019-06-03 type 的值域为 x,y 因此对齐后的数据应该为 3*2=6 行
 
-我们将 a,b 这种前后行无关，被填充零值的字段定位为 fillValueKey。  对齐时，任意一行的任意一个此类值为空（value==null || "".equlas(value)）则填充 fillValueKeyDefaultsValue 作为其值。
+我们将 a,b 这种前后行无关，被填充零值的字段定位为 fillValueKey。  
+
+对齐时，任意一行的任意一个此类值为空（value == null or ""）则填充 fillValueKeyDefaultsValue 作为其值。
 
 > 从数据来看, 一共有 2个a 和 3个b 需要被填充0 
 
@@ -69,7 +73,7 @@ t|type|a|b
 
 * 数据对齐参数 fillArgs
 
-fillArgs 中可以用逗号分开生命多个 fillKey 的值域，每个 fillKey 的值域由一个函数来描述，函数格式如下：
+fillArgs 中可以用逗号分开声明多个 fillKey 的值域，每个 fillKey 的值域由一个函数来描述，函数格式如下：
 
 > 格式：fillKey(paramKey, fillType, fillScope, keyInterval)
 >
@@ -97,9 +101,9 @@ logger.info("待对齐的数据：\r\n{}", ListLogUtil.conver(maps, 16));
 
 List<Map<String, Object>> fill = ListFillUtil.fill(maps, "t('', 'yyyy-MM-dd', '2019-06-01~2019-06-03', '1DAY'),type", null, "a,b", 0);
 logger.info("对齐后的数据：\r\n{}", ListLogUtil.conver(fill, 16));
-···
+```	
 
-···
+```
 06-01 15:58:43.251 [main] INFO  cn.sybn.util.stat.fill.FillListUtil$JunitTest - 待对齐的数据：
 t         |type|a  |b  
 2019-06-01|x   |111|112
@@ -115,5 +119,4 @@ t         |type|a  |b
 2019-06-02|y   |0  |0  
 2019-06-03|x   |0  |0  
 2019-06-03|y   |321|322
-···
-
+```
