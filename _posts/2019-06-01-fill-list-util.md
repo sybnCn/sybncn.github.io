@@ -19,7 +19,7 @@ FillListUtil 专门负责补齐这种不规整的数据。
 
 
 
-## 使用方法 v:0.3.2
+## 需求说明
 
 * 待对齐的数据
 
@@ -40,6 +40,39 @@ t|type|a|b
 2019-06-02|y|0|0
 2019-06-03|x|0|0
 2019-06-03|y|321|322
+
+## 使用样例
+
+* 数据对齐函数
+
+```java
+String testDataJson = "[{t:'2019-06-01',type:'x',a:111,b:112},{t:'2019-06-01',type:'y',a:121,b:122},{t:'2019-06-02',type:'x',a:111},{t:'2019-06-03',type:'y',a:321,b:322}]";
+List<Map<String, Object>> maps = JsonTools.parseJsonToListMap(testDataJson);
+logger.info("待对齐的数据：\r\n{}", ListLogUtil.conver(maps, 16));
+
+List<Map<String, Object>> fill = ListFillUtil.fill(maps, "t('', 'yyyy-MM-dd', '2019-06-01~2019-06-03', '1DAY'),type", null, "a,b", 0);
+logger.info("对齐后的数据：\r\n{}", ListLogUtil.conver(fill, 16));
+```	
+
+```
+06-01 15:58:43.251 [main] INFO  cn.sybn.util.stat.fill.FillListUtil$JunitTest - 待对齐的数据：
+t         |type|a  |b  
+2019-06-01|x   |111|112
+2019-06-01|y   |121|122
+2019-06-02|x   |111|   
+2019-06-03|y   |321|322
+
+06-01 15:58:43.579 [main] INFO  cn.sybn.util.stat.fill.FillListUtil$JunitTest - 对齐后的数据：
+t         |type|a  |b  
+2019-06-01|x   |111|112
+2019-06-01|y   |121|122
+2019-06-02|x   |111|0  
+2019-06-02|y   |0  |0  
+2019-06-03|x   |0  |0  
+2019-06-03|y   |321|322
+```
+
+# 函数介绍
 
 * 数据归类
 
@@ -88,35 +121,3 @@ fillArgs 中可以用逗号分开声明多个 fillKey 的值域，每个 fillKey
 > fillScope = sourceData中此key的补全范围（可选，默认为${param[paramKey]}）
 >
 > keyInterval = 数据步长，一般是： 1, 1DAY, 1MONTH, 1YEAR 等值
-
-
-## 使用样例 v:0.3.2
-
-* 数据对齐函数
-
-```java
-String testDataJson = "[{t:'2019-06-01',type:'x',a:111,b:112},{t:'2019-06-01',type:'y',a:121,b:122},{t:'2019-06-02',type:'x',a:111},{t:'2019-06-03',type:'y',a:321,b:322}]";
-List<Map<String, Object>> maps = JsonTools.parseJsonToListMap(testDataJson);
-logger.info("待对齐的数据：\r\n{}", ListLogUtil.conver(maps, 16));
-
-List<Map<String, Object>> fill = ListFillUtil.fill(maps, "t('', 'yyyy-MM-dd', '2019-06-01~2019-06-03', '1DAY'),type", null, "a,b", 0);
-logger.info("对齐后的数据：\r\n{}", ListLogUtil.conver(fill, 16));
-```	
-
-```
-06-01 15:58:43.251 [main] INFO  cn.sybn.util.stat.fill.FillListUtil$JunitTest - 待对齐的数据：
-t         |type|a  |b  
-2019-06-01|x   |111|112
-2019-06-01|y   |121|122
-2019-06-02|x   |111|   
-2019-06-03|y   |321|322
-
-06-01 15:58:43.579 [main] INFO  cn.sybn.util.stat.fill.FillListUtil$JunitTest - 对齐后的数据：
-t         |type|a  |b  
-2019-06-01|x   |111|112
-2019-06-01|y   |121|122
-2019-06-02|x   |111|0  
-2019-06-02|y   |0  |0  
-2019-06-03|x   |0  |0  
-2019-06-03|y   |321|322
-```
