@@ -74,6 +74,6 @@ sybn util 是本人积累的java工具集，其主要包括：
   - servlet 工具
   
 ## 近期更新
-- 0.2.6 在 mongodb 中支持 count(a) 和 count(distinct a) 只统计非 null 结果,使之与 mysql 的执行效果一致.
-- 0.2.5 支持在 sql 中使用 mybatis 占位符.
-- 0.2.4 更新读写 excel 文件的工具类,方便使用 sql 语句读写 excel 中的数据.
+- 0.3.2 最新稳定版
+- 0.3.3 不稳定版, 增强了 join 的能力
+- 0.3.4 不稳定版, 增强了 distinct 的能力
