@@ -54,15 +54,14 @@ WHERE|支持
 GROUP BY|支持
 HAVING|支持
 ORDER BY|支持
-SKIP|支持
-LIMIT|支持
+SKIP / LIMIT|支持
 JOIN|非标准支持
 ON|支持
 USING|暂不支持
 USE|不支持
 SHOW DATDBASES|不支持
 SHOW TABLES|非标准支持
-SET a:=1|支持
+SET @a:=1; where a>@a|支持
 UNION / UNOIN ALL|支持
 
 * 数据类型
@@ -74,13 +73,8 @@ CHARACTER(n)|支持
 VARCHAR(n)|支持
 CHARACTER VARYING(n)|支持
 <VARCHAR2(n)>|未评估
-INTEGER|支持
-INT|支持
-SMALLINT|支持
-DECIMAL(p,s)|支持
-DEC(p,s)|未评估
-NUMERIC(p,s)|未评估
-FLOAT(p)|支持
+INTEGER / INT / SMALLINT|支持
+DECIMAL(p,s) / DEC(p,s) / NUMERIC(p,s) / FLOAT(p)|支持
 REAL|未评估
 DOUBLE PRECISION|支持
 DATE|支持
@@ -108,20 +102,20 @@ IS [NOT] NULL|支持
  函数|支持程度
 -:|:-
 AVG / MAX / MIN / SUM / COUNT|支持
-GREATEST/LEAST(x,y,...)|不支持
-<{ROUND/TRUNC<!ATE>}({x,places/date,format})>|不支持
-POSITION( s1 IN s2)|不支持
-EXTRACT( datetime FROM datetime_value)|不支持
-CHAR_LENGTH( s1 ) <LENGTH( s1 )>|不支持
-SUBSTRING(string FROM start [FOR length])/<SUBSTR(string,start,length)>|不支持
-<INSTR(str,substr,start,mnth)>|不支持
-{<INITCAP>/UPPER/LOWER}(string)|不支持
-TRIM({BOTH/LEADING/TRAILING} char FROM string)/<{L/R}TRIM(str,chrset)>|不支持
-{TRANSLATE/CONVERT}( char USING value) /<TRANSLATE(str,from,to)>|不支持
-<{L/R}PAD(str,to_len,str2)>|不支持
-<DECODE(expr,search1,result1,...[,default])>|不支持
-<NVL(expr,replace)>|不支持
-<Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)>: |不支持
+GREATEST / LEAST(x,y,...)|不支持
+ROUND / TRUNC(x,places/date,format)|不支持
+POSITION(s1 IN s2)|不支持
+EXTRACT(datetime FROM datetime_value)|不支持
+CHAR_LENGTH(s1) / LENGTH(s1)|不支持
+SUBSTRING(string FROM start [FOR length]) / SUBSTR(string,start,length)|不支持
+INSTR(str,substr,start,mnth)|不支持
+INITCAP / UPPER / LOWER(string)|不支持
+TRIM(BOTH/LEADING/TRAILING char FROM string) / [L/R]TRIM(str,chrset)|不支持
+TRANSLATE / CONVERT(char USING value) / TRANSLATE(str,from,to)|不支持
+[L/R]PAD(str,to_len,str2)|不支持
+DECODE(expr,search1,result1,...[,default])|不支持
+NVL(expr,replace)|不支持
+Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 
 参考链接: https://blog.csdn.net/zhongmengya/article/details/5049025
 
