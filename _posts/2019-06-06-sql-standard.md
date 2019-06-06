@@ -49,8 +49,8 @@ author: sybn
 查询语句|支持程度
 -:|:-
 SELECT|支持
-FROM|支持
-WHERE|支持
+FROM table / FROM (select ...)|支持
+WHERE / WHERE a in (select ...)|支持
 GROUP BY|支持
 HAVING|支持
 ORDER BY|支持
