@@ -63,6 +63,8 @@ SHOW DATDBASES|不支持
 SHOW TABLES|非标准支持
 SET @a:=1; where a>@a|支持
 UNION / UNOIN ALL|支持
+DISTINCT|支持
+CASE WHEN ELSE END|支持
 
 * 数据类型
 
