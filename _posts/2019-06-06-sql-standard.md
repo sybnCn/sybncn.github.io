@@ -107,7 +107,7 @@ ROUND / TRUNC(x,places/date,format)|不支持
 POSITION(s1 IN s2)|不支持
 EXTRACT(datetime FROM datetime_value)|不支持
 CHAR_LENGTH(s1) / LENGTH(s1)|不支持
-SUBSTRING(string FROM start [FOR length]) / SUBSTR(string,start,length)|不支持
+SUBSTRING(string FROM start [FOR length]) / SUBSTR(string,start,length)|部分支持
 INSTR(str,substr,start,mnth)|不支持
 INITCAP / UPPER / LOWER(string)|不支持
 TRIM(BOTH/LEADING/TRAILING char FROM string) / [L/R]TRIM(str,chrset)|不支持
