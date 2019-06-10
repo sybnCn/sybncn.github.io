@@ -70,16 +70,13 @@ CASE WHEN ELSE END|支持
 
 数据类型|支持程度
 -:|:-
-CHAR(n)|支持
-CHARACTER(n)|支持
-VARCHAR(n)|支持
-CHARACTER VARYING(n)|支持
-<VARCHAR2(n)>|未评估
+CHAR(n) / CHARACTER(n)|支持
+VARCHAR(n) / VARCHAR2(n)|支持
+CHARACTER VARYING(n) |支持
 INTEGER / INT / SMALLINT|支持
-DECIMAL(p,s) / DEC(p,s) / NUMERIC(p,s) / FLOAT(p)|支持
-REAL|未评估
+DECIMAL(p,s) / DEC(p,s) / NUMERIC(p,s) / FLOAT(p) / REAL|支持
 DOUBLE PRECISION|支持
-DATE|支持
+DATE / datetime / timestamp |支持
 TIME|未评估
 INTERVAL year-month|未评估
 INTERVAL day|未评估
