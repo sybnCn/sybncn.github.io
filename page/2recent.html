@@ -11,7 +11,7 @@ type: page
         <h1>欢迎 使用 sybn util 项目</h1>
         <hr>
         <ul>
-            {% for post in paginator.posts %}
+            {% for post in site.paginator.posts %}
               <li>
                 <h2>
                   <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
