@@ -26,7 +26,7 @@ description_footer: sybn-util 项目说明文档
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
-# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx"; sybnutil:l2TJ
 baidu_tongji_id: 51c9b84dabe5fb42e268e952906744fd
 google_analytics_id:
 
