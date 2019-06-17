@@ -74,6 +74,11 @@ sybn util 是本人积累的java工具集，其主要包括：
   - servlet 工具
   
 ## 近期更新
-- 0.3.2 最新稳定版
-- 0.3.3 不稳定版, 增强了 join 的能力
-- 0.3.4 不稳定版, 增强了 distinct 的能力
+- 0.3.5 版
+1. 重构了 join 实现类, 增加了更多的用法, 降低了对原始数据的影响
+2. 重构了 聚合查询实现 提高了性能
+
+- 0.3.4 版
+1. 开启 mongo 压缩传输, 提高了性能
+2. 支持 mongo / mysql 的 select distinct a from table 语句
+3. 支持 mongo 的  select a form (select b from table) 原生嵌套查询, 相比之前的 java 实现提高了性能
