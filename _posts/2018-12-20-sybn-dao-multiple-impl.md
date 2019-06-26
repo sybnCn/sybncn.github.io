@@ -75,13 +75,26 @@ List<Map<String,Object>> mapList = multipleDao.sqlFindListMap(sql);
 List<Bean> beanList = multipleDao.sqlFindList(sql, Bean.class);
 ```
 
-* 临时变量 V:0.2.20
+* 临时变量 V:0.3.4
 
 ```sql
 -- 支持 mysql风格的临时变量
 set @time_date_str := '2019-01-16',
     @time := str_to_date(@time_date_str, '%Y-%m-%d');
 select * from table where time_str > @time_date_str and time > @time
+
+-- 扩展支持 list 型变量
+set @a@list = (1028, 1029, 1030, 1031, 1032);
+select * from table where id in (@a@list);
+
+-- 扩展支持 list 型变量,并内嵌函数和变量
+set @a = 1032;
+set @a@list = (1028, CONVERT("1029", SIGNED), CAST("1030" as SIGNED), toInt("1031"), @a);
+select * from table where id in (@a@list);
+
+-- 扩展支持 list 型变量,并从查询获取值
+set @a@list = (SELECT id FROM table order by id limit 5);
+select * from table where id in (@a@list);
 ```
 
 ### 不支持功能
