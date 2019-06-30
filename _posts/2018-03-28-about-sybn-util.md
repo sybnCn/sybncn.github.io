@@ -25,6 +25,9 @@ sybn util 是本人积累的java工具集，其主要包括：
 - slf4j
 
 ## 数据库工具
+
+目前以下工具以 DAO 形式存在，正在考试将之封装为 jdbc 驱动包。
+
 - sybn-core 项目
   - 为 List/Stream 实现了 SqlDdlDao 接口
   - 为 聚合查询 实现了 SqlDdlDao 接口，支持聚合查询其他所有 SqlDdlDao 接口
