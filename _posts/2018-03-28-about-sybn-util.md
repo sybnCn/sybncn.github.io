@@ -29,16 +29,17 @@ sybn util 是本人积累的java工具集，其主要包括：
 目前以下工具以 DAO 形式存在，正在考试将之封装为 jdbc 驱动包。
 
 - sybn-core 项目
-  - 为 List/Stream 实现了 SqlDdlDao 接口
+  - 为 List（兼容excel） 实现了 SqlDdlDao 接口
+  - 为 Stream（数据流） 实现了 SqlDdlStreamDao 接口
   - 为 聚合查询 实现了 SqlDdlDao 接口，支持聚合查询其他所有 SqlDdlDao 接口
 - dbutiil-dao 项目
-  - 为 mysql 实现了 SqlDdlDao 接口
+  - 为 mysql 实现了 SqlDdlDao/SqlDdlStreamDao 接口
 - mongo-dao 项目
-  - 为 mongo 实现了 SqlDdlDao 接口, 并支持子查询
+  - 为 mongo 实现了 SqlDdlDao/SqlDdlStreamDao 接口, 并支持子查询
 - solr-dao 项目
-  - 为 solr 实现了 SqlDdlDao 接口
+  - 为 solr 实现了 SqlDdlDao/SqlDdlStreamDao 接口
 - hadoop-dao 项目
-  - 为 HBase实现了 SqlDdlDao 接口
+  - 为 HBase实现了 SqlDdlDao/SqlDdlStreamDao 接口
 
 ## 基础工具
 基础工具是 sybn-core 和 sybn-core-java8 项目，其包括如下主要功能：
