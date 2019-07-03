@@ -23,7 +23,7 @@ author: sybn
 MongoAggregateBuilder.makPipeline(@NonNull String sql, Object... params)
 ```
 
-### 例1 (普通sql)
+### 例1(普通sql)
 
 * 输入 SQL: 
 
@@ -52,7 +52,7 @@ select
 
 > 注意： mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
 
-### 例2 (带unwind的sql)
+### 例2(带unwind的sql)
 
 * 输入 SQL: 
 
@@ -67,6 +67,29 @@ select datas, count(*) as c from table group by unwind(datas)
     {$unwind:"$datas"},
     {$group:{_id:{"unwind_datas":"$datas"}, "c":{$sum:1}}},
     {$project:{_id:0, "unwind_datas":"$_id.unwind_datas", "c":1}}
+]
+```
+
+
+### 例3(from子查询)
+
+* 输入 SQL: 
+
+``` sql
+-- 求每天的用户数和总金额
+select day, count(user) as user_count, sum(price_sum) as price_sum from (
+	select date_format(pay_time, "%Y-%m-%d") as day, user, sum(price) as price_sum from table1 group by day, user;
+) group by a
+```
+
+* 输出 Aggregate: 
+
+```json
+[
+	{$group:{_id:{, "day":{$dateToString:{date:"$pay_time",format: "%Y-%m-%d"}}, "user":"$user"}, "price_sum":{$sum:"$price"}}},
+	{$project:{_id:0, "day":"$_id.day", "user":"$_id.user", "price_sum":1}},
+	{$group:{_id:{ "day":"$day"}, "user_count":{$sum:{$cond:{if:{$gt:["$user", null]}, then:1, else:0}}}, "price_sum":{$sum:"$price_sum"}}},
+	{$project:{_id:0, "day":"$_id.day", "user_count":1, "price_sum":1}}
 ]
 ```
 

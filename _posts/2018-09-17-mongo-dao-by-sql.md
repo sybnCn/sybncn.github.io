@@ -40,6 +40,8 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 ) group by a
 ```
 
+- [from子查询底层工具]({{site.baseurl}}/2019/04/07/sql_query_convert_mongo_aggregate/#例3-from子查询)
+
 ### 支持非标准sql功能 V:0.2.12
 
 与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll, first, last
