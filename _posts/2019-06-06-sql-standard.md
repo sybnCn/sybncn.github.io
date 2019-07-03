@@ -108,9 +108,10 @@ EXTRACT(datetime FROM datetime_value)|不支持
 CHAR_LENGTH(s1) / LENGTH(s1)|支持
 SUBSTRING(string FROM start [FOR length]) / SUBSTR(string,start,length)|部分支持
 INSTR(str,substr,start,mnth)|不支持
-INITCAP|不支持
+INITCAP|支持
 UPPER / LOWER(string)|支持
-TRIM(BOTH/LEADING/TRAILING char FROM string) / [L/R]TRIM(str,chrset)|支持
+TRIM(BOTH/LEADING/TRAILING char FROM string)|支持
+[L/R]TRIM(str,chrset)|支持
 TRANSLATE / CONVERT(char USING value) / TRANSLATE(str,from,to)|不支持
 [L/R]PAD(str,to_len,str2)|支持
 DECODE(expr,search1,result1,...[,default])|不支持
