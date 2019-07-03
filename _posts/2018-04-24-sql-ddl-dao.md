@@ -77,10 +77,10 @@ join|右表来自任意数据源的list|右表来自任意数据源的Stream
 
 - [跨库联合查询用法]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
 
-## 关于 UDF: V:0.3.4
+## 关于标准 UDF: V:0.3.4
 所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
 
-NOW, CURDATE, TRIM, CAST, UPPER, LOEWE, LENGTH, CHAR_LENGTH, INITCAP, TIMESTAMPDIFF, CONVERT, DATE_ADD/ ADDDATE, DATE_SUB / SUNDATE, STR_TO_DATE, DATE_FORMAT, DAYOFWEEK, WEEKDAY 等
+NOW, CURDATE, TRIM, CAST, UPPER, LOWER, LENGTH, CHAR_LENGTH, INITCAP, TIMESTAMPDIFF, CONVERT, DATE_ADD/ ADDDATE, DATE_SUB / SUNDATE, STR_TO_DATE, DATE_FORMAT, DAYOFWEEK, WEEKDAY 等
 
 比如：
 ``` sql
