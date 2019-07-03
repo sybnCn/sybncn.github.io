@@ -115,7 +115,7 @@ TRIM(BOTH/LEADING/TRAILING char FROM string)|支持
 TRANSLATE / CONVERT(char USING value) / TRANSLATE(str,from,to)|不支持
 [L/R]PAD(str,to_len,str2)|支持
 DECODE(expr,search1,result1,...[,default])|不支持
-NVL(expr,replace)|不支持
+NVL(expr,replace)|支持
 Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 
 参考链接: https://blog.csdn.net/zhongmengya/article/details/5049025
