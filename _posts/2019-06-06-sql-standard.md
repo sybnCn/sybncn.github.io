@@ -101,7 +101,7 @@ IS [NOT] NULL|支持
  函数|支持程度
 -:|:-
 AVG / MAX / MIN / SUM / COUNT|支持
-GREATEST / LEAST(x,y,...)|不支持
+GREATEST / LEAST(x,y,...)|支持
 ROUND / TRUNC(x,places/date,format)|不支持
 POSITION(s1 IN s2)|不支持
 EXTRACT(datetime FROM datetime_value)|支持
