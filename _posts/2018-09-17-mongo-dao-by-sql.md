@@ -31,6 +31,15 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 支持问号占位符： xxx = ?
 
+支持 from 子查询, 比如:
+
+``` sql
+-- 求每天的用户数和总金额
+select day, count(user) as user_count, sum(price_sum) as price_sum from (
+	select date_format(pay_time, "%Y-%m-%d") as day, user, sum(price) as price_sum from table1 group by day, user;
+) group by a
+```
+
 ### 支持非标准sql功能 V:0.2.12
 
 与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll, first, last
@@ -64,7 +73,7 @@ select a sum(case t when 0 then 0 else 1 end) as tt from data group by a
 select a sum(case t when 0 then 0 WHEN 1 THEN 1 else 2 end) as tt from data group by a
 ```
 
-MongoDao 在 group by 时,还支持 UDTF 函数 unwind, 此函数莫mongo专有:
+MongoDao 在 group by 时,还支持 UDTF 函数 unwind, 此函数为 mongo 专有:
 
 ```java
 // 以下两种写法等效
