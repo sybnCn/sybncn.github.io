@@ -10,17 +10,19 @@ author: sybn
 {:toc}
 
 ## 简介
-SqlDdlDao 和 SqlDdlStreamDao 可以在各个数据库中执行 sql 操作.
+SqlDdlDao 和 SqlDdlStreamDao 是在各个数据库中执行 sql 操作的接口.
 
-目前有多数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql)
+目前已有多种数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql)
 
 另外还有用于查询 list 和 Stream 的实现类：SqlDdlDaoListImpl / SqlDdlDaoStreamAsyncImpl
 
 ![]({{site.baseurl}}/images/sql_ddl_dao_impl.png)
 
+另外还有针对不同数据库联合查询的实现类: SqlDdlDaoMultipleImpl
 
 
-## 样例 v:0.2.6
+
+## 单库查询样例 v:0.2.6
 ```java
 String sqlFind = "select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 String sqlCount = "select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
@@ -43,7 +45,7 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 
 > 注意：Hbase 的所有条件都是按字符串顺序比较的所以会出现 9 > 10， 在设计数据表时，最好填充0，将9存为000009。
 
-## 支持程度 V:0.2.13
+## 常见sql语法支持程度 V:0.2.13
 
 功能|DbutilDao (MySQL)|SolrDao|MongoDao|HBasesDao|DatasSqlDdlEngine (collection / stream)
 ----:|---|---|---|---|---|---
@@ -72,6 +74,8 @@ join|右表来自任意数据源的list|右表来自任意数据源的Stream
 ----:|---|---
 左表来自任意数据源的list|支持|支持
 左表来自任意数据源的Stream|支持|不支持
+
+- [跨库联合查询用法]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
 
 ## 关于 UDF: 0.2.19
 所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
