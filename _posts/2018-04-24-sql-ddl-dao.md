@@ -132,7 +132,13 @@ where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = '2018-01-16'
 - 子查询与union // 0.2.18 已实现 SqlDdlDaoMultipleImpl
 
 ## 相关页面
-- [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
-- [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
-- [group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
-- [sybn dao 使用子查询与union]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
+- [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
+- [sql查询实现:list / stream]({{site.baseurl}}/2018/09/13/datas-sql-ddl-engine/)
+- [sql查询实现:stream多路异步查询]({{site.baseurl}}/2018/10/15/sql_ddl_dao_stream_async_impl/)
+- [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
+- [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
+- sql查询实现:solr 文档待补
+- [底层工具:SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
+- [底层工具:CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
+- [底层工具:group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
+
