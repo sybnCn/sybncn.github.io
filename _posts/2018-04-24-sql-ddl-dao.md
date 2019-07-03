@@ -121,15 +121,13 @@ where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = '2018-01-16'
 
 ![]({{site.baseurl}}/images/sql_ddl_dao_fun.png)
 
-## 子接口和主要实现类 v:0.2.14
+## 子接口和主要实现类 v:0.3.4
 
 ![]({{site.baseurl}}/images/sql_ddl_dao_sub.png)
 
 ## 规划
 计划支持以下特性：
 - sqlRemove(sql) // 未实现
-- 将 Join 功能装进 SqlDdlDao 的实现类中 // 部分实现
-- 子查询与union // 0.2.18 已实现 SqlDdlDaoMultipleImpl
 
 ## 相关页面
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
