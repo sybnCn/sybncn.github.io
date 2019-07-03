@@ -57,9 +57,9 @@ ORDER BY|支持
 SKIP / LIMIT|支持
 JOIN|非标准支持
 ON|支持
-USING|暂不支持
+USING|支持
 USE|不支持
-SHOW DATDBASES|不支持
+SHOW DATDBASES|非标准支持
 SHOW TABLES|非标准支持
 SET @a:=1; where a>@a|支持
 UNION / UNOIN ALL|支持
