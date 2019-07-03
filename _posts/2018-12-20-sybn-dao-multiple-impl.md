@@ -135,6 +135,7 @@ join right(type_id_createtime) on left.type = right.type;
 * 暂无
 
 ## 相关页面
+- [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06-sql-standard/)
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
 - [sql查询实现:list / stream]({{site.baseurl}}/2018/09/13/datas-sql-ddl-engine/)
