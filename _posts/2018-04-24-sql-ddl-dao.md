@@ -130,7 +130,7 @@ where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = '2018-01-16'
 - sqlRemove(sql) // 未实现
 
 ## 相关页面
-- [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06-sql-standard/)
+- [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06/sql-standard/)
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
 - [sql查询实现:list / stream]({{site.baseurl}}/2018/09/13/datas-sql-ddl-engine/)
 - [sql查询实现:stream多路异步查询]({{site.baseurl}}/2018/10/15/sql_ddl_dao_stream_async_impl/)

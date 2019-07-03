@@ -37,4 +37,4 @@ sybn util 中关于 使用 sql 查询各个数据库的业务,暂时命名为 sy
 ![]({{site.baseurl}}/images/api_core2.png)
 
 ## 相关页面
-- [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06-sql-standard/)
+- [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06/sql-standard/)
