@@ -90,3 +90,5 @@ sybn util 是本人积累的java工具集，其主要包括：
 1. 开启 mongo 压缩传输, 提高了性能
 2. 支持 mongo / mysql 的 select distinct a from table 语句
 3. 支持 mongo 的  select a form (select b from table) 原生嵌套查询, 相比之前的 java 实现提高了性能
+4. 支持 无表查询语句, 比如: select now(); 一般用于调试 set 语句.
+5. 支持 UDF 函数:   dateadd, datesub, length, charlength, lpad, rpad, upper, lower, initcap, extract, least, greatest 

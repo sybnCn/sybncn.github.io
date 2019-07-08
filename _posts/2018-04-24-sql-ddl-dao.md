@@ -24,10 +24,12 @@ SqlDdlDao 和 SqlDdlStreamDao 是在各个数据库中执行 sql 操作的接口
 
 ## 单库查询样例 v:0.2.6
 ```java
+// sql 语句
 String sqlFind = "select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 String sqlCount = "select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 
-// sql / mongo / solr / HBase 数据量大时, 可以使用 StreamDao 以 Stream 流形式返回数据
+// 1. 构造不同数据库实例执行查询
+// mysql / mongo / solr / HBase 数据量大时, 可以使用 StreamDao 以 Stream 流形式返回数据
 SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
 SqlDdlDao dao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
 SqlDdlDao dao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
@@ -36,7 +38,7 @@ List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap(sqlFind);
 List<SybnJunitBase> sqlFindList = dao.sqlFindList(sqlFind, SybnJunitBase.class);
 long count = dao.sqlCount(sqlCount);
 
-// jvm
+// 2. 直接查询jvm中的数据
 List<Map<String, Object>> sqlFindListMap = DatasSqlDdlEngine.sqlFindListMap(list, sqlFind);
 List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, SybnJunitBase.class);
 ```
