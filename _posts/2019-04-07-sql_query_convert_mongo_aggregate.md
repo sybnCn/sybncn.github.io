@@ -103,5 +103,9 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 select * from mysql表 where id in (select id from mongo表)
 ```
 
+### web 版
+* 以下是web版效果
+![]({{site.baseurl}}/images/ql_query_convert_mongo_aggregate.png)
+
 ## 相关页面
 - [mongodb 的 sql 查询接口]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
