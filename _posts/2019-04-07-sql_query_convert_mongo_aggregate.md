@@ -107,7 +107,7 @@ select * from mysql表 where id in (select id from mongo表)
 
 * 以下是web版效果
 
-![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate.png)
+![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_2.png)
 
 ## 相关页面
 - [mongodb 的 sql 查询接口]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
