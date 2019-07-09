@@ -42,10 +42,10 @@ select
 
 ```json
 [
-    {"$match":{"date": {""$gt"": {"$date": "2019-04-06T16:00:00Z"}}}},
-    {"$group":{"_id":{ "t":{"$cond":{"if":{"$eq": ["$type", 1]}, then:"$value1", else:{"$cond":{"if":{"$eq": ["$type", 2]}, "then":"$value2", "else":0}}}}}, "c":{"$sum":1}}},
+    {"$match":{"date": {"$gt": {"$date": "2019-04-06T16:00:00Z"}}}},
+    {"$group":{"_id":{ "t":{"$cond":{"if":{"$eq": ["$type", 1]}, "then":"$value1", "else":{"$cond":{"if":{"$eq": ["$type", 2]}, "then":"$value2", "else":0}}}}}, "c":{"$sum":1}}},
     {"$project":{"_id":0, "t":"$_id.t", "c":1}},
-    {"$match":{"c": {""$gt"": 10}}},
+    {"$match":{"c": {"$gt": 10}}},
     {"$sort":{"c": -1}}
 ]
 ```
@@ -86,7 +86,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 ```json
 [
-	{"$group":{"_id":{, "day":{$dateToString:{date:"$pay_time",format: "%Y-%m-%d"}}, "user":"$user"}, "price_sum":{"$sum":"$price"}}},
+	{"$group":{"_id":{, "day":{"$dateToString":{"date":"$pay_time","format": "%Y-%m-%d"}}, "user":"$user"}, "price_sum":{"$sum":"$price"}}},
 	{"$project":{"_id":0, "day":"$_id.day", "user":"$_id.user", "price_sum":1}},
 	{"$group":{"_id":{ "day":"$day"}, "user_count":{"$sum":{"$cond":{"if":{"$gt":["$user", null]}, "then":1, "else":0}}}, "price_sum":{"$sum":"$price_sum"}}},
 	{"$project":{"_id":0, "day":"$_id.day", "user_count":1, "price_sum":1}}
