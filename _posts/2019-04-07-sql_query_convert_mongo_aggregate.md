@@ -23,6 +23,8 @@ author: sybn
 MongoAggregateBuilder.makPipeline(@NonNull String sql, Object... params)
 ```
 
+- [在线试用](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+
 ### 例1(普通sql)
 
 * 输入 SQL: 
@@ -95,17 +97,13 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 ### 注意事项 
 
-* 此工具类暂时不支持多 select 嵌套，未来计划支持一部分
+* 此工具类暂时不支持非 from 的 select 嵌套
 
-* SqlDdlDaoMultipleImpl 支持 select 嵌套，比如：
-
-```sql
-select * from mysql表 where id in (select id from mongo表)
-```
+*  此工具类暂时不支持加减乘除运算
 
 ### web 版
 
-* 以下是web版效果
+* 以下是web版效果图
 
 ![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_2.png)
 
