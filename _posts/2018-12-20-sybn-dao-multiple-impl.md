@@ -18,7 +18,7 @@ author: sybn
 
 
 
-### 在心测试
+### 在线测试
 
 可以用以下链接尝测试执行sql, 其中的  sql 及 json数据 可以随意替换. 也可以使用测试用表 cinema_info
 
