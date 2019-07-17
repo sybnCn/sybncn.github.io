@@ -53,6 +53,12 @@ List<Map<String,Object>> mapList = multipleDao.sqlFindListMap(sql);
 List<Bean> beanList = multipleDao.sqlFindList(sql, Bean.class);
 ```
 
+可以用以下链接尝试使用, sql 及 json 中的数据可以随意替换. 测试用的 from 表为 cinema_info
+
+- [在线试用](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20type_count%2Ccount(*)%20as%20type_count_count%20from%20(select%20type%2Ccount(*)%20as%20type_count%20from%20%5B%7Btype%3A1%2Cvalue%3A1%7D%2C%7Btype%3A2%2Cvalue%3A2%7D%2C%7Btype%3A1%2Cvalue%3A3%7D%5D%20group%20by%20type%3B)%20group%20by%20type_count)
+
+
+
 * select 子查询 V:0.2.19
 
 ```java
