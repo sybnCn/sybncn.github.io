@@ -23,7 +23,7 @@ author: sybn
 MongoAggregateBuilder.makPipeline(@NonNull String sql, Object... params)
 ```
 
-- [在线试用](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+- [在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 ### 例1(普通sql)
 
