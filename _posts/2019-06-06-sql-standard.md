@@ -127,6 +127,13 @@ Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 - 0.3.4 不稳定版, 增强了 distinct 的能力, 支持纯 mongo 的子查询
 
 
+### 在线测试
+
+可以用以下链接尝测试执行sql, 其中的  sql 及 json数据 可以随意替换. 也可以使用测试表: sql_demo_table,mongo_demo_table,cinema_info
+
+- [在线测试](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20type_count%2Ccount(*)%20as%20type_count_count%20from%20(select%20type%2Ccount(*)%20as%20type_count%20from%20%5B%7Btype%3A1%2Cvalue%3A1%7D%2C%7Btype%3A2%2Cvalue%3A2%7D%2C%7Btype%3A1%2Cvalue%3A3%7D%5D%20group%20by%20type%3B)%20group%20by%20type_count)
+
+
 ## 相关页面
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
