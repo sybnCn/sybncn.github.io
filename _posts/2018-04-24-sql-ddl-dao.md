@@ -82,7 +82,8 @@ join|右表来自任意数据源的list|右表来自任意数据源的Stream
 ## 关于标准 UDF: V:0.3.4
 所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
 
-NOW, CURDATE, TRIM, CAST, UPPER, LOWER, LENGTH, CHAR_LENGTH, INITCAP, TIMESTAMPDIFF, CONVERT, DATE_ADD/ ADDDATE, DATE_SUB / SUNDATE, STR_TO_DATE, DATE_FORMAT, DAYOFWEEK, WEEKDAY, EXTRACT, NVL / IFNULL, GREATEST, LEAST 等
+NOW, CURDATE, TRIM, CAST, UPPER, LOWER, LENGTH, CHAR_LENGTH, INITCAP, TIMESTAMPDIFF, CONVERT, DATE_ADD/ ADDDATE, DATE_SUB / SUNDATE, STR_TO_DATE, DATE_FORMAT, DAYOFWEEK, WEEKDAY, EXTRACT, NVL / IFNULL, GREATEST, LEAST, MD5 等
+
 
 比如：
 ``` sql
@@ -100,6 +101,14 @@ where play_time_yyyymmdd between 20190101 and 20190130
 -- 不支持 play_time_yyyymmdd 外面嵌套任何函数
 where DATE_FORMAT(play_time_yyyymmdd, '%Y-%m-%d') = '2018-01-16' 
 ```
+
+* 可以使用如下命令获取最新的支持列表:
+
+```java
+Set<String> udfNames = SybnUdfUtil.getUdfNames();
+// 截止 2019-07-24 支持的 udf 完整列表为: (不区分大小写) ["toint","compare","upper","topercent","replace","weekday","subdate","convert","curdate","from_days","tofloat","substring","date_sub","toset","cast","trim","todate","now","str_to_date","tolowercase","tolist","ifnull","md5_16","adddate","todouble","concat_ws","nvl","lower","timestampdiff","concat","replaceall","splitsubstring","date_add","tolong","dayofweek","date_format","calc","touppercase","tostring","to_days","md5"]
+```
+
 
 ## 关于私有 UDAF:
 > * 自定义函数 set 是指将数据转 set 输出(删除重复项)
