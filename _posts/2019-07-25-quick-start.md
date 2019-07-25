@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "关于 sybn util"
+title:  "quick start"
 categories: about
 tags:  about sybn-util
 author: sybn
