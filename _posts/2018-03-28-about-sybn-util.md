@@ -11,7 +11,7 @@ author: sybn
 
 ## 简介
 sybn util 是本人积累的java工具集，其主要包括：
-- 数据库工具(联合查询：mysql/mongodb/sorl/HBase/excel/json等)
+- 数据库工具(用于联合查询：mysql/mongodb/sorl/HBase/excel/json等数据源)
 - 其他工具（各种底层静态工具类）
 
 准备借鉴的开源项目：
@@ -26,7 +26,7 @@ sybn util 是本人积累的java工具集，其主要包括：
 
 ## 数据库工具
 
-目前以下工具以 DAO 形式存在，正在考试将之封装为 jdbc 驱动包。
+目前提供 DAO 形式的CRUD工具，正在着手将之封装为 jdbc 驱动包。
 
 - sybn-core 项目
   - 为 List（兼容excel） 实现了 SqlDdlDao 接口
@@ -87,8 +87,12 @@ sybn util 是本人积累的java工具集，其主要包括：
 2. 重构了 聚合查询实现 提高了性能
 
 - 0.3.4 版
-1. 开启 mongo 压缩传输, 提高了性能
+1. 支持 mongo 压缩传输, 提高了性能
 2. 支持 mongo / mysql 的 select distinct a from table 语句
 3. 支持 mongo 的  select a form (select b from table) 原生嵌套查询, 相比之前的 java 实现提高了性能
 4. 支持 无表查询语句, 比如: select now(); 一般用于调试 set 语句.
-5. 支持 UDF 函数:   dateadd, datesub, length, charlength, lpad, rpad, upper, lower, initcap, extract, least, greatest 
+5. 支持 UDF 函数:   dateadd, datesub, length, charlength, lpad, rpad, upper, lower, initcap, extract, least, greatest, MD5 等 
+
+
+## 相关页面
+- [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
