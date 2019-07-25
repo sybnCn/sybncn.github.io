@@ -39,3 +39,6 @@ java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as 
 java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as min_num from data_1 where type not in (select type from data_2 where id = 2) group by type order by type" 'd:/num_1.xlsx' 'd:/type.xls'
 ```
 
+## 相关页面
+- [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
+- [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
