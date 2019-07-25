@@ -13,7 +13,7 @@ author: sybn
 
 部分同学不熟悉 mongodb 的查询语法，为了降低入门门槛，今天专门提供了转换类。
 
-已经为大家准备好了 web 版接口: [在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+已经为大家准备好了 web 版接口: [》》》在线测试《《《](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 
 
@@ -104,7 +104,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 ### web 版
 
-* 以下是web版效果图  [在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+* 以下是web版效果图  [》》》在线测试《《《](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 ![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_2.png)
 
