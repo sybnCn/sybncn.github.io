@@ -17,6 +17,12 @@ author: sybn
 
 * 支持与 spring boot / spring data / spring mvc / hibernate / spark / spark sql 等生态系统共存
 
+
+
+
+
+
+
 ## maven 引用
 
 * 暂不支持在maven公共库引用, 目前支持maven私服

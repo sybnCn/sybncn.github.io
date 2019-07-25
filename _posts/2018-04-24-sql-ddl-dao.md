@@ -2,7 +2,7 @@
 layout: post
 title:  "sql ddl dao 通用查询引擎"
 categories: sql-ddl-dao
-tags:  sybn-core dao sql mysql mongo solr HBase groupBy 0.2.19
+tags:  sybn-core dao sql mysql mongo solr HBase 0.2.19
 author: sybn
 ---
 
