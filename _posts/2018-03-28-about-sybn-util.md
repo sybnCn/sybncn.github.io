@@ -96,3 +96,5 @@ sybn util 是本人积累的java工具集，其主要包括：
 
 ## 相关页面
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
+- [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
+- [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
