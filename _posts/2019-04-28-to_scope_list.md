@@ -105,3 +105,8 @@ ResultBase res2 = resultConver.conver(res);
 	
 	支持 string 型x轴， 并支持自适应和动态适配。
 
+
+
+## 在线测试
+
+- [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
