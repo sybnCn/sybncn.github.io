@@ -137,13 +137,20 @@ join right(type_id_createtime) on left.type = right.type;
 
 ### 注意事项 
 
-* 返回值顺序 （列排序）
+* 关于返回值列顺序 
 
-SqlDdlDaoMultipleImpl 只保证第一条数据的返回字段顺序与 select 语句一致。
+SqlDdlDaoMultipleImpl 返回 map 时，只保证第一条数据的返回字段顺序与 select 语句一致， 比如：
 
-考虑到排序对于性能的影响，某些情况下（比如数据量较少时）可能会对所有数据排序，但返回值行数较多时只保证第一行的顺序。
+```sql
+select a,b,c from mongo_table
+-- 返回值可能如下形式:
+-- [{a:1,b:2,c:3}, // 第一条，字段顺序与sql一致
+-- {b:2,a:1,c:3}, ...] // 第二条及之后内容，字段顺序可能是hash顺序
+```
 
-如果须要严格将所有数据的每一列顺序对齐，可以使用以下工具类:
+考虑到列排序对于性能的影响，某些情况下（比如数据量较少时）可能会对所有数据排序，但返回值行数较多时只保证第一行的顺序。
+
+如果须要严格将所有数据的每一列顺序对齐，可以要求返回 java bean，或者使用以下工具类排序:
 
 ```java
 MapsUtil.orderMaps(List<Map<String, V>> source, List<String> keys);
