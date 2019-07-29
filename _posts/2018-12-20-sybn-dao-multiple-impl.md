@@ -137,7 +137,19 @@ join right(type_id_createtime) on left.type = right.type;
 
 ### 注意事项 
 
-* 暂无
+* 返回值顺序 （列排序）
+
+SqlDdlDaoMultipleImpl 只保证第一条数据的返回字段顺序与 select 语句一致。
+
+考虑到排序对于性能的影响，某些情况下（比如数据量较少时）可能会对所有数据排序，但返回值行数较多时只保证第一行的顺序。
+
+如果须要严格将所有数据的每一列顺序对齐，可以使用以下工具类:
+
+```java
+MapsUtil.orderMaps(List<Map<String, V>> source, List<String> keys);
+MapsUtil.orderMaps(Stream<Map<String, V>> source, List<String> keys);
+```
+
 
 ## 相关页面
 - [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06/sql-standard/)
