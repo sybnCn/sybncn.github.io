@@ -40,7 +40,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 ) group by a
 ```
 
-- [from子查询底层工具]({{site.baseurl}}/2019/04/07/sql_query_convert_mongo_aggregate/#例3-from子查询)
+- [from子查询底层工具]({{site.baseurl}}/2019/04/07/sql_query-convert-mongo_aggregate/#例3-from子查询)
 
 ### 支持非标准sql功能 V:0.2.12
 
@@ -111,4 +111,4 @@ MongoDao dao = new MongoStreamDaoConfImpl("test", "confName@xxxx.properties", 30
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
 - sql查询实现:solr 文档待补
-- [底层查询实现:sql转aggregate]({{site.baseurl}}/2019/04/07/sql_query_convert_mongo_aggregate/)
+- [底层查询实现:sql转aggregate]({{site.baseurl}}/2019/04/07/sql_query-convert-mongo_aggregate/)

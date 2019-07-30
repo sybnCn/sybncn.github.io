@@ -106,7 +106,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 * 以下是web版效果图  [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
-![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_2.png)
+![]({{site.baseurl}}/images/sql_query-convert-mongo_aggregate_2.png)
 
 ## 相关页面
 - [mongodb 的 sql 查询接口]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
