@@ -28,10 +28,10 @@ SqlDdlDao 和 SqlDdlStreamDao 是在各个数据库中执行 sql 操作的接口
 String sqlFind = "select * from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 String sqlCount = "select count(*) from sybn_junit_base where id between '2018-03-20' and '2018-03-21'";
 
-// 1. 构造不同数据库实例执行查询
+// 1. 以url形式构造不同数据库实例执行查询
 // mysql / mongo / solr / HBase 数据量大时, 可以使用 StreamDao 以 Stream 流形式返回数据
-SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
-SqlDdlDao dao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
+SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/demo"); // sql
+SqlDdlDao dao = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/demo"); // mongo
 SqlDdlDao dao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
 SqlDdlDao dao = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
 List<Map<String, Object>> sqlFindListMap = dao.sqlFindListMap(sqlFind);
@@ -127,6 +127,69 @@ Set<String> udfNames = SybnUdfUtil.getUdfNames();
 > mongodb / solr 对类型敏感,查询 a = 0 和 a = "0" 的效果不一样.
 >
 > 其他数据库 a = 0 和 a = "0" 的返回值一致,但两种写法有性能差异.
+
+
+## 常用的构造函数
+
+* 直接使用url构造
+
+```java
+SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://username:password@192.168.4.31:3306,192.168.4.32:3306/demo"); // sql
+SqlDdlDao dao = new MongoDaoImpl("mongodb://username:password@192.168.4.31:27017,192.168.4.32:27017/demo"); // mongo
+SqlDdlDao dao = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
+SqlDdlDao dao = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
+```
+
+* 直接使用url构造, 但是账号密码可以单独写
+
+```java
+SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://192.168.4.31:3306,192.168.4.32:3306/demo", "username", "password"); // sql
+SqlDdlDao dao = new MongoDaoImpl("mongodb://192.168.4.31:27017,192.168.4.32:27017/demo", "username", "password", "authDatabase"); // mongo
+```
+
+* 直接读取配置文件
+
+```java
+SqlDdlDao dao = new DbutilDaoConfImpl("sql.demo@db.properties"); // sql
+SqlDdlDao dao = new MongoDaoConfImpl("mongo.demo@db.properties"); // mongo
+SqlDdlDao dao = new SolrDaoConfImpl("solr.demo@db.properties"); // solr
+SqlDdlDao dao = new HBaseDaoConfImpl("hbase.demo@db.properties"); // HBasemongo
+```
+
+以下是db.properties
+
+```
+// 所有dao都支持直接使用url构造
+sql.demo=jdbc:mysql://username:password@192.168.4.31:3306,192.168.4.32:3306/demo
+
+// 所有mysql/mongo支持使用url构造, 但是账号密码可以单独写
+mongo.demo=mongodb://192.168.4.31:27017,192.168.4.32:27017/demo
+mongo.demo.username=username
+mongo.demo.password=password
+mongo.demo.authSource=admin
+
+// 所有等号右边,都支持使用变量
+host=127.0.0.1
+
+// solr 支持 solr, http, https 
+solr.demo=https://${host}:8983/solr
+
+hbase.demo=hbase://${host}:2181/
+```
+
+* 直接传入配置对象 Properties v:0.3.4
+
+
+```java
+// 从 properties 中读取 sql.test 构造dao
+Properties properties = new SybnCoreProperties().load("db.properties");
+DbutilDao dao2 = new DbutilStreamDaoPropertiesImpl(sybnDbProperties, "test");
+
+SqlDdlDao dao = new DbutilDaoConfImpl(properties, "sql.demo"); // sql
+SqlDdlDao dao = new MongoDaoConfImpl(properties, "mongo.demo"); // mongo
+SqlDdlDao dao = new SolrDaoConfImpl(properties, "solr.demo"); // solr
+SqlDdlDao dao = new HBaseDaoConfImpl(properties, "hbase.demo"); // HBasemongo
+```
 
 ## 接口函数
 
