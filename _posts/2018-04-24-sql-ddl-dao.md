@@ -143,8 +143,8 @@ SqlDdlDao dao = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecu
 * 直接使用url构造, 但是账号密码可以单独写
 
 ```java
-SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://192.168.4.31:3306,192.168.4.32:3306/demo", "username", "password"); // sql
-SqlDdlDao dao = new MongoDaoImpl("mongodb://192.168.4.31:27017,192.168.4.32:27017/demo", "username", "password", "authDatabase"); // mongo
+SqlDdlDao dao = new DbutilDaoImpl("jdbc:mysql://192.168.4.31:3306/demo", "username", "password"); // sql
+SqlDdlDao dao = new MongoDaoImpl("mongodb://192.168.4.31:27017/demo", "username", "password", "authDatabase"); // mongo
 ```
 
 * 直接读取配置文件
@@ -189,6 +189,21 @@ SqlDdlDao dao = new DbutilDaoConfImpl(properties, "sql.demo"); // sql
 SqlDdlDao dao = new MongoDaoConfImpl(properties, "mongo.demo"); // mongo
 SqlDdlDao dao = new SolrDaoConfImpl(properties, "solr.demo"); // solr
 SqlDdlDao dao = new HBaseDaoConfImpl(properties, "hbase.demo"); // HBasemongo
+```
+
+* 直接使用 spring 的数据源
+
+``` java
+@Resource(name="sql_demo") 
+DataSource dataSource;
+
+@Resource(name="mongo_demo") 
+MongoTemplate mongoTemplate
+
+// ... ...
+
+SqlDdlDao dao = new DbutilDaoImpl("spring_sql", dataSource);
+SqlDdlDao dao = new MongoDaoImpl("spring_mongo", mongoTemplate.getDb);
 ```
 
 ## 接口函数
