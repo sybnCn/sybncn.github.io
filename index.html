@@ -79,7 +79,7 @@ layout: default
         
             <div class="side">
                 <div>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <i class="fa fa-th-list" aria-hidden="true"></i>
                     目录
                 </div>
                 <ul class="content-ul" recent>
@@ -88,6 +88,18 @@ layout: default
                     <li><a href="{{ site.baseurl }}/2019/06/06/sql-standard/">SqlDdlDao 对于sql规范的支持</a></li>
                     <li><a href="{{ site.baseurl }}/2019/07/25/quick-start/">SqlDdlDao quick start</a></li>
                     <li><a href="{{ site.baseurl }}/2019/07/25/web-sql/">SqlDdlDao 在线试用</a></li>
+                </ul>
+            </div>
+        
+            <div class="side">
+                <div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Recent Posts
+                </div>
+                <ul class="content-ul" recent>
+                    {% for post in site.posts offset: 0 limit: 10  %}
+                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
 
