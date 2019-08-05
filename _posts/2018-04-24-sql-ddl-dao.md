@@ -185,10 +185,10 @@ hbase.demo=hbase://${host}:2181/
 Properties properties = new SybnCoreProperties().load("db.properties");
 DbutilDao dao2 = new DbutilStreamDaoPropertiesImpl(sybnDbProperties, "test");
 
-SqlDdlDao dao = new DbutilDaoConfImpl(properties, "sql.demo"); // sql
-SqlDdlDao dao = new MongoDaoConfImpl(properties, "mongo.demo"); // mongo
-SqlDdlDao dao = new SolrDaoConfImpl(properties, "solr.demo"); // solr
-SqlDdlDao dao = new HBaseDaoConfImpl(properties, "hbase.demo"); // HBasemongo
+SqlDdlDao dao = new DbutilDaoPropertiesImpl(properties, "sql.demo"); // sql
+SqlDdlDao dao = new MongoDaoPropertiesImpl(properties, "mongo.demo"); // mongo
+SqlDdlDao dao = new SolrDaoPropertiesImpl(properties, "solr.demo"); // solr
+SqlDdlDao dao = new HBaseDaoPropertiesImpl(properties, "hbase.demo"); // HBasemongo
 ```
 
 * 直接使用 spring 的数据源
