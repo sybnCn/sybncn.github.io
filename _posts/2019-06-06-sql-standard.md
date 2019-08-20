@@ -144,5 +144,5 @@ Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 - sql查询实现:solr 文档待补
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
 - [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
-- [jdbc-driver]({{site.baseurl}}/2019/09/18/jdbc-driver/)
+- [jdbc-driver]({{site.baseurl}}/2019/08/18/jdbc-driver/)
 
