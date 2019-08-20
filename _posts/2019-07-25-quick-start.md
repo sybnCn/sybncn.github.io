@@ -180,3 +180,4 @@ select * from table where id in (@a@list);
 ## 在线测试
 
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
+

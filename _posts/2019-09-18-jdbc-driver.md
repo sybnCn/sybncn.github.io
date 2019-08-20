@@ -2,7 +2,7 @@
 layout: post
 title:  "jdbc-driver"
 categories: jdbc
-tags:  jdbc about sql 0.3.4
+tags: jdbc about sql 0.3.4
 author: sybn
 ---
 
@@ -91,3 +91,4 @@ LogUtil.info(handle.size(), handle);
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
 - [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
+
