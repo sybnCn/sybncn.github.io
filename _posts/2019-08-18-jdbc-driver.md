@@ -54,10 +54,6 @@ LogUtil.info("showTables", showTables.size(), showTables);
 * 执行日志
 
 ```
-08-20 20:30:12.335 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
-08-20 20:30:12.539 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
-08-20 20:30:12.584 [cluster-ClusterId{value='5d5be7d43e340d5bdfd2f360', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:49}] to 127.0.0.1:27017
-08-20 20:30:12.598 [cluster-ClusterId{value='5d5be7d43e340d5bdfd2f360', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10408759}
 08-20 20:30:12.925 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:50}] to 127.0.0.1:27017
 08-20 20:30:13.397 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
 08-20 20:30:13.866 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
@@ -91,10 +87,6 @@ LogUtil.info("showTables", showTables.size(), showTables);
 * 执行日志
 
 ```
-08-20 20:35:46.081 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
-08-20 20:35:46.295 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
-08-20 20:35:46.318 [cluster-ClusterId{value='5d5be922188fd520b7cc7df3', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:51}] to 127.0.0.1:27017
-08-20 20:35:46.334 [cluster-ClusterId{value='5d5be922188fd520b7cc7df3', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9069535}
 08-20 20:35:46.616 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:52}] to 127.0.0.1:27017
 08-20 20:35:47.202 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
 08-20 20:35:47.717 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
