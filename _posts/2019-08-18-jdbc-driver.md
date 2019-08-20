@@ -80,6 +80,12 @@ selectStatement.setInt(1, 0); // type = 0
 ResultSet selectResultSet = selectStatement.executeQuery();
 List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
 LogUtil.info("select", select.size(), select);
+
+String showTablesSql = "show tables";
+PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
+ResultSet showTablesResultSet = showTablesStatement.executeQuery();
+List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
+LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
 * 执行日志
