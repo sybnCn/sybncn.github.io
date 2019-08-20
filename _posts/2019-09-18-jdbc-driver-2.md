@@ -22,20 +22,6 @@ SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
 
 
-
-
-##  jdbc demo
-
-* jdbc 驱动直接查询 mongodb 3.6
-
-
-
-## dataSource demo
-
-* 通过 dataSource 指定驱动包名查询 mongodb 3.6
-
-
-
 ## 相关页面
 - [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06/sql-standard/)
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
