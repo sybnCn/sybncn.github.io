@@ -41,13 +41,6 @@ ResultSet selectResultSet = selectStatement.executeQuery();
 List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
 selectResultSet.close();
 LogUtil.info("select", select.size(), select);
-
-String showTablesSql = "show tables";
-PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
-ResultSet showTablesResultSet = showTablesStatement.executeQuery();
-List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
-showTablesResultSet.close();
-LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
 * 执行日志
@@ -55,7 +48,6 @@ LogUtil.info("showTables", showTables.size(), showTables);
 ```
 08-20 20:30:12.925 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:50}] to 127.0.0.1:27017
 08-20 20:30:13.866 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
-08-20 20:30:13.874 [main] INFO  cn.sybn.util.base.LogUtil - showTables 4 [{"Tables_in_junit_test":"junit_test_save"},{"Tables_in_junit_test":"sybn_junit_data"},{"Tables_in_junit_test":"sybnJunitTestStringIdEntity"},{"Tables_in_junit_test":"sybn_junit_crud_test_entry"}]
 ```
 
 ## dataSource demo
@@ -78,13 +70,6 @@ ResultSet selectResultSet = selectStatement.executeQuery();
 List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
 selectResultSet.close();
 LogUtil.info("select", select.size(), select);
-
-String showTablesSql = "show tables";
-PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
-ResultSet showTablesResultSet = showTablesStatement.executeQuery();
-List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
-showTablesResultSet.close();
-LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
 * 执行日志
@@ -92,7 +77,6 @@ LogUtil.info("showTables", showTables.size(), showTables);
 ```
 08-20 20:35:46.616 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:52}] to 127.0.0.1:27017
 08-20 20:35:47.717 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
-08-20 20:35:47.727 [main] INFO  cn.sybn.util.base.LogUtil - showTables 4 [{"Tables_in_junit_test":"junit_test_save"},{"Tables_in_junit_test":"sybn_junit_data"},{"Tables_in_junit_test":"sybnJunitTestStringIdEntity"},{"Tables_in_junit_test":"sybn_junit_crud_test_entry"}]
 ```
 
 ## 相关页面
