@@ -39,7 +39,7 @@ List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet
 LogUtil.info(handle.size(), handle);
 ```
 
-* 日志
+* 执行日志
 
 ```
 08-20 18:47:12.248 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
@@ -71,7 +71,7 @@ List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet
 LogUtil.info(handle.size(), handle);
 ```
 
-* 日志
+* 执行日志
 
 ```
 08-20 18:36:20.043 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
