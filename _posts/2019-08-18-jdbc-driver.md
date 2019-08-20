@@ -17,7 +17,7 @@ SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
 这个驱动目前只支持 select 查询, 计划支持 show table 等查询.
 
-因为 SqlDdlDao 短期内暂不考虑支持数据修改, 所以 SybnDaoDriver 短期内也不支持.
+因为 SqlDdlDao 短期内暂不考虑支持使用 sql 修改数据, 所以 SybnDaoDriver 短期内也不支持.
 
 
 
