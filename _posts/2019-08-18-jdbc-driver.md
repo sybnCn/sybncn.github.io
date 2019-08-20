@@ -30,7 +30,7 @@ SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-Map<String, String> n = MB.n("username", "junit_test_user", "password", "junit_test_pass");
+Map<String, String> n = MB.n("user", "junit_test_user", "password", "junit_test_pass");
 Properties properties = new SybnProperties(n);
 Connection connect = new SybnDaoDriver().connect(url, properties);
 
