@@ -42,12 +42,14 @@ PreparedStatement selectStatement = connect.prepareStatement(selectSql);
 selectStatement.setInt(1, 0); // type = 0
 ResultSet selectResultSet = selectStatement.executeQuery();
 List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+selectResultSet.close();
 LogUtil.info("select", select.size(), select);
 
 String showTablesSql = "show tables";
 PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
 ResultSet showTablesResultSet = showTablesStatement.executeQuery();
 List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
+showTablesResultSet.close();
 LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
@@ -75,12 +77,14 @@ PreparedStatement selectStatement = connect.prepareStatement(selectSql);
 selectStatement.setInt(1, 0); // type = 0
 ResultSet selectResultSet = selectStatement.executeQuery();
 List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+selectResultSet.close();
 LogUtil.info("select", select.size(), select);
 
 String showTablesSql = "show tables";
 PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
 ResultSet showTablesResultSet = showTablesStatement.executeQuery();
 List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
+showTablesResultSet.close();
 LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
