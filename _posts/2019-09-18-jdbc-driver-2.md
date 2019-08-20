@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jdbc-driver"
+title:  "jdbc-driver 22"
 categories: jdbc
 tags: jdbc about sql 0.3.4
 author: sybn
@@ -9,7 +9,7 @@ author: sybn
 * content
 {:toc}
 
-## 介绍
+## 介绍 22
 
 SybnDaoDriver 可以作为 mongo, solr. hbase 的 jdbc 简易驱动使用.
 
@@ -28,37 +28,12 @@ SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
 * jdbc 驱动直接查询 mongodb 3.6
 
-```java
-String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-Properties properties = new SybnProperties(MB.n("username", "junit_test_user", "password", "junit_test_pass"));
-Connection connect = new SybnDaoDriver().connect(url, properties);
-
-PreparedStatement preparedStatement = connect.prepareStatement("select * from sybn_junit_crud_test_entry limit 1");
-ResultSet resultSet = preparedStatement.executeQuery();
-List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet);
-LogUtil.info(handle.size(), handle);
-```
 
 
 ## dataSource demo
 
 * 通过 dataSource 指定驱动包名查询 mongodb 3.6
 
-```java
-String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-
-BasicDataSource dataSource = new BasicDataSource();
-dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
-dataSource.setUrl(url);
-dataSource.setUsername("junit_test_user");
-dataSource.setPassword("junit_test_pass");
-
-Connection connect = dataSource.getConnection();
-PreparedStatement preparedStatement = connect.prepareStatement("select * from sybn_junit_crud_test_entry limit 1");
-ResultSet resultSet = preparedStatement.executeQuery();
-List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet);
-LogUtil.info(handle.size(), handle);
-```
 
 
 ## 相关页面
