@@ -30,12 +30,9 @@ SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-BasicDataSource dataSource = new BasicDataSource();
-dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
-dataSource.setUrl(url);
-dataSource.setUsername("junit_test_user");
-dataSource.setPassword("junit_test_pass");
-Connection connect = dataSource.getConnection();
+Map<String, String> n = MB.n("username", "junit_test_user", "password", "junit_test_pass");
+Properties properties = new SybnProperties(n);
+Connection connect = new SybnDaoDriver().connect(url, properties);
 
 String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
 PreparedStatement selectStatement = connect.prepareStatement(selectSql);
@@ -68,9 +65,12 @@ LogUtil.info("showTables", showTables.size(), showTables);
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-Map<String, String> n = MB.n("username", "junit_test_user", "password", "junit_test_pass");
-Properties properties = new SybnProperties(n);
-Connection connect = new SybnDaoDriver().connect(url, properties);
+BasicDataSource dataSource = new BasicDataSource();
+dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
+dataSource.setUrl(url);
+dataSource.setUsername("junit_test_user");
+dataSource.setPassword("junit_test_pass");
+Connection connect = dataSource.getConnection();
 
 String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
 PreparedStatement selectStatement = connect.prepareStatement(selectSql);
