@@ -15,7 +15,7 @@ SybnDaoDriver 可以作为 mongo, solr. hbase 的 jdbc 简易驱动使用.
 
 SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
-这个驱动目前只支持 select 查询, 计划支持 show table 等查询.
+SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 因为 SqlDdlDao 短期内暂不考虑支持使用 sql 修改数据, 所以 SybnDaoDriver 短期内也不支持.
 
@@ -30,27 +30,38 @@ SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-Map<String, String> n = MB.n("username", "junit_test_user", "password", "junit_test_pass");
-Properties properties = new SybnProperties(n);
-Connection connect = new SybnDaoDriver().connect(url, properties);
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
+        dataSource.setUrl(url);
+        dataSource.setUsername("junit_test_user");
+        dataSource.setPassword("junit_test_pass");
+        Connection connect = dataSource.getConnection();
 
-String sql = "select * from sybn_junit_crud_test_entry limit 1";
-PreparedStatement preparedStatement = connect.prepareStatement(sql);
-ResultSet resultSet = preparedStatement.executeQuery();
-List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet);
-LogUtil.info(handle.size(), handle);
+        String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
+        PreparedStatement selectStatement = connect.prepareStatement(selectSql);
+        selectStatement.setInt(1, 0); // type = 0
+        ResultSet selectResultSet = selectStatement.executeQuery();
+        List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+        LogUtil.info("select", select.size(), select);
+
+        String showTablesSql = "show tables";
+        PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
+        ResultSet showTablesResultSet = showTablesStatement.executeQuery();
+        List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
+        LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
 * 执行日志
 
 ```
-08-20 18:47:12.248 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
-08-20 18:47:12.442 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
-08-20 18:47:12.452 [cluster-ClusterId{value='5d5bcfb0a68e9e197f352fbd', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:33}] to 127.0.0.1:27017
-08-20 18:47:12.467 [cluster-ClusterId{value='5d5bcfb0a68e9e197f352fbd', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10774292}
-08-20 18:47:12.810 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:34}] to 127.0.0.1:27017
-08-20 18:47:13.321 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
-08-20 18:47:13.957 [main] INFO  cn.sybn.util.base.LogUtil - 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
+08-20 20:30:12.335 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
+08-20 20:30:12.539 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
+08-20 20:30:12.584 [cluster-ClusterId{value='5d5be7d43e340d5bdfd2f360', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:49}] to 127.0.0.1:27017
+08-20 20:30:12.598 [cluster-ClusterId{value='5d5be7d43e340d5bdfd2f360', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10408759}
+08-20 20:30:12.925 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:50}] to 127.0.0.1:27017
+08-20 20:30:13.397 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
+08-20 20:30:13.866 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
+08-20 20:30:13.874 [main] INFO  cn.sybn.util.base.LogUtil - showTables 4 [{"Tables_in_junit_test":"junit_test_save"},{"Tables_in_junit_test":"sybn_junit_data"},{"Tables_in_junit_test":"sybnJunitTestStringIdEntity"},{"Tables_in_junit_test":"sybn_junit_crud_test_entry"}]
 ```
 
 ## dataSource demo
@@ -59,30 +70,29 @@ LogUtil.info(handle.size(), handle);
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-BasicDataSource dataSource = new BasicDataSource();
-dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
-dataSource.setUrl(url);
-dataSource.setUsername("junit_test_user");
-dataSource.setPassword("junit_test_pass");
-Connection connect = dataSource.getConnection();
+Map<String, String> n = MB.n("username", "junit_test_user", "password", "junit_test_pass");
+Properties properties = new SybnProperties(n);
+Connection connect = new SybnDaoDriver().connect(url, properties);
 
-String sql = "select * from sybn_junit_crud_test_entry limit 1";
-PreparedStatement preparedStatement = connect.prepareStatement(sql);
-ResultSet resultSet = preparedStatement.executeQuery();
-List<Map<String, Object>> handle = HandlerUtil.MAP_LIST_HANDLER.handle(resultSet);
-LogUtil.info(handle.size(), handle);
+String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
+PreparedStatement selectStatement = connect.prepareStatement(selectSql);
+selectStatement.setInt(1, 0); // type = 0
+ResultSet selectResultSet = selectStatement.executeQuery();
+List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+LogUtil.info("select", select.size(), select);
 ```
 
 * 执行日志
 
 ```
-08-20 18:36:20.043 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
-08-20 18:36:20.237 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
-08-20 18:36:20.268 [cluster-ClusterId{value='5d5bcd2466b9414025b4ec99', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:31}] to 127.0.0.1:27017
-08-20 18:36:20.280 [cluster-ClusterId{value='5d5bcd2466b9414025b4ec99', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7495325}
-08-20 18:36:20.581 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:32}] to 127.0.0.1:27017
-08-20 18:36:21.061 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
-08-20 18:36:21.546 [main] INFO  cn.sybn.util.base.LogUtil - 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
+08-20 20:35:46.081 [main] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=5000}
+08-20 20:35:46.295 [main] INFO  org.mongodb.driver.cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
+08-20 20:35:46.318 [cluster-ClusterId{value='5d5be922188fd520b7cc7df3', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:51}] to 127.0.0.1:27017
+08-20 20:35:46.334 [cluster-ClusterId{value='5d5be922188fd520b7cc7df3', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 13]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9069535}
+08-20 20:35:46.616 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:52}] to 127.0.0.1:27017
+08-20 20:35:47.202 [main] INFO  cn.sybn.util.base.log.ConverToLogEnginePool - register ConverToLogEngineInterface:
+08-20 20:35:47.717 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
+08-20 20:35:47.727 [main] INFO  cn.sybn.util.base.LogUtil - showTables 4 [{"Tables_in_junit_test":"junit_test_save"},{"Tables_in_junit_test":"sybn_junit_data"},{"Tables_in_junit_test":"sybnJunitTestStringIdEntity"},{"Tables_in_junit_test":"sybn_junit_crud_test_entry"}]
 ```
 
 ## 相关页面
