@@ -229,6 +229,8 @@ SqlDdlDao dao = new MongoDaoImpl("spring_mongo", mongoTemplate.getDb);
 - [底层工具:SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
 - [底层工具:CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
 - [底层工具:group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)
-- [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
+- [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
+- [jdbc-driver]({{site.baseurl}}/2019/09/18/jdbc-driver/)
+
 
