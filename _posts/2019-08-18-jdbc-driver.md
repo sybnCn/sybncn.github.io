@@ -30,25 +30,25 @@ SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 ```java
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
-        dataSource.setUrl(url);
-        dataSource.setUsername("junit_test_user");
-        dataSource.setPassword("junit_test_pass");
-        Connection connect = dataSource.getConnection();
+BasicDataSource dataSource = new BasicDataSource();
+dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
+dataSource.setUrl(url);
+dataSource.setUsername("junit_test_user");
+dataSource.setPassword("junit_test_pass");
+Connection connect = dataSource.getConnection();
 
-        String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
-        PreparedStatement selectStatement = connect.prepareStatement(selectSql);
-        selectStatement.setInt(1, 0); // type = 0
-        ResultSet selectResultSet = selectStatement.executeQuery();
-        List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
-        LogUtil.info("select", select.size(), select);
+String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
+PreparedStatement selectStatement = connect.prepareStatement(selectSql);
+selectStatement.setInt(1, 0); // type = 0
+ResultSet selectResultSet = selectStatement.executeQuery();
+List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+LogUtil.info("select", select.size(), select);
 
-        String showTablesSql = "show tables";
-        PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
-        ResultSet showTablesResultSet = showTablesStatement.executeQuery();
-        List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
-        LogUtil.info("showTables", showTables.size(), showTables);
+String showTablesSql = "show tables";
+PreparedStatement showTablesStatement = connect.prepareStatement(showTablesSql);
+ResultSet showTablesResultSet = showTablesStatement.executeQuery();
+List<Map<String, Object>> showTables = HandlerUtil.MAP_LIST_HANDLER.handle(showTablesResultSet);
+LogUtil.info("showTables", showTables.size(), showTables);
 ```
 
 * 执行日志
