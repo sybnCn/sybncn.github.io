@@ -95,37 +95,32 @@ LogUtil.info("select", select.size(), select);
 
 * 目前已支持以下数源据:
 
-> jdbc:mysql://...
+```
+jdbc:mysql://127.0.0.1:3306/db
+jdbc:mongo://127.0.0.1:27017/db
+jdbc:solr://127.0.0.1:8983/solr
+jdbc:hbase://127.0.0.1:2181
+```
 
-> jdbc:mongo://...
+* 即将支持文件数据源,直接将文件当作数据库查询:
 
-> jdbc:solr://...
+> 直接访问以下任意格式的磁盘文件(支持读取jar包内外的文件,只允许读取白名单中的目录)
 
-> jdbc:hbase://...
+```
+jdbc:file://home/user/xxx.xls?startRows=2
+jdbc:file://home/user/xxx.xlsx?startRows=2
+jdbc:file://home/user/xxx.csv?chatset=GBK
+jdbc:file://home/user/xxx.json?root=data
+```
 
-* 即将支持以下数据源,当作数据库查询:
+> 直接访问以下任意格式的http请求结果(只允许读取白名单中的url)
 
-
-直接访问以下任意格式的磁盘文件(支持读取jar包内外的文件,只允许读取白名单中的目录)
-
-> jdbc:file://home/user/xxx.xls?startRows=2
->
-> jdbc:file://home/user/xxx.xlsx?startRows=2
->
-> jdbc:file://home/user/xxx.csv?chatset=GBK
->
-> jdbc:file://home/user/xxx.json?root=data
-
-
-直接访问以下任意格式的http请求结果(只允许读取白名单中的url)
-
-> jdbc:http://home/user/xxx.xls?startRows=2
->
-> jdbc:http://home/user/xxx.xlsx?startRows=2
->
-> jdbc:ftp://home/user/xxx.csv?chatset=GBK
->
-> jdbc:https://home/user/xxx.json?root=data
+```
+jdbc:http://home/user/xxx.xls?startRows=2
+jdbc:http://home/user/xxx.xlsx?startRows=2
+jdbc:ftp://home/user/xxx.csv?chatset=GBK
+jdbc:https://home/user/xxx.json?root=data
+```
 
 
 ## 相关页面
