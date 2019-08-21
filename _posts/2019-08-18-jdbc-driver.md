@@ -105,6 +105,8 @@ LogUtil.info("select", select.size(), select);
 
 * 即将支持以下数据源,当作数据库查询:
 
+直接访问以下任意格式的磁盘文件(支持读取jar包内外的文件,只允许读取白名单中的目录)
+
 > xls jdbc:file://home/user/xxx.xls?startRows=2
 
 > xlsx jdbc:file://home/user/xxx.xlsx?startRows=2
@@ -113,7 +115,15 @@ LogUtil.info("select", select.size(), select);
 
 > json jdbc:file://home/user/xxx.json?root=data
 
-以上任意格式的http jdbc:http://home/user/xxx.httpc?root=data
+直接访问以下任意格式的http请求结果(只允许读取白名单中的url)
+
+> xls jdbc:http://home/user/xxx.xls?startRows=2
+
+> xlsx jdbc:http://home/user/xxx.xlsx?startRows=2
+
+> csv jdbc:ftp://home/user/xxx.csv?chatset=GBK
+
+> json jdbc:https://home/user/xxx.json?root=data
 
 
 ## 相关页面
