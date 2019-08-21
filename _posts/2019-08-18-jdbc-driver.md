@@ -11,11 +11,11 @@ author: sybn
 
 ## 介绍
 
-SybnDaoDriver 可以作为 mongo, solr. hbase 的 jdbc 简易驱动使用.
+SybnDaoDriver 可以作为 mongo, solr, hbase 等数据源的 jdbc 简易驱动使用.
 
 SybnDaoDriver 是 SqlDdlDao 的封装类, 支持 SqlDdlDao 的所有 sql 特性.
 
-SybnDaoDriver 目前只支持 select, show tables 等查询.
+SybnDaoDriver 目前只支持 select, show tables 等查询, 暂时只允许单表查询.
 
 因为 SqlDdlDao 短期内暂不考虑支持使用 sql 修改数据, 所以 SybnDaoDriver 短期内也不支持.
 
