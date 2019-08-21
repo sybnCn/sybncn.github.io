@@ -19,6 +19,8 @@ SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 因为 SqlDdlDao 短期内暂不考虑支持使用 sql 修改数据, 所以 SybnDaoDriver 短期内也不支持.
 
+如需修改数据,可以使用 SqlDdlDao 中的 commonSave 和 commonUpdate 等方法.
+
 
 
 
@@ -78,6 +80,31 @@ LogUtil.info("select", select.size(), select);
 08-20 20:35:46.616 [main] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:52}] to 127.0.0.1:27017
 08-20 20:35:47.717 [main] INFO  cn.sybn.util.base.LogUtil - select 1 [{"msg":"commonSaveOrReplace","date":"2019-08-20 18:14:01","_id":"9999","type":0,"num":9999}]
 ```
+
+## 数据源支持
+
+* 目前已支持以下数源据:
+
+mysql jdbc:mysql://...
+
+mongo jdbc:mongo://...
+
+solr jdbc:solr://...
+
+hbase jdbc:hbase://...
+
+* 即将支持以下数据源,当作数据库查询:
+
+xls jdbc:file://home/user/xxx.xls?startRows=2
+
+xlsx jdbc:file://home/user/xxx.xlsx?startRows=2
+
+csv jdbc:file://home/user/xxx.csv?chatset=GBK
+
+json jdbc:file://home/user/xxx.json?root=data
+
+以上任意格式的http jdbc:http://home/user/xxx.httpc?root=data
+
 
 ## 相关页面
 - [本工具对于sql规范的支持说明]({{site.baseurl}}/2019/06/06/sql-standard/)
