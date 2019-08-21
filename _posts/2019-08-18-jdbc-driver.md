@@ -109,8 +109,8 @@ jdbc:hbase://127.0.0.1:2181
 ```
 jdbc:file://home/user/xxx.xls?startRows=2
 jdbc:file://home/user/xxx.xlsx?startRows=2
-jdbc:file://home/user/xxx.csv?chatset=GBK
-jdbc:file://home/user/xxx.json?root=data
+jdbc:file://xxx.csv?chatset=GBK  # 没有路径时, 从jar内查找文件
+jdbc:file://./xxx.json?root=data # 相对路径
 ```
 
 > 直接访问以下任意格式的http请求结果(只允许读取白名单中的url)
