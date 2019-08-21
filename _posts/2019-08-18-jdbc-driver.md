@@ -116,10 +116,10 @@ jdbc:file://home/user/xxx.json?root=data
 > 直接访问以下任意格式的http请求结果(只允许读取白名单中的url)
 
 ```
-jdbc:http://home/user/xxx.xls?startRows=2
-jdbc:http://home/user/xxx.xlsx?startRows=2
-jdbc:ftp://home/user/xxx.csv?chatset=GBK
-jdbc:https://home/user/xxx.json?root=data
+jdbc:http://www.linpengfei.cn/xxx.xls?startRows=2
+jdbc:http://www.linpengfei.cn/xxx.xlsx?startRows=2
+jdbc:ftp://www.linpengfei.cn/xxx.csv?chatset=GBK
+jdbc:https://www.linpengfei.cn/xxx.json?root=data
 ```
 
 
