@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "jdbc-driver"
+title:  "sybn-jdbc-driver"
 categories: jdbc
 tags: jdbc about sql 0.3.4
 author: sybn
