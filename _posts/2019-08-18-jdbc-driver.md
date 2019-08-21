@@ -26,6 +26,16 @@ SybnDaoDriver 目前只支持 select, show tables 等查询.
 
 
 
+## maven 依赖
+
+```xml
+<dependency>
+    <groupId>cn.linpengfei.sybnutil</groupId>
+    <artifactId>sybn-jdbc-driver</artifactId>
+    <version>0.3.4-SNAPSHOT</version>
+</dependency>
+```
+
 ##  jdbc demo
 
 * jdbc 驱动直接查询 mongodb 3.6
@@ -85,23 +95,23 @@ LogUtil.info("select", select.size(), select);
 
 * 目前已支持以下数源据:
 
-mysql jdbc:mysql://...
+> mysql jdbc:mysql://...
 
-mongo jdbc:mongo://...
+> mongo jdbc:mongo://...
 
-solr jdbc:solr://...
+> solr jdbc:solr://...
 
-hbase jdbc:hbase://...
+> hbase jdbc:hbase://...
 
 * 即将支持以下数据源,当作数据库查询:
 
-xls jdbc:file://home/user/xxx.xls?startRows=2
+> xls jdbc:file://home/user/xxx.xls?startRows=2
 
-xlsx jdbc:file://home/user/xxx.xlsx?startRows=2
+> xlsx jdbc:file://home/user/xxx.xlsx?startRows=2
 
-csv jdbc:file://home/user/xxx.csv?chatset=GBK
+> csv jdbc:file://home/user/xxx.csv?chatset=GBK
 
-json jdbc:file://home/user/xxx.json?root=data
+> json jdbc:file://home/user/xxx.json?root=data
 
 以上任意格式的http jdbc:http://home/user/xxx.httpc?root=data
 
