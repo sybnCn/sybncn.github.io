@@ -117,7 +117,7 @@ jdbc:file://./xxx.json?root=data # 相对路径
 
 ```
 jdbc:http://www.linpengfei.cn/xxx.xls?startRows=2
-jdbc:http://www.linpengfei.cn/xxx.xlsx?startRows=2
+jdbc:http://user:pass@www.linpengfei.cn/xxx.xlsx?startRows=2 # 允许在路径中增加账户密码
 jdbc:ftp://www.linpengfei.cn/xxx.csv?chatset=GBK
 jdbc:https://www.linpengfei.cn/xxx.json?root=data
 ```
