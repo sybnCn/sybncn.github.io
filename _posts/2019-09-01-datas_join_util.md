@@ -90,14 +90,15 @@ Stream<Map<String, Object>> res = DatasLeftJoinStreamUtil.join(left, right, "joi
 
 ### 性能优化
 
-某些场景下， DatasLeftJoinUtil可以大幅优化性能，在这里提供优化方式。
+某些场景下， DatasLeftJoinUtil 可以大幅优化性能，在这里提供优化方式。
 
 * 缓存右表
 
-某些右表会反复被相同的左表 join， 此时可以使用 GroupCacheList 包装右表，提高join的性能。
+某些右表会反复被相同的左表 join， 此时可以使用 GroupCacheList 包装右表，提高 join 的性能。
 
 ```java
-// 开启右表缓存
+List<Map<String, Object>> right = ... ;
+// 开启右表 grup 缓存
 List<Map<String, Object>> rightCache = new GroupCacheList<>(right)
 ```
 
