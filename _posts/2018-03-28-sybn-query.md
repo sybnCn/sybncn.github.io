@@ -105,5 +105,5 @@ List<SybnJunitBase> list = sybnJunitBaseRepository.findAll(specification);
 > 注: QueryCommonDao 是 CrudQueryCommonDao 的一部分
 
 ## 相关页面
-- [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
+- [CrudQueryCommonDao / CrudQueryCommonStreamDao 通用CRUD接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
 - [group by util 通用聚合引擎]({{site.baseurl}}/2018/04/12/group-by-util/)

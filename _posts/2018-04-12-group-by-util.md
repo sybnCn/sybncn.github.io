@@ -66,4 +66,4 @@ Stream<Map<String, Object>> groupByData = DatasGroupByStreamUtil.groupBy(streamM
 
 ## 相关页面
 - [SybnQuery 动态查询实体]({{site.baseurl}}/2018/03/28/sybn-query/)
-- [CrudQueryCommonDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
+- [CrudQueryCommonDao / CrudQueryCommonStreamDao 通用CRUD接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
