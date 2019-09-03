@@ -25,20 +25,20 @@ SqlDdlDaoStreamAsyncImpl 是 SqlDdlDao 的流式异步查询实现。
 
 ```java
 // 用一个流构造 dao, stream 中可以是 map 也可使是 java bean
-SqlDdlDaoStreamAsyncImpl sqlDdlDaoStreamAsync = new SqlDdlDaoStreamAsyncImpl(stream);
+SqlDdlDaoStreamAsyncImpl asyncDao = new SqlDdlDaoStreamAsyncImpl(stream);
 
 // 向流中注册多条 sql 语句， 这些 sql 语句的执行对象相同， 逻辑互不相关
-Callback<List<Map<String, Object>>> resultCallback1 = sqlDdlDaoStreamAsync.sqlFindListMap(sql1, list);
-Callback<List<Map<String, Object>>> resultCallback2 = sqlDdlDaoStreamAsync.sqlFindListMap(sql2, list);
-Callback<List<Map<String, Object>>> resultCallback3 = sqlDdlDaoStreamAsync.sqlFindListMap(sql3, list);
+Callback<List<Map<String, Object>>> callback1 = asyncDao.sqlFindListMap("select count(*) as c from stream");
+Callback<List<Map<String, Object>>> callback2 = asyncDao.sqlFindListMap("select type, count(*) as c from stream group by count");
+Callback<List<Map<String, Object>>> callback3 = asyncDao.sqlFindListMap("select name, count(*) as c from stream group by name");
 
 // 利用 count 消费流
 sqlDdlDaoStreamAsync.count();
 
 // 从 Callback 中获取返回值
-List<Map<String, Object>> listMap1 = resultCallback1.get();
-List<Map<String, Object>> listMap2 = resultCallback2.get();
-List<Map<String, Object>> listMap3 = resultCallback3.get();
+List<Map<String, Object>> listMap1 = callback1.get();
+List<Map<String, Object>> listMap2 = callback2.get();
+List<Map<String, Object>> listMap3 = callback3.get();
 ```
 
 > 注意:  SqlDdlDaoStreamAsyncImpl 目前的版本不支持子查询和联合查询， 后期考虑优先支持支持子查询。
