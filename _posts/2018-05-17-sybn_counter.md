@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sybn counter 计数器"
-categories: sybn-core
+categories: tools
 tags:  sybn-core bean 0.1.10
 author: sybn
 ---

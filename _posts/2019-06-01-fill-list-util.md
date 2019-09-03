@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "FillListUtil 数据对齐工具"
-categories: sybn-core
+categories: tools
 tags:  sybn-core list tools
 author: sybn
 ---

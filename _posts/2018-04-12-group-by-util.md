@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "group by util 通用聚合引擎"
-categories: sybn-core
+categories: tools
 tags:  sybn-core dao sql mongo solr groupBy 0.1.9
 author: sybn
 ---
