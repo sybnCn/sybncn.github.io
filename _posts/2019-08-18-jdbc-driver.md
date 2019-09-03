@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "sybn-jdbc-driver"
+title:  "sybn jdbc driver 通用数据库驱动"
 categories: jdbc
 tags: jdbc about sql 0.3.4
 author: sybn

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "quick start"
+title:  "SqlDdlDao quick start"
 categories: about
 tags:  about sybn-util
 author: sybn
