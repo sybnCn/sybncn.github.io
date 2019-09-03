@@ -34,7 +34,7 @@ List<Map<String, Object>> right = rightDao.sqlFindListMap("select id, left_id, c
 List<Map<String, Object>> res = DatasLeftJoinUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id");
 
 // 将处理后的数据持久化
-rightDao.commonSaveAll("saveTableName", res)
+rightDao.commonSaveAll("save_table_name", res)
 ```
 
 * 从数据库中查询 stream 和 list,并将其join为一个 stream.
@@ -51,9 +51,8 @@ List<Map<String, Object>> right = rightDao.sqlFindListMap("select id, left_id, c
 // join 后 left 有五个字段: id,a,b,right_id,c
 Stream<Map<String, Object>> res = DatasLeftJoinStreamUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id");
 
-
 // 将处理后的数据持久化
-rightDao.commonSaveStream("saveTableName", res)
+rightDao.commonSaveStream("save_table_name", res)
 ```
 
 
