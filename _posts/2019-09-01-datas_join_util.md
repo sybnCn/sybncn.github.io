@@ -17,14 +17,14 @@ DatasJoinUtil 支持 list / stream 互相 join 操作. 其语法和效果类似�
 
 
 
-### 使用样例
+### 使用样例 (将 mongo 和 habse 表 join 在一起， 并写回 mongo)
 
 * 从数据库中查询2个list,并将其join为一个.
 
 ```java
-// 可以在静态类里存放每一个dao
-SqlDdlDao leftDao = new HbaseDaoImpl("leftDao", "hbase://server_1:2121,server_2:2121/");
-SqlDdlDao rightDao = new MongoDaoImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
+// 可以在静态类里存放每一个dao， SqlDdlStreamDao 接口为只读接口， SybnStreamDao接口为读写接口
+SqlDdlStreamDao leftDao = new HbaseDaoStreamImpl("leftDao", "hbase://server_1:2121,server_2:2121/");
+SybnStreamDao rightDao = new MongoDaoStreamImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
 
 // left 有三个字段: id,a,b
 List<Map<String, Object>> left = leftDao.sqlFindListMap("select id, a, b from left where a > 0");
@@ -32,14 +32,17 @@ List<Map<String, Object>> left = leftDao.sqlFindListMap("select id, a, b from le
 List<Map<String, Object>> right = rightDao.sqlFindListMap("select id, left_id, c from right where c > 0");
 // join 后 left 有五个字段: id,a,b,right_id,c
 List<Map<String, Object>> res = DatasLeftJoinUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id");
+
+// 将处理后的数据持久化
+rightDao.commonSaveAll("saveTableName", res)
 ```
 
 * 从数据库中查询 stream 和 list,并将其join为一个 stream.
 
 ```java
-// 可以在静态类里存放每一个dao
+// 可以在静态类里存放每一个dao SqlDdlStreamDao 接口为只读接口， SybnStreamDao接口为读写接口
 SqlDdlStreamDao leftDao = new HbaseDaoStreamImpl("leftDao", "hbase://server_1:2121,server_2:2121/");
-SqlDdlDao rightDao = new MongoDaoImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
+SybnStreamDao rightDao = new MongoDaoStreamImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
 
 // left 有三个字段: id,a,b
 Stream<Map<String, Object>> left = leftDao.sqlFindStreamMap("select id, a, b from left where a > 0");
@@ -47,6 +50,10 @@ Stream<Map<String, Object>> left = leftDao.sqlFindStreamMap("select id, a, b fro
 List<Map<String, Object>> right = rightDao.sqlFindListMap("select id, left_id, c from right where c > 0");
 // join 后 left 有五个字段: id,a,b,right_id,c
 Stream<Map<String, Object>> res = DatasLeftJoinStreamUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id");
+
+
+// 将处理后的数据持久化
+rightDao.commonSaveStream("saveTableName", res)
 ```
 
 
