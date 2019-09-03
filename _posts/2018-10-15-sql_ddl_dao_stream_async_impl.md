@@ -38,7 +38,7 @@ Callback<List<Map<String, Object>>> callback3 = asyncDao.sqlFindListMap(sql3);
 // 利用 count 消费流
 sqlDdlDaoStreamAsync.count();
 
-// 从 Callback 中获取返回值
+// 从 Callback 中获取返回值, 即使流没有被消费完， callback1 也可以放到其他线程中去 get()。
 List<Map<String, Object>> listMap1 = callback1.get();
 List<Map<String, Object>> listMap2 = callback2.get();
 List<Map<String, Object>> listMap3 = callback3.get();
