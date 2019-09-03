@@ -28,9 +28,12 @@ SqlDdlDaoStreamAsyncImpl 是 SqlDdlDao 的流式异步查询实现。
 SqlDdlDaoStreamAsyncImpl asyncDao = new SqlDdlDaoStreamAsyncImpl(stream);
 
 // 向流中注册多条 sql 语句， 这些 sql 语句的执行对象相同， 逻辑互不相关
-Callback<List<Map<String, Object>>> callback1 = asyncDao.sqlFindListMap("select count(*) as c from stream");
-Callback<List<Map<String, Object>>> callback2 = asyncDao.sqlFindListMap("select type, count(*) as c from stream group by count");
-Callback<List<Map<String, Object>>> callback3 = asyncDao.sqlFindListMap("select name, count(*) as c from stream group by name");
+String sql1 = "select count(*) as c from stream group by count";
+Callback<List<Map<String, Object>>> callback1 = asyncDao.sqlFindListMap(sql1);
+String sql2 = "select type, count(*) as c from stream group by count";
+Callback<List<Map<String, Object>>> callback2 = asyncDao.sqlFindListMap(sql2);
+String sql3 = "select name, count(*) as c from stream group by name";
+Callback<List<Map<String, Object>>> callback3 = asyncDao.sqlFindListMap(sql3);
 
 // 利用 count 消费流
 sqlDdlDaoStreamAsync.count();
