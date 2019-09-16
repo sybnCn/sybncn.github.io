@@ -75,9 +75,10 @@ mybatis 占位符|支持|支持|支持|支持|支持
 join|右表来自任意数据源的list|右表来自任意数据源的Stream
 ----:|---|---
 左表来自任意数据源的list|支持|支持
-左表来自任意数据源的Stream|支持|不支持
+左表来自任意数据源的Stream|支持|测试中
 
 - [跨库联合查询用法]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
+- [DatasJoinUtil 内存 join 工具]({{site.baseurl}}/2019/09/01/datas_join_util/)
 
 ## 关于标准 UDF: V:0.3.4
 所有 dao 目前已经全局支持在 where 的比较运算符右侧嵌套使用如下 mysql 自带的 UDF 函数：
