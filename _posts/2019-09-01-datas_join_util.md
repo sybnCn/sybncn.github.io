@@ -22,9 +22,9 @@ DatasJoinUtil 支持 list / stream 互相 join 操作. 其语法和效果类似�
 * 从数据库中查询2个list,并将其join为一个.
 
 ```java
-// 可以在静态类里存放每一个dao， SqlDdlStreamDao 接口为只读接口， SybnStreamDao接口为读写接口
+// dao线程安全。
 SqlDdlStreamDao leftDao = new HbaseDaoStreamImpl("leftDao", "hbase://server_1:2121,server_2:2121/");
-SybnStreamDao rightDao = new MongoDaoStreamImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
+SqlDdlStreamDao rightDao = new MongoDaoStreamImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
 
 // left 有三个字段: id,a,b
 List<Map<String, Object>> left = leftDao.sqlFindListMap("select id, a, b from left where a > 0");
@@ -40,16 +40,27 @@ rightDao.commonSaveAll("save_table_name", res)
 * 从数据库中查询 stream 和 list,并将其join为一个 stream.
 
 ```java
-// 可以在静态类里存放每一个dao SqlDdlStreamDao 接口为只读接口， SybnStreamDao接口为读写接口
-SqlDdlStreamDao leftDao = new HbaseDaoStreamImpl("leftDao", "hbase://server_1:2121,server_2:2121/");
-SybnStreamDao rightDao = new MongoDaoStreamImpl("rightDao", "mongo://username:password@127.0.0.1:27017");
-
-// left 有三个字段: id,a,b
+// 左表使用 sqlFindStreamMap 返回 stream
 Stream<Map<String, Object>> left = leftDao.sqlFindStreamMap("select id, a, b from left where a > 0");
-// right 有三个字段: id,left_id,c
 List<Map<String, Object>> right = rightDao.sqlFindListMap("select id, left_id, c from right where c > 0");
-// join 后 left 有五个字段: id,a,b,right_id,c
+
+// DatasLeftJoinStreamUtil 可以 join 流
 Stream<Map<String, Object>> res = DatasLeftJoinStreamUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id");
+
+// 将处理后的数据持久化
+rightDao.commonSaveStream("save_table_name", res)
+```
+
+
+* 从数据库中查两个 stream ,并将其join为一个 stream.
+
+```java
+// 连边都使用 sqlFindStreamMap 返回 stream， 注意数据需要排序
+Stream<Map<String, Object>> left = leftDao.sqlFindStreamMap("select id, a, b from left where a > 0 order by id");
+Stream<Map<String, Object>> right = rightDao.sqlFindStreamMap("select id, left_id, c from right where c > 0 order by left_id");
+
+// DatasLeftJoinStreamUtil 可以 straightJoin 流
+Stream<Map<String, Object>> res = DatasLeftJoinStreamUtil.straightJoin(left, right, "join right(id as right_id, c) on left.id = right.left_id");
 
 // 将处理后的数据持久化
 rightDao.commonSaveStream("save_table_name", res)
@@ -64,7 +75,7 @@ rightDao.commonSaveStream("save_table_name", res)
  被 join 的左表， 可以是 list 或者 stream， 可以是 Map 即将支持 java bean。
  
 * right 
- 用于 join 的右表，可以是 list 或者 Map， 暂不支持 stream。
+ 用于 join 的右表，可以是 list / stream / Map。
  
 * joinConfig = "join right(id as right_id, c) on left.id = right.left_id"
 
@@ -114,11 +125,14 @@ List<Map<String, Object>> rightCache = new GroupCacheList<>(right)
 
 * 暂不支持 left join, right join 等标识, 近期计划支持.
 
-* 暂不支持 stream join stream , 近期计划支持排序后的 stream :
-
 * 暂不支持 join on 中添加比较条件, 近期计划支持.
 
 * 暂不支持标准 sql 的 join 语法, 短期内暂不实现. 
+
+
+### 近期更新
+
+* 2019-09-15 支持 straightJoin 将两个流 join 到一起
 
 
 ### 注意事项 
