@@ -99,6 +99,11 @@ selectResultSet.close();
 LogUtil.info("select", select.size(), select);
 ```
 
+#### 注意
+
+限制： mongo 只支持少部分 udf / udaf 函数。 
+
+限制： mongo 比较操作时，区分字段类型。  
 
 ## 相关页面
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
