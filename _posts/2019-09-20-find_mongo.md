@@ -49,6 +49,7 @@ mongo 原生不支持 sql 语句查询， mongo 的查询语言为 json 风格�
 #### 使用 MongoDao 查询 sql 语句
 
 使用 mongo dao 可以直接执行 sql 语句获取数据， 支持返回  List / Stream， 支持指定返回值的类型。
+[===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20mongo_demo_table%20limit%201%3B)
 
 ```java
 // sql 语句
@@ -69,8 +70,6 @@ Stream<SybnJunitBase> sqlFindStream = dao.sqlFindStream(sqlFind, SybnJunitBase.c
 // 执行 count
 long count = dao.sqlCount(sqlCount);
 ```
-
-[===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20mongo_demo_table%20limit%201%3B)
 
 * 额外支持跨存储引擎联合查询， 比如：sql union mongo
 
