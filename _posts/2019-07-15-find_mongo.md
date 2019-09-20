@@ -85,9 +85,7 @@ LogUtil.info("select", select.size(), select);
 ```
 
 
-### 注意事项 
-
-* 暂无
+## 相关页面
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
 - [sql查询实现:跨数据库联合查询]({{site.baseurl}}/2018/12/20/sybn-dao-multiple-impl/)
 - [sql查询实现:list / stream]({{site.baseurl}}/2018/09/13/datas-sql-ddl-engine/)
