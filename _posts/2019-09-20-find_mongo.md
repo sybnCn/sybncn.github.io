@@ -79,12 +79,40 @@ long count = dao.sqlCount(sqlCount);
 
 正在测试直接将 mongo 转化为 jdbc 数据源使用， 让使用者与本工具类代码解耦。
 
+* 原生 jdbc
+
 ```java
 // 创建 jdbc 连接
 String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
 Map<String, String> n = MB.n("user", "junit_test_user", "password", "junit_test_pass");
 Properties properties = new SybnProperties(n);
 Connection connect = new SybnDaoDriver().connect(url, properties);
+
+// 被执行的 sql
+String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
+
+// 使用 jdbc 执行此 sql
+PreparedStatement selectStatement = connect.prepareStatement(selectSql);
+selectStatement.setInt(1, 0); // type = 0
+ResultSet selectResultSet = selectStatement.executeQuery();
+List<Map<String, Object>> select = HandlerUtil.MAP_LIST_HANDLER.handle(selectResultSet);
+selectResultSet.close();
+
+// 打印结果
+LogUtil.info("select", select.size(), select);
+```
+
+* 使用 jdbc 连接池
+
+```java
+// 创建 jdbc 连接
+String url = "jdbc:mongo://127.0.0.1:27017/junit_test";
+BasicDataSource dataSource = new BasicDataSource();
+dataSource.setDriverClassName("cn.sybn.util.io.driver.SybnDaoDriver");
+dataSource.setUrl(url);
+dataSource.setUsername("junit_test_user");
+dataSource.setPassword("junit_test_pass");
+Connection connect = dataSource.getConnection();
 
 // 被执行的 sql
 String selectSql = "select * from sybn_junit_crud_test_entry where type = ? limit 1";
