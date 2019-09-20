@@ -19,9 +19,9 @@ mongo dao 提供简便的 mongo 数据库操作 ORM， 支持数据 CRUD 以及 
 
 ```xml
 <dependency>
-	<groupId>cn.linpengfei.sybnutil</groupId>
-	<artifactId>mongo-dao</artifactId>
-	<version>0.3.5-SNAPSHOT</version>
+    <groupId>cn.linpengfei.sybnutil</groupId>
+    <artifactId>mongo-dao</artifactId>
+    <version>0.3.5-SNAPSHOT</version>
 </dependency>
 
 <dependency>
