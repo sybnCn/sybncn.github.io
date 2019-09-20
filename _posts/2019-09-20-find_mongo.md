@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "数据查询"
+title:  "mongo 数据查询"
 categories: about
 tags:  mongo-dao sql 0.3.5
 author: sybn
