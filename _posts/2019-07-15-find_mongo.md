@@ -13,8 +13,23 @@ author: sybn
 
 mongo dao 提供简便的 mongo 数据库操作 ORM， 支持数据 CRUD 以及 sql 查询.
 
+通过 mongo dao， 没有任何 mongo 基础的开发人员可以将 mongo 直接当作 sql 库来使用, 降低开发成本。
+
 本文主要介绍 mongo 的 sql 查询能力。
 
+```xml
+<dependency>
+	<groupId>cn.linpengfei.sybnutil</groupId>
+	<artifactId>mongo-dao</artifactId>
+	<version>0.3.5-SNAPSHOT</version>
+</dependency>
+
+<dependency>
+    <groupId>cn.linpengfei.sybnutil</groupId>
+    <artifactId>sybn-jdbc-driver</artifactId>
+    <version>0.3.5-SNAPSHOT</version>
+</dependency>
+```
 
 
 
