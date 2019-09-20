@@ -17,6 +17,8 @@ mongo dao 提供简便的 mongo 数据库操作 ORM， 支持数据 CRUD 以及 
 
 本文主要介绍 mongo 的 sql 查询能力。
 
+* maven 
+
 ```xml
 <dependency>
     <groupId>cn.linpengfei.sybnutil</groupId>
