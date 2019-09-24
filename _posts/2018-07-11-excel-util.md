@@ -53,6 +53,7 @@ String csv = "a,b\r\n\"1\",2\r\n11,22\r\n111,222\r\n";
 InputStream is = new ByteArrayInputStream(csv.getBytes());
 Stream<String[]> stream = converterStream(is, Charsets.UTF_8);
 Stream<Map<String, Object>> stream2 = PoiReadObjUtil.arraysToMaps(stream);
+stream.colse(); // 关闭 InputStream
 List<Map<String, Object>> converterByStr2 = stream2.collect(Collectors.toList());
 LogUtil.info("\r\n", ListLogUtil.conver(converterByStr2, 32)); // 打印日志时最大列宽为32
 ```
