@@ -17,7 +17,21 @@ mongo dao 提供简便的 mongo 数据库操作 ORM， 支持数据 CRUD 以及 
 
 本文主要介绍 mongo 的 sql 查询能力。
 
-* maven 
+* maven 私服
+
+```xml
+<mirror>
+    <id>nexus-local</id>
+    <mirrorOf>central</mirrorOf>
+    <name>vcfilm inside nexus</name>
+    <url>http://10.12.62.6:8081/nexus/content/groups/public/</url>
+</mirror>
+<mirror>
+	<id>Nexus-snapshots</id>
+	<url>http://10.12.62.6:8081/nexus/content/groups/snapshots/</url>
+	<mirrorOf>public-snapshots</mirrorOf>
+</mirror>
+```
 
 ```xml
 <dependency>

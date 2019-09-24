@@ -28,54 +28,68 @@ author: sybn
 * 暂不支持在maven公共库引用, 目前支持maven私服
 
 ```xml
-	<properties>
-		<sybn.version>0.3.4-SNAPSHOT</sybn.version>
-	</properties>
+<mirror>
+    <id>nexus-local</id>
+    <mirrorOf>central</mirrorOf>
+    <name>vcfilm inside nexus</name>
+    <url>http://10.12.62.6:8081/nexus/content/groups/public/</url>
+</mirror>
+<mirror>
+	<id>Nexus-snapshots</id>
+	<url>http://10.12.62.6:8081/nexus/content/groups/snapshots/</url>
+	<mirrorOf>public-snapshots</mirrorOf>
+</mirror>
+```
 
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>vcfilm releases</name>
-			<url> http://nexus.xxx.cn:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>vcfilm snapshots</name>
-			<url>http://nexus.xxx.cn:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-	
-	<dependencies>
-	
-		<!-- jdbc -->
-		<dependency>
-			<groupId>cn.linpengfei.sybnutil</groupId>
-			<artifactId>dbutil-dao</artifactId>
-			<version>${sybn.version}</version>
-		</dependency>
+```xml
+<properties>
+	<sybn.version>0.3.4-SNAPSHOT</sybn.version>
+</properties>
 
-		<!-- mongo db -->
-		<dependency>
-			<groupId>cn.linpengfei.sybnutil</groupId>
-			<artifactId>mongo-dao</artifactId>
-			<version>${sybn.version}</version>
-		</dependency>
-		
-		<!-- solr -->
-		<dependency>
-			<groupId>cn.linpengfei.sybnutil</groupId>
-			<artifactId>solr-dao</artifactId>
-			<version>${sybn.version}</version>
-		</dependency>
-		
-		<!-- hbase -->
-		<dependency>
-			<groupId>cn.linpengfei.sybnutil</groupId>
-			<artifactId>hadoop-dao</artifactId>
-			<version>${sybn.version}</version>
-		</dependency>
-		
-	</dependencies>
+<distributionManagement>
+	<repository>
+		<id>releases</id>
+		<name>vcfilm releases</name>
+		<url> http://nexus.xxx.cn:8081/nexus/content/repositories/releases/</url>
+	</repository>
+	<snapshotRepository>
+		<id>snapshots</id>
+		<name>vcfilm snapshots</name>
+		<url>http://nexus.xxx.cn:8081/nexus/content/repositories/snapshots/</url>
+	</snapshotRepository>
+</distributionManagement>
+
+<dependencies>
+
+	<!-- jdbc -->
+	<dependency>
+		<groupId>cn.linpengfei.sybnutil</groupId>
+		<artifactId>dbutil-dao</artifactId>
+		<version>${sybn.version}</version>
+	</dependency>
+
+	<!-- mongo db -->
+	<dependency>
+		<groupId>cn.linpengfei.sybnutil</groupId>
+		<artifactId>mongo-dao</artifactId>
+		<version>${sybn.version}</version>
+	</dependency>
+	
+	<!-- solr -->
+	<dependency>
+		<groupId>cn.linpengfei.sybnutil</groupId>
+		<artifactId>solr-dao</artifactId>
+		<version>${sybn.version}</version>
+	</dependency>
+	
+	<!-- hbase -->
+	<dependency>
+		<groupId>cn.linpengfei.sybnutil</groupId>
+		<artifactId>hadoop-dao</artifactId>
+		<version>${sybn.version}</version>
+	</dependency>
+	
+</dependencies>
 ```
 
 ## 单库查询样例
