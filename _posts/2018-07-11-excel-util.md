@@ -24,10 +24,10 @@ sybn util 中提供了读写 excel 的工具类,并支持将 spring mvc 的数�
 * 读写 excel
 
 ```java
-// 读取 excel
+// 读取 excel, 支持 xls, xlsx 格式
 List<Object[]> readExcel = PoiReadObjUtil.readExcelObject(new File("D:/xxx.xls"));
-List<Map<String, Object>> arraysToMaps = PoiReadObjUtil.arraysToMaps(readExcel);
-LogUtil.info("\r\n", ListLogUtil.conver(arraysToMaps, 32)); // 打印日志时最大列宽为32
+List<Map<String, Object>> maps = PoiReadObjUtil.arraysToMaps(readExcel);
+LogUtil.info("\r\n", ListLogUtil.conver(maps, 32)); // 打印日志时最大列宽为32
 
 // 写入 excel
 ExcelBuilder builder = ExcelBuilderFactory.getExcelBuilder("文件名.xls", "excel标题", list);
@@ -40,13 +40,13 @@ builder.exportToLocalFile(new File("D:/"));
 // 从 String 读取 csv 
 String csv = "a,b\r\n\"1\",2\r\n11,22\r\n111,222\r\n";
 List<String[]> converterByStr = converterByStr(csv);
-List<Map<String, Object>> arraysToMaps = PoiReadObjUtil.arraysToMaps(converterByStr);
-LogUtil.info("\r\n", ListLogUtil.conver(arraysToMaps, 32)); // 打印日志时最大列宽为32
+List<Map<String, Object>> maps = PoiReadObjUtil.arraysToMaps(converterByStr);
+LogUtil.info("\r\n", ListLogUtil.conver(maps, 32)); // 打印日志时最大列宽为32
 
 // 从文件读取 csv (支持 InputStream 或者 文件名 读取)
 List<String[]> converterByStr = converter("D:/xxx.csv", Charsets.UTF_8);
-List<Map<String, Object>> arraysToMaps = PoiReadObjUtil.arraysToMaps(converterByStr);
-LogUtil.info("\r\n", ListLogUtil.conver(arraysToMaps, 32)); // 打印日志时最大列宽为32
+List<Map<String, Object>> maps = PoiReadObjUtil.arraysToMaps(converterByStr);
+LogUtil.info("\r\n", ListLogUtil.conver(maps, 32)); // 打印日志时最大列宽为32
 
 // 读取 InputStream 到 Stream
 String csv = "a,b\r\n\"1\",2\r\n11,22\r\n111,222\r\n";
