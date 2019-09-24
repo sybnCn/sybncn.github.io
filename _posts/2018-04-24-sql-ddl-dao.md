@@ -16,6 +16,8 @@ SqlDdlDao 和 SqlDdlStreamDao 是在各个数据库中执行 sql 操作的接口
 
 另外还有用于查询 list 和 Stream 的实现类：SqlDdlDaoListImpl / SqlDdlDaoStreamAsyncImpl
 
+![]({{site.baseurl}}/images/sql_engine.png)
+
 ![]({{site.baseurl}}/images/sql_ddl_dao_impl.png)
 
 另外还有针对不同数据库联合查询的实现类: SqlDdlDaoMultipleImpl
