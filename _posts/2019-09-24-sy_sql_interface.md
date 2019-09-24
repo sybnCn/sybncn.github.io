@@ -39,11 +39,11 @@ sybn dao 收到 sql 语句之后, 需要先将其转换为 SQL 语法树, 然后
 
 #### 实际执行
 
-* 各个数据库的 dao 都支持执行 SimpleSqlEntity
+* SqlDdlDaoMultipleImpl 负责所有类型的查询, 并将子查询分发给不同的 dao
 
-* mongo dao 支持执行带有 from 子查询的 MultipleSqlEntity, 但是不支持 where 子查询
+* 各个数据库的 dao (sql/mongo/solr/hbase) 都直接支持执行 SimpleSqlEntity
 
-* 
+* mongo dao 支持直接执行带有 from 子查询的 MultipleSqlEntity, 但是不支持 where 子查询
 
 ## 相关页面
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
