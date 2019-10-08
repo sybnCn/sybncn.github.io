@@ -47,11 +47,11 @@ select
 
 ```json
 [
-  {"$match":{"date": {"$gt": {"$date": "2019-04-06T16:00:00Z"}}}},
-  {"$group":{"_id":{ "t":{"$cond":{"if":{"$eq":["$type",1]},"then":"$value1","else":{"$cond":{"if":{"$eq": ["$type",2]},"then":"$value2","else":0}}}}},"c":{"$sum":1}}},
+  {"$match":{"date":{"$gt":{"$date":"2019-04-06T16:00:00Z"}}}},
+  {"$group":{"_id":{"t":{"$cond":{"if":{"$eq":["$type",1]},"then":"$value1","else":{"$cond":{"if":{"$eq":["$type",2]},"then":"$value2","else":0}}}}},"c":{"$sum":1}}},
   {"$project":{"_id":0,"t":"$_id.t","c":1}},
-  {"$match":{"c": {"$gt": 10}}},
-  {"$sort":{"c": -1}}
+  {"$match":{"c":{"$gt": 10}}},
+  {"$sort":{"c":-1}}
 ]
 ```
 
