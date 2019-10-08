@@ -39,7 +39,7 @@ select
  group by t
  having c > 10
  order by c desc
- ```
+```
 
 * 输出 Aggregate: 
 
@@ -61,7 +61,7 @@ select
 
 ```sql
 select datas, count(*) as c from table group by unwind(datas)
- ```
+```
 
 * 输出 Aggregate: 
 
