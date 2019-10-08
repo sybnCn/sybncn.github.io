@@ -41,6 +41,8 @@ select
  order by c desc
 ```
 
+- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_1)
+
 * 输出 Aggregate: 
 
 ```json
@@ -53,6 +55,7 @@ select
 ]
 ```
 
+
 > 注意： mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
 
 ### 例2(带unwind的sql)
@@ -60,8 +63,18 @@ select
 * 输入 SQL: 
 
 ```sql
+-- 语法1 两种写法等效
 select datas, count(*) as c from table group by unwind(datas)
 ```
+
+- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2a)
+
+```sql
+-- 语法2 group by 后面的字段名需要等于 as 后面的字段名
+select unwind(datas) as datas, count(*) as c from table group by datas
+```
+
+- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2b)
 
 * 输出 Aggregate: 
 
@@ -84,6 +97,8 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 	select date_format(pay_time, "%Y-%m-%d") as day, user, sum(price) as price_sum from table1 group by day, user;
 ) group by a
 ```
+
+- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_3)
 
 * 输出 Aggregate: 
 
