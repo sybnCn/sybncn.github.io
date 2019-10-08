@@ -48,8 +48,8 @@ select
 ```json
 [
     {"$match":{"date": {"$gt": {"$date": "2019-04-06T16:00:00Z"}}}},
-    {"$group":{"_id":{ "t":{"$cond":{"if":{"$eq": ["$type", 1]}, "then":"$value1", "else":{"$cond":{"if":{"$eq": ["$type", 2]}, "then":"$value2", "else":0}}}}}, "c":{"$sum":1}}},
-    {"$project":{"_id":0, "t":"$_id.t", "c":1}},
+    {"$group":{"_id":{ "t":{"$cond":{"if":{"$eq":["$type",1]},"then":"$value1","else":{"$cond":{"if":{"$eq": ["$type",2]},"then":"$value2","else":0}}}}},"c":{"$sum":1}}},
+    {"$project":{"_id":0,"t":"$_id.t","c":1}},
     {"$match":{"c": {"$gt": 10}}},
     {"$sort":{"c": -1}}
 ]
@@ -64,14 +64,14 @@ select
 
 ```sql
 -- 语法1 两种写法等效
-select datas, count(*) as c from table group by unwind(datas)
+select datas, count(*) as c from table group by unwind(datas) as data
 ```
 
 - [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2a)
 
 ```sql
 -- 语法2 group by 后面的字段名需要等于 as 后面的字段名
-select unwind(datas) as datas, count(*) as c from table group by datas
+select unwind(datas) as data, count(*) as c from table group by data
 ```
 
 - [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2b)
@@ -80,9 +80,9 @@ select unwind(datas) as datas, count(*) as c from table group by datas
 
 ```json
 [
-    {"$unwind":"$datas"},
-    {"$group":{"_id":{"unwind_datas":"$datas"}, "c":{"$sum":1}}},
-    {"$project":{"_id":0, "unwind_datas":"$_id.unwind_datas", "c":1}}
+  {"$unwind":"$datas"}, 
+  {"$group":{"_id":{"data":"$datas"},"c":{"$sum":1}}}, 
+  {"$project":{"_id":0,"data":"$_id.data","c":1}}
 ]
 ```
 
@@ -104,10 +104,10 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 ```json
 [
-	{"$group":{"_id":{, "day":{"$dateToString":{"date":"$pay_time","format": "%Y-%m-%d"}}, "user":"$user"}, "price_sum":{"$sum":"$price"}}},
-	{"$project":{"_id":0, "day":"$_id.day", "user":"$_id.user", "price_sum":1}},
-	{"$group":{"_id":{ "day":"$day"}, "user_count":{"$sum":{"$cond":{"if":{"$gt":["$user", null]}, "then":1, "else":0}}}, "price_sum":{"$sum":"$price_sum"}}},
-	{"$project":{"_id":0, "day":"$_id.day", "user_count":1, "price_sum":1}}
+	{"$group":{"_id":{,"day":{"$dateToString":{"date":"$pay_time","format":"%Y-%m-%d"}},"user":"$user"},"price_sum":{"$sum":"$price"}}},
+	{"$project":{"_id":0,"day":"$_id.day","user":"$_id.user","price_sum":1}},
+	{"$group":{"_id": "day":"$day"},"user_count":{"$sum":{"$cond":{"if":{"$gt":["$user",null]},"then":1,"else":0}}},"price_sum":{"$sum":"$price_sum"}}},
+	{"$project":{"_id":0,"day":"$_id.day","user_count":1,"price_sum":1}}
 ]
 ```
 
