@@ -111,6 +111,52 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 ]
 ```
 
+### 例4 (select子查询 $lookup) V0.3.5
+
+* 输入 SQL: 
+
+``` sql
+-- 从 ticket 表统计收货地址城市，并显示 city 表中的城名称
+select 
+  city_id, count(*) as count_num,
+  (select city_name from city where table_a.city_id = city.id) as name
+from ticket group by city_id
+```
+
+- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_4)
+
+* 输出 Aggregate: 
+
+```json
+[
+  {"$group":{"_id":{"city_id":"$city_id"},"count_num":{"$sum":1}}},
+  {"$project":{"_id":0,"city_id":"$_id.city_id","count_num":1}},
+  {"$lookup":{"from":"city","localField":"id","foreignField":"city_id","as":"__lookup_city_id_city_id"}},
+  {"$addFields":{"city_name":{"$max":"$__lookup_city_id_city_id.city_name"}}}
+]
+```
+
+> 如果有 group by 时 lookup 默认会放在  group by 之后执行， 如果需要在其之前执行， 可以额外嵌套一层
+
+``` sql
+-- 从 ticket 表统计用户注册地址城市，并显示 city 表中的城名称
+select 
+  city_id, count(*) as count_num,
+  (select city_name from city where b.city_id = city.id) as name
+from (
+
+  -- 获取订单及订单用户的城市id
+  select 
+    user_id, 
+    (select city_id from user where ticket.user_id= user.id) as city_id # 从用户表找城市id
+  from ticket
+  where ticket_time >= str_to_date('2019-10-01', '%Y-%m-%d') 
+    and ticket_time < str_to_date('2019-10-08', '%Y-%m-%d') # Mongo 查时间必须转Date格式
+    
+) b group by city_id
+```
+
+
 ### 注意事项 
 
 * 此工具类暂时不支持非 from 的 select 嵌套
