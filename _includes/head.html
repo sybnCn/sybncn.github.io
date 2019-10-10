@@ -55,8 +55,13 @@
 <script type="text/javascript" src="https://libs.baidu.com/jquery/1.7.0/jquery.min.js" > </script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/jquery.qrcode.min.js" > </script>
 <script>
-    jQuery(function(){
-    jQuery('#qrcode').qrcode(window.location.href);
-	})
+jQuery(function(){
+    jQuery('#qrcode').qrcode({
+	    render: "canvas", //也可以替换为table
+	    width: 140,
+	    height: 140,
+	    text: window.location.href
+    });
+})
 </script>
 </head>
