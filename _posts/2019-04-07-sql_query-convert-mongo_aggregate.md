@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "sql 语句转 mongo aggregate 语句"
+title:  "sql 语句转 mongo aggregate 语句的各种例子"
 categories: mongo-dao
 tags:  mongo-dao 0.3.2 tools
 author: sybn
@@ -54,9 +54,6 @@ select
   {"$sort":{"c":-1}}
 ]
 ```
-
-
-> 注意： mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
 
 ### 例2(带unwind的sql)
 
@@ -159,15 +156,21 @@ from (
 
 ### 注意事项 
 
-* 此工具类暂时不支持非 from 的 select 嵌套
+* mongo 只能支持 select 和 from 子查询, 无法支持 where 子查查询 和 join
 
-*  此工具类暂时不支持加减乘除运算
+* 此工具类暂时不支持加减乘除运算
+
+* mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
 
 ### web 版
 
 * 以下是web版效果图  [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
-![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_2.png)
+![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_3.png)
+
+* 手机扫码试用
+
+![]({{site.baseurl}}/images/rqcode_sql_query-convert-mongo_aggregate.png)
 
 ## 相关页面
 - [mongodb 的 sql 查询接口]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
