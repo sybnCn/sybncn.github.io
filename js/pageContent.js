@@ -44,7 +44,7 @@
  */
 function setContentMaxHeightInPC() {
     var windowHeight = window.innerHeight
-    var contentUl = document.querySelector('.content-ul')
+    var contentUl = document.querySelector('.wrap')
     var contentMaxHeight = windowHeight - 77 - 60
     contentUl.style.maxHeight = contentMaxHeight + 'px'
 }
@@ -55,7 +55,7 @@ function setContentMaxHeightInPC() {
  */
 function isMaxHeight() {
     var windowHeight = window.innerHeight
-    var contentUl = document.querySelector('.content-ul')
+    var contentUl = document.querySelector('.wrap')
     var contentMaxHeight = windowHeight - 77 - 60
     var contentHeight = contentUl.offsetHeight
     return contentMaxHeight === contentHeight
@@ -119,7 +119,7 @@ function ancherPostion(anchorBtn, rightDiv) {
  */
 function setContentMaxHeight() {
     var windowHeight = window.innerHeight
-    var contentUl = document.querySelector('.content-ul')
+    var contentUl = document.querySelector('.wrap')
     var contentMaxHeight = windowHeight - 180
     contentUl.style.maxHeight = contentMaxHeight + 'px'
 }
