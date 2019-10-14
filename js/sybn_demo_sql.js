@@ -1,6 +1,6 @@
 
 function hereDoc(func) {
-	return func.toString().split(/n/).slice(1, -1).join('n');
+	return func.toString().split(/\n/).slice(1, -1).join('\n');
 }
 
 function getSybnDemoSql(){
