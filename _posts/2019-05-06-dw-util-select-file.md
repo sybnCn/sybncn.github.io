@@ -9,7 +9,7 @@ author: sybn
 * content
 {:toc}
 
-## 简介
+### 简介
 
 为了方便查询离线文件, 准备了 dw-util-select-file.jar.
 
@@ -39,6 +39,10 @@ java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as 
 java -jar dw-util-select-xls.jar "select type, max(num) as max_num, min(num) as min_num from data_1 where type not in (select type from data_2 where id = 2) group by type order by type" 'd:/num_1.xlsx' 'd:/type.xls'
 ```
 
-## 相关页面
+### 下载地址:
+
+* 20190628版 [点此下载jar 约23MB](http://java.linpengfei.cn:54300/static/dw-util-select-file_20190628A.jar)
+
+### 相关页面
 - [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
