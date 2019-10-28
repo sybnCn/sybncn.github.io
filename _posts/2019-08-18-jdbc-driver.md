@@ -11,7 +11,7 @@ author: sybn
 
 ## 介绍
 
-SybnDaoDriver 可以作为 mongo, solr, hbase 等数据源的 jdbc 简易驱动使用.
+SybnDaoDriver 可以作为 mongo, solr, hbase, elastic 等数据源的 jdbc 简易驱动使用.
 
 SybnDaoDriver 的底层实现是 SqlDdlDao, 因此支持 SqlDdlDao 的所有 sql 特性.
 
@@ -32,7 +32,7 @@ SybnDaoDriver 目前只支持 select, show tables 等查询, 暂时只允许单�
 <dependency>
     <groupId>cn.linpengfei.sybnutil</groupId>
     <artifactId>sybn-jdbc-driver</artifactId>
-    <version>0.3.4-SNAPSHOT</version>
+    <version>0.3.7-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -108,10 +108,11 @@ LogUtil.info("select", select.size(), select);
 * 目前已支持以下数源据:
 
 ```
-jdbc:mysql://127.0.0.1:3306/db
-jdbc:mongo://127.0.0.1:27017/db
-jdbc:solr://127.0.0.1:8983/solr
-jdbc:hbase://127.0.0.1:2181
+jdbc:mysql://127.0.0.1:3306/db # 适配 5.X 其他版本未测试
+jdbc:mongo://127.0.0.1:27017/db # 适配: 3.6.X 其他版本未测试
+jdbc:solr://127.0.0.1:8983/solr # 适配 5.X 以上本文
+jdbc:hbase://127.0.0.1:2181 # 适配1.2.X 其他版本未测试
+jdbc:es://127.0.0.1:2181 # 适配: 7.X 其他版本未测试
 ```
 
 * 即将支持文件数据源,直接将文件当作数据库查询:
