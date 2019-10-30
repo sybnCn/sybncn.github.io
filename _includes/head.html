@@ -54,6 +54,7 @@
 {% endif %}
 <script type="text/javascript" src="https://libs.baidu.com/jquery/1.7.0/jquery.min.js" > </script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/jquery.qrcode.min.js" > </script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/pageContent.js" > </script>
 <script>
 $(function(){
     $('#qrcode').qrcode({
@@ -62,6 +63,7 @@ $(function(){
 	    height: 140,
 	    text: window.location.href
     });
+    moveTOC();
 })
 </script>
 </head>
