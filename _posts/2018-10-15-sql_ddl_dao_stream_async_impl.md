@@ -64,3 +64,4 @@ SqlDdlDaoStreamAsyncImpl 支持传入 parallel 流, 此时 SqlDdlDaoStreamAsyncI
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
 - sql查询实现:solr 文档待补
+- [sql查询实现:elastic]({{site.baseurl}}/2019/10/24/es-dao/)

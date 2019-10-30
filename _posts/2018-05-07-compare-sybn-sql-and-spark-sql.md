@@ -15,7 +15,7 @@ sybn util 中关于 使用 sql 查询各个数据库的业务,暂时命名为 sy
 
 目前主要是 SqlDdlDao 和 SqlDdlStreamDao ,及其在各个数据库的实现.
 
-包括: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql), DatasSqlDdlEngine / DatasSqlDdlStreamEngine 等.
+包括: MongoDao / MongoStreamDao, SolrDao, EsDao, HBasesDao / HabseStreamDao, DbutilDao(sql), DatasSqlDdlEngine / DatasSqlDdlStreamEngine 等.
 
 
 

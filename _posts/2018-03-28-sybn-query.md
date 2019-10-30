@@ -2,7 +2,7 @@
 layout: post
 title:  "SybnQuery - 动态查询实体"
 categories: sybn-core
-tags:  sybn-core dao sql mongo solr mysql HBase 0.1.9
+tags:  sybn-core dao sql mongo solr elastic mysql HBase 0.1.9
 author: sybn
 ---
 
@@ -14,7 +14,7 @@ SybnQuery 属于 [sybn-core 项目]({{site.baseurl}}/2018/03/28/sybn-core/)
 
 他是动态的查询对象,借鉴于 queryDSL 中的动态查询对象。用于动态构建查询，并用于读写不同数据库。
 * 相当于sql语句的where部分,可以存储and/or等逻辑条件和大于小于等于,between,like,in等对比的条件.
-* 目前已经支持用其读写 mysql, mongodb, solr, hbase 数据库，以及 java collection 和 stream ,并支持整合到 spring data / hibernate jpa 的查询框架.
+* 目前已经支持用其读写 mysql, mongodb, solr, elsatic,hbase 数据库，以及 java collection 和 stream ,并支持整合到 spring data / hibernate jpa 的查询框架.
 
 ![]({{site.baseurl}}/images/sybn_query_3.png)
 

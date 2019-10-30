@@ -12,7 +12,13 @@ author: sybn
 ## 简介
 SqlDdlDao 和 SqlDdlStreamDao 是在各个数据库中执行 sql 操作的接口.
 
-目前已有多种数据库Dao实现了此接口: MongoDao / MongoStreamDao, SolrDao, HBasesDao / HabseStreamDao, DbutilDao(sql)
+目前已有多种数据库Dao实现了此接口: 
+
+* MongoDao / MongoStreamDao
+* SolrDao
+* EsDao / EsStreamDao
+* HBasesDao / HabseStreamDao
+* DbutilDao(sql)
 
 另外还有用于查询 list 和 Stream 的实现类：SqlDdlDaoListImpl / SqlDdlDaoStreamAsyncImpl
 

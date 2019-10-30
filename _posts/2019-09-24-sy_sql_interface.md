@@ -41,7 +41,7 @@ sybn dao 收到 sql 语句之后, 需要先将其转换为 SQL 语法树, 然后
 
 * SqlDdlDaoMultipleImpl 负责所有类型的查询, 并将子查询分发给不同的 dao
 
-* 各个数据库的 dao (sql/mongo/solr/hbase) 都直接支持执行 SimpleSqlEntity
+* 各个数据库的 dao (sql/mongo/solr/elastic/hbase) 都直接支持执行 SimpleSqlEntity
 
 * mongo dao 支持直接执行带有 from 子查询的 MultipleSqlEntity, 但是不支持 where 子查询
 
@@ -52,6 +52,7 @@ sybn dao 收到 sql 语句之后, 需要先将其转换为 SQL 语法树, 然后
 - [sql查询实现:stream多路异步查询]({{site.baseurl}}/2018/10/15/sql_ddl_dao_stream_async_impl/)
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
+- [sql查询实现:elastic]({{site.baseurl}}/2019/10/24/es-dao/)
 - [CrudQueryCommonDao / CrudQueryCommonStreamDao 通用查询接口]({{site.baseurl}}/2018/03/28/crud-query-common-dao/)
 - [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)

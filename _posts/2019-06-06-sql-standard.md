@@ -142,6 +142,7 @@ Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
 - sql查询实现:solr 文档待补
+- [sql查询实现:elastic]({{site.baseurl}}/2019/10/24/es-dao/)
 - [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
 - [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
 - [jdbc-driver]({{site.baseurl}}/2019/08/18/jdbc-driver/)

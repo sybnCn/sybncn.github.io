@@ -111,4 +111,5 @@ MongoDao dao = new MongoStreamDaoConfImpl("test", "confName@xxxx.properties", 30
 - [sql查询实现:mongodb]({{site.baseurl}}/2018/09/17/mongo-dao-by-sql/)
 - [sql查询实现:Hbase]({{site.baseurl}}/2019/05/16/hbase-dao/)
 - sql查询实现:solr 文档待补
+- [sql查询实现:elastic]({{site.baseurl}}/2019/10/24/es-dao/)
 - [底层查询实现:sql转aggregate]({{site.baseurl}}/2019/04/07/sql_query-convert-mongo_aggregate/)

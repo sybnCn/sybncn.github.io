@@ -122,7 +122,8 @@ List<SybnJunitBase> sqlFindList = DatasSqlDdlEngine.sqlFindList(list, sqlFind, S
 SqlDdlDao dao1 = new DbutilDaoImpl("jdbc:mysql://账户:密码@192.168.4.31:3306,192.168.4.32:3306/test"); // sql
 SqlDdlDao dao2 = new MongoDaoImpl("mongodb://账户:密码@192.168.4.31:27017,192.168.4.32:27017/test"); // mongo
 SqlDdlDao dao3 = new SolrDaoImpl("solr://192.168.7.71:2181,192.168.7.72:2181/solr"); // solr
-SqlDdlDao dao4 = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
+SqlDdlDao dao4 = new EsDaoImpl("es://192.168.7.71:9200,192.168.7.72:9200"); // es
+SqlDdlDao dao5 = new HBaseDaoImpl("hbase://192.168.7.71,192.168.7.72/hbase-unsecure"); // HBase
 // 推荐使用配置文件管理数据库连接信息, 比如: SqlDdlDao dao1 = new DbutilDaoConfImpl("mysql_test@xxx.properties")
 
 // 构造 SqlDdlDaoMultipleImpl, 并将以上数据源注册进来.
@@ -131,6 +132,7 @@ multipleDao.addAllTableSource(dao1);
 multipleDao.addAllTableSource(dao2);
 multipleDao.addAllTableSource(dao3);
 multipleDao.addAllTableSource(dao4);
+multipleDao.addAllTableSource(dao5);
 ```
 
 * from 子查询
