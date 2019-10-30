@@ -21,7 +21,7 @@ to_scope_list 是折线图与柱图的 data view 实现。
 
 
 
-### 使用说明
+## 使用说明
 ```java
 String resultView = "to_scope_list(t, '20190101~20190131', to_date(), 't', 'c', '1DAY', 0)"
 ResultToMapConverPool.get(resultView).conver(res);
@@ -40,7 +40,7 @@ interval|86400, 1, 1DAY, 1MONTH|非必须,x轴的间隔,
 defaults|null 或者 0|非必须,折线图无值时,数据当什么处理.
 
 
-### to_scope_list 使用样例
+## to_scope_list 使用样例
 
 * to_scope_list 视图
 
@@ -99,7 +99,7 @@ ResultBase res2 = resultConver.conver(res);
 
 
 
-### 近期更新 
+## 近期更新 
 
 * 2019-04-28 V:0.3.2
 	

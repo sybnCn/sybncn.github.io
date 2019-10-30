@@ -21,7 +21,7 @@ MongoDao 对于于 sql 函数的支持与 Mysql 略有差异,在此专门作出�
 
 
 
-### 支持标准sql功能
+## 支持标准sql功能
 
 已经支持如下关键字： select, from, where, group by, having, order by, skip, limit.
 
@@ -42,7 +42,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 
 - [from子查询底层工具]({{site.baseurl}}/2019/04/07/sql_query-convert-mongo_aggregate/#例3-from子查询)
 
-### 支持非标准sql功能 V:0.2.12
+## 支持非标准sql功能 V:0.2.12
 
 与其他dao一样,都支持如下 UDAF 函数: avgPositive, avgNz, countall, countAll(distinct x), list, set, listAll, setAll, first, last
 
@@ -84,14 +84,14 @@ select a, sum(b) from data group by unwind(a) as a
 
 ```
 
-### 不支持功能
+## 不支持功能
 
 不支持复杂的case when
 
 不支持任何函数嵌套函数,比如: (sum(a)/sum(b)) 是 calc 内嵌 sum,不能直接使用.
 
 
-### 注意事项 0.2.12
+## 注意事项 0.2.12
 
 * 不恰当的查询语句会造成数据库查询超时,超时时间限制在dao的构造函数中, 比如:
 

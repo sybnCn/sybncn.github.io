@@ -17,7 +17,7 @@ DatasJoinUtil 支持 list / stream 互相 join 操作. 其语法和效果类似�
 
 
 
-### 使用样例 (将 mongo 和 habse 表 join 在一起， 并写回 mongo)
+## 使用样例 (将 mongo 和 habse 表 join 在一起， 并写回 mongo)
 
 * 从数据库中查询2个list,并将其join为一个.
 
@@ -67,7 +67,7 @@ rightDao.commonSaveStream("save_table_name", res)
 ```
 
 
-### 参数说明
+## 参数说明
 
 > DatasLeftJoinUtil.join(left, right, "join right(id as right_id, c) on left.id = right.left_id")
 
@@ -84,28 +84,26 @@ rightDao.commonSaveStream("save_table_name", res)
    join right(id as right_id, c) on left.id = right.left_id
 -- AAAA BBBBB CCCCCCCCCCCCCCCCC  DDDDDDDDDDDDDDDDDDDDDDDDDD
 
-# AAAA
+###### AAAA
  join 方式目前还没有写 left join, right join 等 join 方式， 将来会支持。
  目前的 join 方式为 lookup， 将右表的每一条匹配数据都 join 一次， 结果互相覆盖。
  
-# BBBB
+###### BBBB
  join 方式， 目前只支持 right， 其他方式未实现。
  right 方式表示 join 会保留左表的所有字段， 并将右表中括号里的CCCC字段 join 到左表中返回。
  
-# CCCC
+###### CCCC
  join 字段， 支持 join 左右表的数据到左表， 支持 as， 支持 udf 函数。
  
-# DDDD
+###### DDDD
  join on 策略， 指定左表哪些字段与右表哪些字段匹配， 多个条件 AND 分开。 支持 using 关键字。
  比如： on left.a = right.c AND left.b = right.b
  注意： 如果左右表字段类型不一致， 比如： 左表是 int 右表是 String ， 本工具类会尝试转换格式后再 join， 大多数情况可以得到正常的结果， 但是要消耗额外的性能。
  提示： 某些情况下可能需要 join 数据做一些简单加工， 可以尝试 on left.id = right.trim(b), 但此特性不保证向后兼容， 未来计划改为： on left.id = trim(right.b)
  未尽事宜： 咱不支持 join 中加常量比较， 外来会支持。 比如：  on left.a = right.c AND right.b > 0 
  
-```
 
-
-### 性能优化
+## 性能优化
 
 某些场景下， DatasLeftJoinUtil 可以大幅优化性能，在这里提供优化方式。
 
@@ -121,7 +119,7 @@ List<Map<String, Object>> rightCache = new GroupCacheList<>(right)
 
 
 
-### 未尽事宜
+## 未尽事宜
 
 * 暂不支持 left join, right join 等标识, 近期计划支持.
 
@@ -130,12 +128,12 @@ List<Map<String, Object>> rightCache = new GroupCacheList<>(right)
 * 暂不支持标准 sql 的 join 语法, 短期内暂不实现. 
 
 
-### 近期更新
+## 近期更新
 
 * 2019-09-15 支持 straightJoin 将两个流 join 到一起
 
 
-### 注意事项 
+## 注意事项 
 
 * 暂无
 - [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)

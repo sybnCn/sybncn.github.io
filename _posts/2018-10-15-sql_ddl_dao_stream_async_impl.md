@@ -19,7 +19,7 @@ SqlDdlDaoStreamAsyncImpl 是 SqlDdlDao 的流式异步查询实现。
 
 
 
-### 代码样例
+## 代码样例
 
 * 在 SqlDdlDaoStreamAsyncImpl 中异步执行多条 sql 语句。
 
@@ -47,7 +47,7 @@ List<Map<String, Object>> listMap3 = callback3.get();
 > 注意:  SqlDdlDaoStreamAsyncImpl 目前的版本不支持子查询和联合查询， 后期考虑优先支持支持子查询。
 
 
-### 使用说明
+## 使用说明
 
 * 并行流
 

@@ -20,7 +20,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 
 
 
-### ReadConfUtil 说明
+## ReadConfUtil 说明
 
 - 各个数据库都有 xxxDaoConfImpl 这样一个实现类，提供的使用配置文件构造 xxxDao 的实现类。
 - 实际上调用的则是 cn.sybn.singleutil.ReadConfUtil
@@ -34,7 +34,7 @@ maven 和 spring boot 都提供了各自的多环境切换方案，sybn util 工
 > 因此他是一个独立工具类，在必要时直接将这个类复制到其他项目中可以单独使用，不需要依赖整个 sybn util 包。
 
 
-### 用法举例
+## 用法举例
 
 - 配置文件
 

@@ -19,7 +19,7 @@ sybn counter 主要有以下功能:
 
 
 
-### 用法举例
+## 用法举例
 ```java
 SybnCounter count = new SybnCounterImpl();
 count.setCount("aaa", 1);

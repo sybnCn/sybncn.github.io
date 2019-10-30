@@ -19,14 +19,14 @@ author: sybn
 
 
 
-### 使用方法
+## 使用方法
 ```java
 // params 支持 ？ 和 #{name} 占位符
 MongoAggregateBuilder.makPipeline(@NonNull String sql, Object... params)
 ```
 
 
-### 例1(普通sql)
+## 例1(普通sql)
 
 * 输入 SQL: 
 
@@ -55,7 +55,7 @@ select
 ]
 ```
 
-### 例2(带unwind的sql)
+## 例2(带unwind的sql)
 
 * 输入 SQL: 
 
@@ -84,7 +84,7 @@ select unwind(datas) as data, count(*) as c from table group by data
 ```
 
 
-### 例3(from子查询)
+## 例3(from子查询)
 
 * 输入 SQL: 
 
@@ -108,7 +108,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 ]
 ```
 
-### 例4 (select子查询 $lookup) V0.3.5
+## 例4 (select子查询 $lookup) V0.3.5
 
 * 输入 SQL: 
 
@@ -154,7 +154,7 @@ from (
 ```
 
 
-### 注意事项 
+## 注意事项 
 
 * mongo 只能支持 select 和 from 子查询, 无法支持 where 子查查询 和 join
 
@@ -162,7 +162,7 @@ from (
 
 * mongo对数据类型敏感，MySQL 中的 date > str_to_date('2019-04-07', '%Y-%m-%d') 可以写为 date > '2019-04-07' 但 mongo 不可以。
 
-### web 版
+## web 版
 
 * 以下是web版效果图  [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 

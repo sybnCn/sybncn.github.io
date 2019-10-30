@@ -17,11 +17,11 @@ sybn dao 收到 sql 语句之后, 需要先将其转换为 SQL 语法树, 然后
 
 
 
-#### SQL语法树结构简图
+## SQL语法树结构简图
 
 ![]({{site.baseurl}}/images/sql_tree.png)
 
-#### 主要节点说明
+## 主要节点说明
 
 * 语法树节点分为 树节点 和 页节点
 
@@ -37,7 +37,7 @@ sybn dao 收到 sql 语句之后, 需要先将其转换为 SQL 语法树, 然后
 
 * 单表查询 SimpleSqlEntity 等是类型, 仅查询单表, 实际分发给各个数据库的是这个类
 
-#### 实际执行
+## 实际执行
 
 * SqlDdlDaoMultipleImpl 负责所有类型的查询, 并将子查询分发给不同的 dao
 

@@ -16,7 +16,7 @@ author: sybn
 
 
 
-### DateScope 示例代码
+## DateScope 示例代码
 
 * 按天枚举
 
@@ -53,7 +53,7 @@ sb.toString(); // sb = "20180101/20180103/20180105/"
 ```
 
 
-### DateMonthScope 示例代码
+## DateMonthScope 示例代码
 
 * 按月枚举
 
@@ -71,7 +71,7 @@ for (Date date : scope) {
 sb.toString(); // sb = "20180101/20180201/"
 ```
 
-### 类似的工具类
+## 类似的工具类
 
 * IntegerScope
 
