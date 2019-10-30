@@ -8,7 +8,7 @@ type: page
 
 ## 简介
 sybn util 是本人积累的java工具集，其主要包括：
-- 数据库工具(用于联合查询：mysql/mongodb/sorl/elastic/HBase/excel/json等数据源)
+- 数据库工具(用于联合查询：mysql / mongo / solr / elastic / HBase / excel / json 等数据源)
 - 其他工具（各种底层静态工具类）
 
 准备借鉴的开源项目：
