@@ -8,16 +8,37 @@ type: page
 
 ## 简介
 sybn util 是本人积累的java工具集，其主要包括：
-- Java对象工具(比如:使用sql语句查询list，各种类型的对象互相转换)
-- 数据库工具(sql/mongodb/sorl/HBase/redis)
-- 其他工具（比如excel/csv导出）
+- 数据库工具(用于联合查询：mysql/mongodb/sorl/elastic/HBase/excel/json等数据源)
+- 其他工具（各种底层静态工具类）
 
-准备借鉴的开源项目
+准备借鉴的开源项目：
 - [hutool](https://gitee.com/loolly/hutool)
 - Javatuples
 - solr jdbc driver
 
+项目依赖，基于最小依赖原则，本项目主要依赖以下内容：
+- junit
+- apache-common
+- slf4j
 
+## 数据库工具
+
+目前提供 DAO 形式的CRUD工具，正在着手将之封装为 jdbc 驱动包。
+
+- sybn-core 项目
+  - 为 List（兼容excel） 实现了 SqlDdlDao 接口
+  - 为 Stream（数据流） 实现了 SqlDdlStreamDao 接口
+  - 为 聚合查询 实现了 SqlDdlDao 接口，支持聚合查询其他所有 SqlDdlDao 接口
+- dbutiil-dao 项目
+  - 为 mysql 实现了 SqlDdlDao/SqlDdlStreamDao 接口
+- mongo-dao 项目
+  - 为 mongo 实现了 SqlDdlDao/SqlDdlStreamDao 接口, 并支持子查询
+- solr-dao 项目
+  - 为 solr 实现了 SqlDdlDao/SqlDdlStreamDao 接口
+- es-dao 项目
+  - 为 elastic 实现了 SqlDdlDao/SqlDdlStreamDao 接口
+- hadoop-dao 项目
+  - 为 HBase实现了 SqlDdlDao/SqlDdlStreamDao 接口
 
 ## 基础工具
 基础工具是 sybn-core 和 sybn-core-java8 项目，其包括如下主要功能：
@@ -47,18 +68,6 @@ sybn util 是本人积累的java工具集，其主要包括：
   - 定义了 SybnQuery 和 CrudQueryCommonDao 接口
 - 测试工具集 sybn-core cn.sybn.test 包
 
-## 数据库工具
-- dbutiil-dao 项目
-  - 实现了 CrudQueryCommonDao 接口
-- mongo-dao 项目
-  - 实现了 CrudQueryCommonDao 接口
-- solr-dao 项目
-  - 实现了 CrudQueryCommonDao 接口
-- hadoop-dao 项目
-  - 即将实现 CrudQueryCommonDao 接口
-- redis-dao 项目
-  - 未实现  CrudQueryCommonDao 接口
-
 ## 其他工具
 - mail-util
   - 发送邮件
@@ -71,6 +80,24 @@ sybn util 是本人积累的java工具集，其主要包括：
   - servlet 工具
   
 ## 近期更新
-- 0.3.2 最新稳定版
-- 0.3.3 不稳定版, 增强了 join 的能力
-- 0.3.4 不稳定版, 增强了 distinct 的能力
+
+- 0.3.6 版
+1. 增强了 es dao 和 jdbc 实现
+
+- 0.3.5 版
+1. 重构了 join 实现类, 增加了更多的用法, 降低了对原始数据的影响
+2. 重构了 聚合查询实现 提高了性能
+
+- 0.3.4 版
+1. 支持 mongo 压缩传输, 提高了性能
+2. 支持 mongo / mysql 的 select distinct a from table 语句
+3. 支持 mongo 的  select a form (select b from table) 原生嵌套查询, 相比之前的 java 实现提高了性能
+4. 支持 无表查询语句, 比如: select now(); 一般用于调试 set 语句.
+5. 支持 UDF 函数:   dateadd, datesub, length, charlength, lpad, rpad, upper, lower, initcap, extract, least, greatest, MD5 等 
+
+
+## 相关页面
+- [sql查询接口]({{site.baseurl}}/2018/04/24/sql-ddl-dao/)
+- [在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
+- [quick-start]({{site.baseurl}}/2019/07/25/quick-start/)
+- [jdbc-driver]({{site.baseurl}}/2019/08/18/jdbc-driver/)
