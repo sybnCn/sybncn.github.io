@@ -82,6 +82,18 @@ layout: default
                 </div>
             </div>
         
+            
+            <!-- Content -->
+            <div class="side content">
+                <div><i class="fa fa-th-list" aria-hidden="true"></i>目录</div>
+                <ul id="content-side" class="content-ul">
+                    {% if hasSimilar.size > 0 %}
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    {% endif %}
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            
             <div class="side">
                 <div><i class="fa fa-map-signs" aria-hidden="true"></i>入门内容</div>
                 <ul class="content-ul" recent>
@@ -95,16 +107,6 @@ layout: default
                 </ul>
             </div>
             
-            <!-- Content -->
-            <div class="side content">
-                <div><i class="fa fa-th-list" aria-hidden="true"></i>目录</div>
-                <ul id="content-side" class="content-ul">
-                    {% if hasSimilar.size > 0 %}
-                    <li><a href="#similar_posts">Similar Posts</a></li>
-                    {% endif %}
-                    <li><a href="#comments">Comments</a></li>
-                </ul>
-            </div>
             <!-- 其他div框放到这里 -->
             
             <div class="side">
