@@ -58,12 +58,12 @@ mongo 原生不支持 sql 语句查询， mongo 的查询语言为 json 风格�
 
 转换后的 Aggregate 表达式可以在任何原生的 mongo 环境中执行， 无需依赖本工具类。
 
-已经为大家准备好了 web 版接口: [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+已经为大家准备好了 web 版接口: [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 ## 使用 MongoDao 查询 sql 语句
 
 使用 mongo dao 可以直接执行 sql 语句获取数据， 支持返回  List / Stream， 支持指定返回值的类型。
-[===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20mongo_demo_table%20limit%201%3B)
+[<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20mongo_demo_table%20limit%201%3B)
 
 ```java
 // sql 语句
@@ -87,7 +87,7 @@ long count = dao.sqlCount(sqlCount);
 
 * 额外支持跨存储引擎联合查询， 比如：sql union mongo
 
-[===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20sql_demo_table%20limit%201%20%0D%0Aunion%20%0D%0Aselect%20*%20from%20mongo_demo_table%20limit%201%3B)
+[<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/sql_frame.html?sql=select%20*%20from%20sql_demo_table%20limit%201%20%0D%0Aunion%20%0D%0Aselect%20*%20from%20mongo_demo_table%20limit%201%3B)
 
 ## 使用 jdbc 查询 mongo
 

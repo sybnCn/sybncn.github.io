@@ -13,7 +13,7 @@ author: sybn
 
 部分同学不熟悉 mongodb 的查询语法，为了降低入门门槛，今天专门提供了转换类。
 
-已经为大家准备好了 web 版接口: [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+已经为大家准备好了 web 版接口: [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 
 
@@ -41,7 +41,7 @@ select
  order by c desc
 ```
 
-- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_1)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_1)
 
 * 输出 Aggregate: 
 
@@ -64,14 +64,14 @@ select
 select datas, count(*) as c from table group by unwind(datas) as data
 ```
 
-- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2a)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2a)
 
 ```sql
 -- 语法2 group by 后面的字段名需要等于 as 后面的字段名
 select unwind(datas) as data, count(*) as c from table group by data
 ```
 
-- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2b)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_2b)
 
 * 输出 Aggregate: 
 
@@ -95,7 +95,7 @@ select day, count(user) as user_count, sum(price_sum) as price_sum from (
 ) group by a
 ```
 
-- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_3)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_3)
 
 * 输出 Aggregate: 
 
@@ -120,7 +120,7 @@ select
 from ticket group by city_id
 ```
 
-- [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_4)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html?sql_demo=mongo_aggregate_demo_4)
 
 * 输出 Aggregate: 
 
@@ -164,7 +164,7 @@ from (
 
 ## web 版
 
-* 以下是web版效果图  [===》在线测试《===](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
+* 以下是web版效果图  [<i class="fa fa-link" aria-hidden="true"></i>在线测试](http://java.linpengfei.cn:8081/dw-api-sql/aggregate.html)
 
 ![]({{site.baseurl}}/images/sql_query_convert_mongo_aggregate_3.png)
 

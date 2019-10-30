@@ -131,7 +131,7 @@ Date Format - ROUND/TRUNC/TO_CHAR/TO_DATE(value,fmt)|部分支持
 
 可以用以下链接尝测试执行sql, 其中的  sql 及 json数据 可以随意替换. 也可以使用测试表: sql_demo_table,mongo_demo_table,cinema_info
 
-- [===》在线测试《===]({{site.baseurl}}/2019/07/25/web-sql/)
+- [<i class="fa fa-link" aria-hidden="true"></i>在线测试]({{site.baseurl}}/2019/07/25/web-sql/)
 
 
 ## 相关页面
